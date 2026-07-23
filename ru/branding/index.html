@@ -129,7 +129,7 @@
       .portrait-card {
         grid-column: 1 / span 2;
         width: 200px;
-        aspect-ratio: 0.73;
+        aspect-ratio: 1 / 1;
         background: var(--placeholder);
         position: relative;
         overflow: hidden;
@@ -938,6 +938,14 @@
         background: #ededf0;
       }
 
+      .mywork-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
+      }
+
       .mywork-placeholder {
         position: absolute;
         inset: 0;
@@ -1463,7 +1471,7 @@
     <main>
       <section class="hero" id="top" aria-label="Intro">
         <div class="portrait-card">
-          <img src="../../assets/images/LS_sketch.jpg" alt="Lana Svitla" />
+          <img src="../../assets/images/LS_sketch.png" alt="Lana Svitla" />
         </div>
 
         <div class="role role-brand">
@@ -1512,69 +1520,53 @@
         <h2 class="mywork-heading" id="work-title">Работы</h2>
 
         <div class="mywork-showcase">
-          <div class="mywork-track" aria-label="Выбранные проекты">
+          <div class="mywork-track" aria-label="Visual Brand Identity: category system">
             <article class="mywork-card">
-              <div class="mywork-placeholder" data-label="Omni"></div>
-            </article>
-
-            <article class="mywork-card">
-              <div class="mywork-placeholder" data-label="Togas"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_01.jpg" alt="Visual Brand Identity illustration set, image 1" />
             </article>
 
             <article class="mywork-card">
-              <div class="mywork-placeholder" data-label="Aa"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_02.jpg" alt="Visual Brand Identity illustration set, image 2" />
             </article>
 
             <article class="mywork-card">
-              <div class="mywork-placeholder" data-label="Fora"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_03.jpg" alt="Visual Brand Identity illustration set, image 3" />
             </article>
 
             <article class="mywork-card">
-              <div class="mywork-placeholder" data-label="ISL"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_04.jpg" alt="Visual Brand Identity illustration set, image 4" />
             </article>
 
             <article class="mywork-card">
-              <div class="mywork-placeholder" data-label="Labo"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_05.jpg" alt="Visual Brand Identity illustration set, image 5" />
             </article>
 
             <article class="mywork-card">
-              <div class="mywork-placeholder" data-label="Verba"></div>
-            </article>
-
-            <article class="mywork-card">
-              <div class="mywork-placeholder" data-label="Live"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_06.jpg" alt="Visual Brand Identity illustration set, image 6" />
             </article>
 
             <article class="mywork-card" aria-hidden="true">
-              <div class="mywork-placeholder" data-label="Omni"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_01.jpg" alt="" />
             </article>
 
             <article class="mywork-card" aria-hidden="true">
-              <div class="mywork-placeholder" data-label="Togas"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_02.jpg" alt="" />
             </article>
 
             <article class="mywork-card" aria-hidden="true">
-              <div class="mywork-placeholder" data-label="Aa"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_03.jpg" alt="" />
             </article>
 
             <article class="mywork-card" aria-hidden="true">
-              <div class="mywork-placeholder" data-label="Fora"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_04.jpg" alt="" />
             </article>
 
             <article class="mywork-card" aria-hidden="true">
-              <div class="mywork-placeholder" data-label="ISL"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_05.jpg" alt="" />
             </article>
 
             <article class="mywork-card" aria-hidden="true">
-              <div class="mywork-placeholder" data-label="Labo"></div>
-            </article>
-
-            <article class="mywork-card" aria-hidden="true">
-              <div class="mywork-placeholder" data-label="Verba"></div>
-            </article>
-
-            <article class="mywork-card" aria-hidden="true">
-              <div class="mywork-placeholder" data-label="Live"></div>
+              <img src="../../assets/works/Illustration_set/Illustaration_set_06.jpg" alt="" />
             </article>
 
           </div>
@@ -1583,15 +1575,14 @@
             <div class="mywork-project">
               <span class="mywork-project-label">Проект</span>
               <div>
-                <h3>Omni Retreat</h3>
-                <p class="mywork-project-subtitle">Айдентика & digital experience</p>
+                <h3>Visual Brand Identity</h3>
+                <p class="mywork-project-subtitle">Category system</p>
               </div>
             </div>
 
             <div>
               <p class="mywork-description">
-                Блок выбранных проектов: айдентика, визуальные системы, лендинги, презентации,
-                кампании и digital-коммуникации. Сейчас вместо визуалов стоят чистые серые фреймы.
+                Set of illustrations for an artisan craft marketplace
               </p>
               <a class="mywork-link" href="#" aria-label="Смотреть проект">Смотреть проект -&gt;</a>
             </div>
