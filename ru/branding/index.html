@@ -1,0 +1,1798 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lana Svitla | Брендинг & digital-коммуникации</title>
+    <meta
+      name="description"
+      content="Lana Svitla — Brand & Graphic Designer. Айдентика, визуальные системы, digital-коммуникации, web, презентации и бренд-материалы."
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --bg: #ffffff;
+        --ink: #000000;
+        --muted: #9ba1a5;
+        --line: rgba(0, 0, 0, 0.14);
+        --accent: #2060df;
+        --placeholder: #f5f5f7;
+        --placeholder-deep: #e8e8ed;
+        --footer: #f5f5f7;
+        --grid-gap: 20px;
+        --pad-x: 20px;
+        --pad-y: 12px;
+        --sans: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+        --serif: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+        --instrument: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+        --mono: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+        --type-nav: 16px;
+        --type-body: 32px;
+        --type-body-mobile: 26px;
+        --type-section: 32px;
+        --type-footer: 17px;
+        --type-mark: 180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 12px;
+        line-height: 1.2em;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--accent);
+      }
+
+      .cursor-dot {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--accent);
+        pointer-events: none;
+        transform: translate3d(-50%, -50%, 0);
+        mix-blend-mode: multiply;
+        opacity: 0.94;
+        transition: width 160ms ease, height 160ms ease, opacity 160ms ease;
+      }
+
+      .cursor-dot.is-hovering {
+        width: 44px;
+        height: 44px;
+        opacity: 0.72;
+      }
+
+      .site-header {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: start;
+        padding: var(--pad-y) var(--pad-x);
+        mix-blend-mode: difference;
+        color: white;
+      }
+
+      .time {
+        justify-self: center;
+        font-weight: 500;
+        font-size: var(--type-nav);
+        letter-spacing: 0;
+      }
+
+      .nav {
+        justify-self: end;
+        display: flex;
+        gap: 120px;
+        font-weight: 500;
+        font-size: var(--type-nav);
+        letter-spacing: -0.03em;
+      }
+
+      .hero {
+        min-height: 100svh;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr auto;
+        gap: var(--grid-gap);
+        padding: var(--pad-y) var(--pad-x);
+        overflow: hidden;
+      }
+
+      .portrait-card {
+        grid-column: 1 / span 2;
+        width: 200px;
+        aspect-ratio: 0.73;
+        background: var(--placeholder);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .portrait-card::before {
+        display: none;
+      }
+
+      .portrait-card span {
+        display: none;
+      }
+
+      .hero-copy {
+        grid-column: 1 / span 5;
+        grid-row: 2;
+        align-self: end;
+        max-width: 600px;
+        margin-bottom: 64px;
+        font-size: 16px;
+        line-height: 140%;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-align: center;
+      }
+
+      .role {
+        position: absolute;
+        right: var(--pad-x);
+        top: 39vh;
+        max-width: 420px;
+        font-family: var(--mono);
+        font-size: 16px;
+        line-height: 1.2em;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+      }
+
+      .hero-mark,
+      .contact-mark,
+      .footer-mark {
+        grid-column: 1 / -1;
+        align-self: end;
+        display: flex;
+        align-items: baseline;
+        width: 100%;
+        white-space: nowrap;
+        font-size: var(--type-mark);
+        line-height: 0.74;
+        letter-spacing: 0;
+      }
+
+      .mark-serif {
+        font-family: var(--serif);
+        font-weight: 500;
+      }
+
+      .mark-sans {
+        font-family: var(--sans);
+        font-weight: 800;
+      }
+
+      .mark-pixel {
+        font-family: var(--mono);
+        font-weight: 800;
+        transform: scaleY(1.12);
+        display: inline-block;
+      }
+
+      .accent-dot {
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .hero .accent-dot {
+        right: 16.8vw;
+        bottom: 23svh;
+      }
+
+      .section {
+        min-height: 100svh;
+        padding: 100px var(--pad-x);
+        position: relative;
+      }
+
+      .info {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--grid-gap);
+      }
+
+      .mini-work {
+        grid-column: 10 / span 3;
+        justify-self: end;
+        width: 372px;
+        aspect-ratio: 1.62;
+        background: var(--placeholder);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .mini-work::before,
+      .mini-work::after {
+        display: none;
+      }
+
+      .info-copy {
+        grid-column: 7 / span 5;
+        margin-top: 250px;
+        max-width: 730px;
+      }
+
+      .info-copy p {
+        margin: 0 0 34px;
+        font-size: var(--type-body);
+        line-height: 100%;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+      }
+
+      .disciplines {
+        grid-column: 7 / -1;
+        margin-top: 64px;
+        border-top: 0;
+      }
+
+      .discipline {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 28px;
+        padding: 22px 0;
+        font-family: var(--serif);
+        font-size: var(--type-section);
+        line-height: 100%;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .discipline i {
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--ink);
+      }
+
+      .info .accent-dot {
+        left: 43.8vw;
+        top: 71%;
+      }
+
+      .work {
+        padding-top: 160px;
+      }
+
+      .section-kicker {
+        position: absolute;
+        top: var(--pad-y);
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--serif);
+        font-size: var(--type-section);
+        line-height: 100%;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      .work-title {
+        text-align: center;
+        margin: 145px auto 150px;
+        font-size: 150px;
+        line-height: 0.84;
+        text-transform: uppercase;
+      }
+
+      .work-title span:nth-child(odd) {
+        font-family: var(--serif);
+        font-weight: 500;
+      }
+
+      .work-title span:nth-child(even) {
+        font-family: var(--sans);
+        font-weight: 800;
+      }
+
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--grid-gap);
+        align-items: start;
+      }
+
+      .work-card {
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        --motion-x: 0px;
+        --motion-y: 0px;
+        --depth: 0.1;
+        --cursor-depth: 1;
+      }
+
+      .work-card:nth-child(1) {
+        grid-column: 1 / span 4;
+      }
+
+      .work-card:nth-child(2) {
+        grid-column: 5 / span 4;
+        margin-top: 32px;
+      }
+
+      .work-card:nth-child(3) {
+        grid-column: 9 / span 4;
+        margin-top: -24px;
+      }
+
+      .work-card:nth-child(4) {
+        grid-column: 1 / span 4;
+        margin-top: 80px;
+      }
+
+      .work-card:nth-child(5) {
+        grid-column: 5 / span 4;
+        margin-top: 38px;
+      }
+
+      .work-card:nth-child(6) {
+        grid-column: 9 / span 4;
+        margin-top: 160px;
+      }
+
+      .work-card:nth-child(7) {
+        grid-column: 2 / span 3;
+        margin-top: 40px;
+      }
+
+      .work-card:nth-child(8) {
+        grid-column: 5 / span 4;
+        margin-top: 118px;
+      }
+
+      .work-card:nth-child(9) {
+        grid-column: 9 / span 3;
+        margin-top: 22px;
+      }
+
+      .work-card:nth-child(10) {
+        grid-column: 1 / span 4;
+        margin-top: 110px;
+      }
+
+      .work-card:nth-child(11) {
+        grid-column: 7 / span 5;
+        margin-top: 50px;
+      }
+
+      .work-visual {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: var(--placeholder);
+        transform-origin: center center;
+        transform: translate3d(var(--motion-x), var(--motion-y), 0) rotate(var(--tilt, 0deg));
+        transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform;
+      }
+
+      .work-card:hover .work-visual {
+        transform: translate3d(var(--motion-x), calc(var(--motion-y) - 10px), 0) rotate(var(--tilt, 0deg)) scale(1.025);
+      }
+
+      .work-visual::before,
+      .work-visual::after {
+        display: none;
+      }
+
+      .case-blue {
+        background: var(--placeholder);
+      }
+
+      .case-black {
+        background: var(--placeholder-deep);
+      }
+
+      .case-black::before {
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .case-green {
+        background: var(--placeholder);
+      }
+
+      .case-pink {
+        background: var(--placeholder-deep);
+      }
+
+      .case-lavender {
+        background: var(--placeholder);
+      }
+
+      .case-stone {
+        background: var(--placeholder-deep);
+      }
+
+      .case-cobalt {
+        background: var(--placeholder);
+      }
+
+      .case-cobalt::after {
+        background: var(--placeholder);
+      }
+
+      .case-red {
+        background: var(--placeholder-deep);
+      }
+
+      .case-gray {
+        background: var(--placeholder);
+      }
+
+      .case-cream {
+        background: var(--placeholder-deep);
+      }
+
+      .case-mint {
+        background: var(--placeholder);
+      }
+
+      .work-card:nth-child(1) {
+        --depth: -0.1;
+        --cursor-depth: 0.8;
+      }
+
+      .work-card:nth-child(1) .work-visual {
+        aspect-ratio: 1.28;
+      }
+
+      .work-card:nth-child(2) {
+        --depth: 0.16;
+        --cursor-depth: -0.7;
+      }
+
+      .work-card:nth-child(2) .work-visual {
+        aspect-ratio: 1.02;
+      }
+
+      .work-card:nth-child(3) {
+        --depth: -0.07;
+        --cursor-depth: 0.55;
+      }
+
+      .work-card:nth-child(3) .work-visual {
+        aspect-ratio: 1.72;
+      }
+
+      .work-card:nth-child(4) {
+        --depth: 0.19;
+        --cursor-depth: -1;
+      }
+
+      .work-card:nth-child(4) .work-visual {
+        aspect-ratio: 0.98;
+      }
+
+      .work-card:nth-child(5) {
+        --depth: -0.12;
+        --cursor-depth: 0.45;
+      }
+
+      .work-card:nth-child(5) .work-visual {
+        aspect-ratio: 1.14;
+      }
+
+      .work-card:nth-child(6) {
+        --depth: 0.12;
+        --cursor-depth: -0.6;
+      }
+
+      .work-card:nth-child(6) .work-visual {
+        aspect-ratio: 0.82;
+      }
+
+      .work-card:nth-child(7) {
+        --depth: -0.18;
+        --cursor-depth: 0.9;
+      }
+
+      .work-card:nth-child(7) .work-visual {
+        aspect-ratio: 1;
+      }
+
+      .work-card:nth-child(8) {
+        --depth: 0.09;
+        --cursor-depth: -0.5;
+      }
+
+      .work-card:nth-child(8) .work-visual {
+        aspect-ratio: 1.56;
+      }
+
+      .work-card:nth-child(9) {
+        --depth: -0.08;
+        --cursor-depth: 0.7;
+      }
+
+      .work-card:nth-child(9) .work-visual {
+        aspect-ratio: 0.88;
+      }
+
+      .work-card:nth-child(10) {
+        --depth: 0.14;
+        --cursor-depth: -0.4;
+      }
+
+      .work-card:nth-child(10) .work-visual {
+        aspect-ratio: 1.38;
+      }
+
+      .work-card:nth-child(11) {
+        --depth: -0.1;
+        --cursor-depth: 0.65;
+      }
+
+      .work-card:nth-child(11) .work-visual {
+        aspect-ratio: 1.92;
+      }
+
+      .work-meta {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: start;
+        font-size: 16px;
+        line-height: 1.2em;
+        letter-spacing: 0;
+      }
+
+      .work-meta h3 {
+        margin: 0;
+        font-size: inherit;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+      }
+
+      .work-meta p {
+        margin: 4px 0 0;
+        color: var(--muted);
+      }
+
+      .work-meta .year {
+        font-family: var(--mono);
+        color: var(--muted);
+      }
+
+      .contact {
+        min-height: 100svh;
+        padding: 70px var(--pad-x) var(--pad-y);
+        background: linear-gradient(180deg, var(--bg) 0%, var(--bg) 35%, var(--footer) 100%);
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-mark {
+        justify-content: center;
+        font-size: var(--type-mark);
+        line-height: 0.78;
+      }
+
+      .contact-links {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        font-size: 32px;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+      }
+
+      .contact .accent-dot {
+        right: 32%;
+        bottom: 28%;
+      }
+
+      .footer {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: end;
+        gap: 20px;
+        font-size: var(--type-footer);
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .footer small {
+        color: inherit;
+        font-size: inherit;
+      }
+
+      .footer .based {
+        justify-self: center;
+        font-family: var(--mono);
+        font-weight: 400;
+        text-transform: none;
+      }
+
+      .footer .availability {
+        justify-self: end;
+        text-align: right;
+      }
+
+      @media (min-width: 1500px) {
+        :root {
+          --type-mark: 250px;
+        }
+
+        .work-title {
+          font-size: 190px;
+        }
+      }
+
+      @media (max-width: 1020px) {
+        :root {
+          --type-body: 26px;
+          --type-section: 26px;
+          --type-mark: 120px;
+        }
+
+        .site-header {
+          grid-template-columns: 1fr auto;
+        }
+
+        .time {
+          display: none;
+        }
+
+        .portrait-card {
+          grid-column: 1 / span 4;
+        }
+
+        .hero-copy {
+          grid-column: 1 / span 8;
+          text-align: left;
+        }
+
+        .role {
+          position: static;
+          grid-column: 8 / -1;
+          grid-row: 1;
+          align-self: start;
+        }
+
+        .mini-work {
+          grid-column: 8 / -1;
+          width: 260px;
+        }
+
+        .info-copy,
+        .disciplines {
+          grid-column: 4 / -1;
+        }
+
+        .work-card:nth-child(n) {
+          grid-column: span 6;
+          margin-top: 0;
+        }
+
+        .nav {
+          gap: 40px;
+        }
+
+        .work-title {
+          font-size: 100px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        :root {
+          --type-body: 26px;
+          --type-section: 26px;
+          --type-mark: 54px;
+        }
+
+        .cursor-dot {
+          display: none;
+        }
+
+        .site-header {
+          position: absolute;
+          mix-blend-mode: normal;
+          color: var(--ink);
+        }
+
+        .nav {
+          width: 100%;
+          justify-content: space-between;
+          gap: 10px;
+        }
+
+        .hero {
+          min-height: 92svh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding-top: 76px;
+        }
+
+        .portrait-card {
+          width: 160px;
+          max-width: 160px;
+        }
+
+        .role {
+          max-width: 250px;
+          margin-left: auto;
+          margin-top: -56px;
+          text-align: right;
+        }
+
+        .hero-copy {
+          max-width: 92%;
+          margin: 80px 0 0;
+          font-size: 16px;
+        }
+
+        .hero-mark,
+        .footer-mark {
+          overflow: visible;
+        }
+
+        .hero .accent-dot {
+          right: 12vw;
+          bottom: 30svh;
+        }
+
+        .section {
+          min-height: auto;
+          padding-top: 92px;
+        }
+
+        .info {
+          display: block;
+        }
+
+        .mini-work {
+          width: 260px;
+          margin-left: auto;
+        }
+
+        .info-copy {
+          margin-top: 95px;
+        }
+
+        .info-copy p {
+          font-size: var(--type-body);
+        }
+
+        .discipline {
+          font-size: var(--type-section);
+        }
+
+        .section-kicker {
+          left: var(--pad-x);
+          transform: none;
+        }
+
+        .work-title {
+          margin-top: 92px;
+          text-align: left;
+          font-size: 58px;
+        }
+
+        .work-grid {
+          display: block;
+        }
+
+        .work-card {
+          min-height: auto;
+          margin-bottom: 42px;
+        }
+
+        .work-visual {
+          min-height: 0;
+        }
+
+        .contact-mark {
+          justify-content: flex-start;
+          margin-top: 14px;
+        }
+
+        .contact-links {
+          align-items: flex-start;
+          font-size: 32px;
+        }
+
+        .footer {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .footer .based,
+        .footer .availability {
+          justify-self: start;
+          text-align: left;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+
+      /* My work block variant based on the ls-portfolio.figma.site reference. */
+      .work-alt {
+        min-height: 100svh;
+        padding: 84px 0 108px;
+        overflow: hidden;
+      }
+
+      .mywork-heading {
+        margin: 0;
+        padding: 0 var(--pad-x);
+        font-family: var(--sans);
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .mywork-showcase {
+        margin-top: 29svh;
+      }
+
+      .mywork-track {
+        display: flex;
+        gap: 28px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0 var(--pad-x);
+        cursor: grab;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .mywork-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .mywork-track.is-dragging {
+        cursor: grabbing;
+      }
+
+      .mywork-card {
+        position: relative;
+        flex: 0 0 clamp(330px, 33vw, 680px);
+        aspect-ratio: 1 / 1;
+        min-height: 360px;
+        overflow: hidden;
+        background: #f5f5f7;
+        transform: translate3d(0, 0, 0);
+        transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), background 420ms cubic-bezier(0.16, 1, 0.3, 1);
+        user-select: none;
+      }
+
+      .mywork-card:nth-child(8n + 2) {
+        flex-basis: clamp(440px, 48vw, 900px);
+      }
+
+      .mywork-card:nth-child(8n + 3) {
+        flex-basis: clamp(440px, 46vw, 860px);
+      }
+
+      .mywork-card:hover {
+        transform: translate3d(0, -10px, 0);
+        background: #ededf0;
+      }
+
+      .mywork-placeholder {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.62) 1px, transparent 1px) 0 0 / 28% 28%,
+          linear-gradient(90deg, rgba(255, 255, 255, 0.62) 1px, transparent 1px) 0 0 / 28% 28%,
+          #f5f5f7;
+      }
+
+      .mywork-placeholder::before {
+        content: "";
+        position: absolute;
+        inset: 14%;
+        border: 2px solid rgba(0, 0, 0, 0.13);
+      }
+
+      .mywork-placeholder::after {
+        content: attr(data-label);
+        position: absolute;
+        left: 8%;
+        bottom: 8%;
+        max-width: 74%;
+        color: rgba(0, 0, 0, 0.28);
+        font-family: var(--sans);
+        font-size: clamp(52px, 8vw, 132px);
+        font-weight: 500;
+        line-height: 0.86;
+        letter-spacing: -0.05em;
+      }
+
+      .mywork-card:nth-child(8n + 1) .mywork-placeholder::after,
+      .mywork-card:nth-child(8n + 4) .mywork-placeholder::after {
+        left: -12%;
+      }
+
+      .mywork-card:nth-child(8n + 2) .mywork-placeholder::after {
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+      }
+
+      .mywork-caption {
+        display: grid;
+        grid-template-columns: 1fr minmax(340px, 25vw);
+        gap: 40px;
+        align-items: start;
+        padding: 28px var(--pad-x) 0;
+      }
+
+      .mywork-project {
+        display: grid;
+        grid-template-columns: 88px minmax(0, 360px);
+        gap: 12px;
+        font-size: 20px;
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+      }
+
+      .mywork-project-label,
+      .mywork-project-subtitle,
+      .mywork-link {
+        color: #777777;
+      }
+
+      .mywork-project h3,
+      .mywork-project p,
+      .mywork-description {
+        margin: 0;
+      }
+
+      .mywork-project h3 {
+        font-size: inherit;
+        font-weight: 500;
+      }
+
+      .mywork-project-subtitle {
+        margin-top: 4px;
+        font-weight: 500;
+      }
+
+      .mywork-description {
+        justify-self: end;
+        max-width: 440px;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+      }
+
+      .mywork-link {
+        display: inline-block;
+        margin-top: 36px;
+        font-size: 20px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .mywork-link:hover {
+        color: var(--accent);
+      }
+
+      @media (max-width: 1020px) {
+        .work-alt {
+          padding-top: 76px;
+        }
+
+        .mywork-showcase {
+          margin-top: 22svh;
+        }
+
+        .mywork-card {
+          flex-basis: clamp(300px, 62vw, 620px);
+          min-height: 320px;
+        }
+
+        .mywork-card:nth-child(8n + 2),
+        .mywork-card:nth-child(8n + 3) {
+          flex-basis: clamp(340px, 72vw, 720px);
+        }
+
+        .mywork-caption {
+          grid-template-columns: 1fr;
+        }
+
+        .mywork-description {
+          justify-self: start;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .work-alt {
+          padding-top: 92px;
+          padding-bottom: 72px;
+        }
+
+        .mywork-heading {
+          font-size: 28px;
+        }
+
+        .mywork-showcase {
+          margin-top: 17svh;
+        }
+
+        .mywork-track {
+          gap: 14px;
+        }
+
+        .mywork-card,
+        .mywork-card:nth-child(8n + 2),
+        .mywork-card:nth-child(8n + 3) {
+          flex-basis: 82vw;
+          min-height: 0;
+        }
+
+        .mywork-placeholder::after {
+          font-size: 64px;
+        }
+
+        .mywork-caption {
+          gap: 22px;
+          padding-top: 18px;
+        }
+
+        .mywork-project {
+          grid-template-columns: 72px minmax(0, 1fr);
+          font-size: 16px;
+        }
+
+        .mywork-description {
+          max-width: none;
+          font-size: 18px;
+        }
+
+        .mywork-link {
+          margin-top: 24px;
+          font-size: 18px;
+        }
+      }
+
+
+
+      /* Iteration tweak: clean square grey frames and page-safe wheel behavior. */
+      .mywork-card,
+      .mywork-card:nth-child(8n + 2),
+      .mywork-card:nth-child(8n + 3) {
+        flex-basis: clamp(330px, 33vw, 680px);
+        aspect-ratio: 1 / 1;
+      }
+
+      .mywork-placeholder {
+        background: #f5f5f7;
+      }
+
+      .mywork-placeholder::before,
+      .mywork-placeholder::after {
+        display: none;
+      }
+
+      @media (max-width: 1020px) {
+        .mywork-card,
+        .mywork-card:nth-child(8n + 2),
+        .mywork-card:nth-child(8n + 3) {
+          flex-basis: clamp(300px, 62vw, 620px);
+          aspect-ratio: 1 / 1;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .mywork-card,
+        .mywork-card:nth-child(8n + 2),
+        .mywork-card:nth-child(8n + 3) {
+          flex-basis: 82vw;
+          aspect-ratio: 1 / 1;
+        }
+      }
+
+
+
+      /* RU layout iteration: unified section titles, raised info copy, compact work viewport. */
+      .info {
+        padding: 84px var(--pad-x) 100px;
+        align-content: start;
+      }
+
+      .info .section-kicker,
+      .mywork-heading {
+        position: static;
+        transform: none;
+        margin: 0;
+        padding: 0;
+        font-family: var(--sans);
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        text-transform: none;
+      }
+
+      .info-copy {
+        grid-column: 7 / span 5;
+        margin-top: clamp(88px, 14svh, 136px);
+      }
+
+      .mini-work {
+        display: none;
+      }
+
+      .work-alt {
+        min-height: 100svh;
+        padding: 84px 0 72px;
+      }
+
+      .work-alt .mywork-heading {
+        padding-left: var(--pad-x);
+      }
+
+      .mywork-showcase {
+        margin-top: clamp(72px, 12svh, 112px);
+      }
+
+      .mywork-card,
+      .mywork-card:nth-child(8n + 2),
+      .mywork-card:nth-child(8n + 3) {
+        flex-basis: clamp(280px, 24vw, 380px);
+        min-height: 0;
+        aspect-ratio: 1 / 1;
+      }
+
+      .mywork-caption {
+        padding-top: 22px;
+        grid-template-columns: minmax(260px, 1fr) minmax(360px, 33vw);
+      }
+
+      .mywork-link {
+        margin-top: 24px;
+      }
+
+      @media (max-width: 1020px) {
+        .info {
+          padding-top: 76px;
+        }
+
+        .info-copy {
+          grid-column: 4 / -1;
+          margin-top: 88px;
+        }
+
+        .mywork-showcase {
+          margin-top: 88px;
+        }
+
+        .mywork-card,
+        .mywork-card:nth-child(8n + 2),
+        .mywork-card:nth-child(8n + 3) {
+          flex-basis: clamp(260px, 44vw, 360px);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .info {
+          padding-top: 92px;
+        }
+
+        .info .section-kicker,
+        .mywork-heading {
+          font-size: 28px;
+        }
+
+        .info-copy {
+          grid-column: 1 / -1;
+          margin-top: 72px;
+        }
+
+        .work-alt {
+          padding-top: 92px;
+        }
+
+        .mywork-showcase {
+          margin-top: 72px;
+        }
+
+        .mywork-card,
+        .mywork-card:nth-child(8n + 2),
+        .mywork-card:nth-child(8n + 3) {
+          flex-basis: 68vw;
+        }
+
+        .mywork-caption {
+          grid-template-columns: 1fr;
+        }
+      }
+
+
+
+      /* RU layout fix: prevent information heading from stretching as a grid item. */
+      .info .section-kicker {
+        grid-column: 1 / -1;
+        align-self: start;
+        justify-self: start;
+        height: auto;
+      }
+
+
+
+      /* RU brand copy iteration: brand-focused positioning and discipline labels. */
+      .role-brand {
+        max-width: 560px;
+        text-transform: none;
+      }
+
+      .discipline-tags {
+        display: block;
+        margin-top: 8px;
+        color: #777777;
+        font-family: var(--sans);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        text-transform: none;
+      }
+
+      @media (max-width: 700px) {
+        .discipline-tags {
+          margin-top: 6px;
+          font-size: 12px;
+        }
+      }
+
+
+
+      /* Temporary brand page wordmark. */
+      .hero-design-word {
+        font-family: var(--instrument);
+        font-size: clamp(120px, 16vw, 260px);
+        font-weight: 300;
+        line-height: 0.78;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 700px) {
+        .hero-design-word {
+          font-size: clamp(54px, 18vw, 96px);
+        }
+      }
+
+
+
+      .contact-light-word {
+        font-family: var(--instrument);
+        font-size: clamp(96px, 13vw, 220px);
+        font-weight: 300;
+        line-height: 0.78;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 700px) {
+        .contact-light-word {
+          font-size: clamp(42px, 13vw, 72px);
+        }
+      }
+
+
+
+      /* Instrument Sans typography system for the branding page. */
+      body {
+        font-family: var(--instrument);
+        font-weight: 300;
+      }
+
+      .nav,
+      .time,
+      .role,
+      .hero-copy,
+      .info-copy p,
+      .discipline,
+      .section-kicker,
+      .mywork-heading,
+      .mywork-project,
+      .mywork-description,
+      .mywork-link,
+      .contact-links,
+      .footer {
+        font-family: var(--instrument);
+      }
+
+      .nav,
+      .time,
+      .role,
+      .mywork-project h3,
+      .contact-links a {
+        font-weight: 500;
+      }
+
+      .hero-copy,
+      .info-copy p,
+      .mywork-description,
+      .mywork-link,
+      .mywork-project,
+      .discipline,
+      .section-kicker,
+      .mywork-heading {
+        font-weight: 300;
+      }
+
+      .hero-design-word,
+      .contact-light-word {
+        font-family: var(--instrument);
+        font-weight: 300;
+        letter-spacing: 0;
+      }
+
+      .discipline {
+        text-transform: none;
+        letter-spacing: -0.04em;
+      }
+
+      .discipline-tags {
+        font-family: var(--instrument);
+        font-weight: 300;
+      }
+
+
+
+      /* Restore lighter wordmark feel for large display words. */
+      .hero-design-word,
+      .contact-light-word {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        letter-spacing: 0;
+      }
+
+
+
+      /* Text rhythm: body copy at 140% line-height. */
+      .role,
+      .hero-copy,
+      .info-copy p,
+      .mywork-project,
+      .mywork-description,
+      .mywork-link,
+      .discipline-tags,
+      .contact-links,
+      .footer {
+        line-height: 140%;
+      }
+
+
+
+      /* Smooth marquee: transform-based movement, no scrollLeft jumps. */
+      .hero-copy {
+        text-align: left;
+      }
+
+      .mywork-showcase {
+        overflow: hidden;
+      }
+
+      .mywork-track {
+        overflow: visible;
+        transform: translate3d(var(--marquee-x, 0px), 0, 0);
+        will-change: transform;
+        touch-action: pan-y;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="cursor-dot" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <div></div>
+      <div class="time" aria-live="polite">00:00:00</div>
+      <nav class="nav">
+        <a href="#work">Работы</a>
+        <a href="#information">Информация</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top" aria-label="Intro">
+        <div class="portrait-card" aria-label="Portrait placeholder">
+          <span>LS</span>
+        </div>
+
+        <div class="role role-brand">
+          Brand & Graphic Designer<br />
+          Visual Identity, Digital Communication & Web
+        </div>
+
+        <p class="hero-copy">
+          Собираю айдентику и визуальные системы для современных брендов: от visual identity до сайтов, презентаций, кампаний и digital-коммуникаций.
+        </p>
+
+        <div class="accent-dot" aria-hidden="true"></div>
+
+        <h1 class="hero-mark hero-design-word" aria-label="Design">
+          DESIGN
+        </h1>
+      </section>
+
+      <section class="section info" id="information" aria-labelledby="information-title">
+        <h2 class="section-kicker" id="information-title">Информация</h2>
+        <div class="info-copy">
+          <p>
+            Работаю с брендами и экспертными проектами, которым нужен ясный визуальный язык,
+            сильная digital-среда и последовательная коммуникация.
+          </p>
+          <p>
+            Моя практика соединяет айдентику, графический дизайн, web-дизайн, презентации,
+            визуальный сторителлинг и коммуникационные материалы.
+          </p>
+        </div>
+
+        <div class="accent-dot" aria-hidden="true"></div>
+
+        <div class="disciplines" aria-label="Направления">
+          <div class="discipline"><span>Айдентика</span><i></i></div>
+          <div class="discipline"><span>Digital-дизайн</span><i></i></div>
+          <div class="discipline discipline-with-tags"><span>Лендинги <small class="discipline-tags">Tilda / Webflow / Framer / Lovable</small></span><i></i></div>
+          <div class="discipline"><span>Арт-дирекшн</span><i></i></div>
+          <div class="discipline"><span>Презентации</span><i></i></div>
+          <div class="discipline"><span>Коммуникационный дизайн</span><i></i></div>
+          <div class="discipline"><span>AI-процессы в дизайне</span><i></i></div>
+        </div>
+      </section>
+
+      <section class="section work work-alt" id="work" aria-labelledby="work-title">
+        <h2 class="mywork-heading" id="work-title">Работы</h2>
+
+        <div class="mywork-showcase">
+          <div class="mywork-track" aria-label="Выбранные проекты">
+            <article class="mywork-card">
+              <div class="mywork-placeholder" data-label="Omni"></div>
+            </article>
+
+            <article class="mywork-card">
+              <div class="mywork-placeholder" data-label="Togas"></div>
+            </article>
+
+            <article class="mywork-card">
+              <div class="mywork-placeholder" data-label="Aa"></div>
+            </article>
+
+            <article class="mywork-card">
+              <div class="mywork-placeholder" data-label="Fora"></div>
+            </article>
+
+            <article class="mywork-card">
+              <div class="mywork-placeholder" data-label="ISL"></div>
+            </article>
+
+            <article class="mywork-card">
+              <div class="mywork-placeholder" data-label="Labo"></div>
+            </article>
+
+            <article class="mywork-card">
+              <div class="mywork-placeholder" data-label="Verba"></div>
+            </article>
+
+            <article class="mywork-card">
+              <div class="mywork-placeholder" data-label="Live"></div>
+            </article>
+
+            <article class="mywork-card" aria-hidden="true">
+              <div class="mywork-placeholder" data-label="Omni"></div>
+            </article>
+
+            <article class="mywork-card" aria-hidden="true">
+              <div class="mywork-placeholder" data-label="Togas"></div>
+            </article>
+
+            <article class="mywork-card" aria-hidden="true">
+              <div class="mywork-placeholder" data-label="Aa"></div>
+            </article>
+
+            <article class="mywork-card" aria-hidden="true">
+              <div class="mywork-placeholder" data-label="Fora"></div>
+            </article>
+
+            <article class="mywork-card" aria-hidden="true">
+              <div class="mywork-placeholder" data-label="ISL"></div>
+            </article>
+
+            <article class="mywork-card" aria-hidden="true">
+              <div class="mywork-placeholder" data-label="Labo"></div>
+            </article>
+
+            <article class="mywork-card" aria-hidden="true">
+              <div class="mywork-placeholder" data-label="Verba"></div>
+            </article>
+
+            <article class="mywork-card" aria-hidden="true">
+              <div class="mywork-placeholder" data-label="Live"></div>
+            </article>
+
+          </div>
+
+          <div class="mywork-caption">
+            <div class="mywork-project">
+              <span class="mywork-project-label">Проект</span>
+              <div>
+                <h3>Omni Retreat</h3>
+                <p class="mywork-project-subtitle">Айдентика & digital experience</p>
+              </div>
+            </div>
+
+            <div>
+              <p class="mywork-description">
+                Блок выбранных проектов: айдентика, визуальные системы, лендинги, презентации,
+                кампании и digital-коммуникации. Сейчас вместо визуалов стоят чистые серые фреймы.
+              </p>
+              <a class="mywork-link" href="#" aria-label="Смотреть проект">Смотреть проект -&gt;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <h2 class="contact-mark contact-light-word" id="contact-title" aria-label="Контакты">
+          КОНТАКТЫ
+        </h2>
+
+        <div class="contact-links">
+          <a href="mailto:lanlongline@gmail.com">Почта</a>
+          <a href="https://t.me/LLanaSvitla" target="_blank" rel="noreferrer">Telegram</a>
+          <a href="https://www.linkedin.com/in/lana-kornilova-88a773103/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.behance.net/lanasvitla" target="_blank" rel="noreferrer">Behance</a>
+          <a href="https://drive.google.com/file/d/11mwwVR-j_0rtzWu8YhzZyd0Pxd5kop_X/view?usp=sharing" target="_blank" rel="noreferrer">CV</a>
+          <a href="https://experts.tilda.cc/lana_svitla" target="_blank" rel="noreferrer">Tilda Expert</a>
+        </div>
+
+        <div class="accent-dot" aria-hidden="true"></div>
+
+        <footer class="footer">
+          <small>Copyright 2026</small>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      const timeElement = document.querySelector(".time");
+      const cursor = document.querySelector(".cursor-dot");
+      const interactive = document.querySelectorAll("a, .work-card");
+      const cards = document.querySelectorAll(".work-card");
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const motion = {
+        scroll: window.scrollY,
+        mouseX: 0,
+        mouseY: 0,
+        currentMouseX: 0,
+        currentMouseY: 0
+      };
+
+      function updateTime() {
+        const now = new Date();
+        timeElement.textContent = now.toLocaleTimeString("en-GB", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit"
+        });
+      }
+
+      function renderMotion() {
+        motion.scroll += (window.scrollY - motion.scroll) * 0.08;
+        motion.currentMouseX += (motion.mouseX - motion.currentMouseX) * 0.08;
+        motion.currentMouseY += (motion.mouseY - motion.currentMouseY) * 0.08;
+
+        const viewport = window.innerHeight || 1;
+        cards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          const documentCenter = rect.top + window.scrollY + rect.height * 0.5;
+          const center = documentCenter - motion.scroll;
+          const progress = (center - viewport * 0.5) / viewport;
+          const depth = Number(getComputedStyle(card).getPropertyValue("--depth")) || Number(card.dataset.speed) || 0;
+          const cursorDepth = Number(getComputedStyle(card).getPropertyValue("--cursor-depth")) || 0;
+          const y = progress * depth * -360;
+          const x = motion.currentMouseX * cursorDepth * 16;
+          const my = motion.currentMouseY * cursorDepth * 10;
+
+          card.style.setProperty("--motion-x", `${x.toFixed(2)}px`);
+          card.style.setProperty("--motion-y", `${(y + my).toFixed(2)}px`);
+        });
+
+        if (!prefersReducedMotion) {
+          requestAnimationFrame(renderMotion);
+        }
+      }
+
+      window.addEventListener("mousemove", (event) => {
+        cursor.style.left = `${event.clientX}px`;
+        cursor.style.top = `${event.clientY}px`;
+        motion.mouseX = (event.clientX / window.innerWidth - 0.5) * 2;
+        motion.mouseY = (event.clientY / window.innerHeight - 0.5) * 2;
+      });
+
+      interactive.forEach((node) => {
+        node.addEventListener("mouseenter", () => cursor.classList.add("is-hovering"));
+        node.addEventListener("mouseleave", () => cursor.classList.remove("is-hovering"));
+      });
+
+      window.addEventListener("mouseleave", () => {
+        motion.mouseX = 0;
+        motion.mouseY = 0;
+      });
+
+
+
+      const myworkTracks = document.querySelectorAll(".mywork-track");
+
+      myworkTracks.forEach((track) => {
+        let isDragging = false;
+        let isPaused = false;
+        let startX = 0;
+        let startOffset = 0;
+        let offset = 0;
+        let previousTime = performance.now();
+        const speed = 0.0035;
+
+        function loopWidth() {
+          const originalCards = Array.from(track.querySelectorAll('.mywork-card:not([aria-hidden="true"])'));
+          const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0;
+          const cardsWidth = originalCards.reduce((total, card) => {
+            return total + card.getBoundingClientRect().width;
+          }, 0);
+
+          return cardsWidth + gap * originalCards.length;
+        }
+
+        function normalizeOffset(value) {
+          const width = loopWidth();
+
+          if (width <= 0) {
+            return value;
+          }
+
+          return -((((-value) % width) + width) % width);
+        }
+
+        function renderOffset() {
+          offset = normalizeOffset(offset);
+          track.style.setProperty('--marquee-x', `${offset.toFixed(2)}px`);
+        }
+
+        function animateTrack(time) {
+          const delta = Math.min(time - previousTime, 48);
+          previousTime = time;
+
+          if (!prefersReducedMotion && !isPaused && !isDragging) {
+            offset -= delta * speed;
+            renderOffset();
+          }
+
+          requestAnimationFrame(animateTrack);
+        }
+
+        track.addEventListener("mouseenter", () => {
+          isPaused = true;
+        });
+
+        track.addEventListener("mouseleave", () => {
+          isPaused = false;
+        });
+
+        track.addEventListener("pointerdown", (event) => {
+          isDragging = true;
+          isPaused = true;
+          startX = event.clientX;
+          startOffset = offset;
+          track.classList.add("is-dragging");
+          track.setPointerCapture(event.pointerId);
+        });
+
+        track.addEventListener("pointermove", (event) => {
+          if (!isDragging) {
+            return;
+          }
+
+          offset = startOffset + event.clientX - startX;
+          renderOffset();
+        });
+
+        function stopDrag(event) {
+          if (!isDragging) {
+            return;
+          }
+
+          isDragging = false;
+          isPaused = track.matches(":hover");
+          track.classList.remove("is-dragging");
+
+          if (track.hasPointerCapture(event.pointerId)) {
+            track.releasePointerCapture(event.pointerId);
+          }
+        }
+
+        track.addEventListener("pointerup", stopDrag);
+        track.addEventListener("pointercancel", stopDrag);
+        track.addEventListener("wheel", (event) => {
+          if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
+            return;
+          }
+
+          event.preventDefault();
+          offset -= event.deltaX;
+          renderOffset();
+        }, { passive: false });
+
+        renderOffset();
+        requestAnimationFrame(animateTrack);
+      });
+
+      document.querySelectorAll(".mywork-card").forEach((node) => {
+        node.addEventListener("mouseenter", () => cursor.classList.add("is-hovering"));
+        node.addEventListener("mouseleave", () => cursor.classList.remove("is-hovering"));
+      });
+
+      updateTime();
+      renderMotion();
+      setInterval(updateTime, 1000);
+    </script>
+  </body>
+</html>
