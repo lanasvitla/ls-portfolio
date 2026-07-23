@@ -139,6 +139,14 @@
         display: none;
       }
 
+      .portrait-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
       .portrait-card span {
         display: none;
       }
@@ -1454,8 +1462,8 @@
 
     <main>
       <section class="hero" id="top" aria-label="Intro">
-        <div class="portrait-card" aria-label="Portrait placeholder">
-          <span>LS</span>
+        <div class="portrait-card">
+          <img src="../../assets/images/LS_sketch.jpg" alt="Lana Svitla" />
         </div>
 
         <div class="role role-brand">
