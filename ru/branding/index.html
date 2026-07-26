@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lana Svitla | Брендинг & digital-коммуникации</title>
+    <title>LS Portfolio | Brand & Graphic Designer</title>
     <meta
       name="description"
       content="Lana Svitla — Brand & Graphic Designer. Айдентика, визуальные системы, digital-коммуникации, web, презентации и бренд-материалы."
@@ -13,7 +13,7 @@
 
       :root {
         --bg: #ffffff;
-        --ink: #000000;
+        --ink: #434343;
         --muted: #9ba1a5;
         --line: rgba(0, 0, 0, 0.14);
         --accent: #2060df;
@@ -22,6 +22,7 @@
         --footer: #f5f5f7;
         --grid-gap: 20px;
         --pad-x: 20px;
+        --page-x: var(--pad-x);
         --pad-y: 12px;
         --sans: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
         --serif: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
@@ -109,7 +110,7 @@
       .nav {
         justify-self: end;
         display: flex;
-        gap: 120px;
+        gap: 60px;
         font-weight: 500;
         font-size: var(--type-nav);
         letter-spacing: -0.03em;
@@ -166,7 +167,8 @@
 
       .role {
         position: absolute;
-        right: var(--pad-x);
+        left: var(--pad-x);
+        right: auto;
         top: 39vh;
         max-width: 420px;
         font-family: var(--mono);
@@ -718,7 +720,7 @@
         }
 
         .nav {
-          gap: 40px;
+          gap: 20px;
         }
 
         .work-title {
@@ -946,6 +948,34 @@
         pointer-events: none;
       }
 
+      .mywork-card--hover-preview img {
+        position: absolute;
+        inset: 0;
+        transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .mywork-card--hover-preview .mywork-img-color {
+        opacity: 0;
+      }
+
+      .mywork-card--hover-preview:hover .mywork-img-color {
+        opacity: 1;
+      }
+
+      .mywork-card--hover-preview:hover .mywork-img-bw {
+        opacity: 0;
+      }
+
+      @media (max-width: 1020px), (hover: none) {
+        .mywork-card--hover-preview .mywork-img-color {
+          opacity: 1;
+        }
+
+        .mywork-card--hover-preview .mywork-img-bw {
+          opacity: 0;
+        }
+      }
+
       .mywork-placeholder {
         position: absolute;
         inset: 0;
@@ -997,11 +1027,11 @@
 
       .mywork-project {
         display: grid;
-        grid-template-columns: 88px minmax(0, 360px);
+        grid-template-columns: minmax(0, 360px);
         gap: 12px;
         font-size: 20px;
-        line-height: 1.08;
-        letter-spacing: -0.04em;
+        line-height: 140%;
+        letter-spacing: 0;
       }
 
       .mywork-project-label,
@@ -1030,17 +1060,17 @@
         justify-self: end;
         max-width: 440px;
         font-size: 22px;
-        font-weight: 400;
-        line-height: 1.08;
-        letter-spacing: -0.045em;
+        font-weight: 300;
+        line-height: 140%;
+        letter-spacing: 0;
       }
 
       .mywork-link {
         display: inline-block;
         margin-top: 36px;
         font-size: 20px;
-        line-height: 1;
-        letter-spacing: -0.04em;
+        line-height: 140%;
+        letter-spacing: 0;
       }
 
       .mywork-link:hover {
@@ -1110,7 +1140,7 @@
         }
 
         .mywork-project {
-          grid-template-columns: 72px minmax(0, 1fr);
+          grid-template-columns: minmax(0, 1fr);
           font-size: 16px;
         }
 
@@ -1317,8 +1347,9 @@
 
 
 
-      /* Temporary brand page wordmark. */
-      .hero-design-word {
+      /* Large display words: keep DESIGN and CONTACTS in one typographic system. */
+      .hero-design-word,
+      .contact-light-word {
         font-family: var(--instrument);
         font-size: clamp(120px, 16vw, 260px);
         font-weight: 300;
@@ -1328,25 +1359,9 @@
       }
 
       @media (max-width: 700px) {
-        .hero-design-word {
-          font-size: clamp(54px, 18vw, 96px);
-        }
-      }
-
-
-
-      .contact-light-word {
-        font-family: var(--instrument);
-        font-size: clamp(96px, 13vw, 220px);
-        font-weight: 300;
-        line-height: 0.78;
-        letter-spacing: 0;
-        text-transform: uppercase;
-      }
-
-      @media (max-width: 700px) {
+        .hero-design-word,
         .contact-light-word {
-          font-size: clamp(42px, 13vw, 72px);
+          font-size: clamp(54px, 18vw, 96px);
         }
       }
 
@@ -1416,7 +1431,7 @@
       .hero-design-word,
       .contact-light-word {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 300;
+        font-weight: 100;
         letter-spacing: 0;
       }
 
@@ -1437,9 +1452,921 @@
 
 
 
+      /* Hero services moved from About into the first screen. */
+      .hero-services {
+        position: absolute;
+        top: 30svh;
+        right: var(--pad-x);
+        width: min(380px, 31vw);
+        display: grid;
+        gap: 13px;
+        font-family: var(--instrument);
+        font-size: clamp(15px, 1.2vw, 22px);
+        font-weight: 300;
+        line-height: 140%;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-service {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 18px;
+      }
+
+      .hero-service i {
+        width: 5px;
+        height: 5px;
+        margin-top: 0.62em;
+        border-radius: 50%;
+        background: var(--ink);
+      }
+
+      .hero-service small {
+        display: block;
+        margin-top: 4px;
+        color: #777777;
+        font-size: 0.48em;
+        font-weight: 300;
+        line-height: 140%;
+        letter-spacing: -0.02em;
+      }
+
+      @media (max-width: 1020px) {
+        .hero-copy {
+          grid-column: 1 / span 5;
+        }
+
+        .hero-services {
+          position: static;
+          grid-column: 7 / -1;
+          grid-row: 2;
+          align-self: end;
+          width: auto;
+          margin-bottom: 64px;
+          gap: 10px;
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .hero {
+          justify-content: flex-start;
+        }
+
+        .role {
+          margin-left: 0;
+          margin-top: 24px;
+          text-align: left;
+        }
+
+        .hero-copy {
+          max-width: 100%;
+          margin-top: 56px;
+        }
+
+        .hero-services {
+          position: static;
+          width: 100%;
+          margin: 26px 0 0;
+          gap: 8px;
+          font-size: 14px;
+          letter-spacing: -0.03em;
+        }
+
+        .hero-service {
+          gap: 14px;
+        }
+
+        .hero-service i {
+          width: 4px;
+          height: 4px;
+        }
+
+        .hero-mark {
+          margin-top: auto;
+        }
+      }
+
+
+
+      /* Mobile cleanup iteration: no empty About, calmer tools line, modern CTA. */
+      .mywork-link {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 8px;
+        width: fit-content;
+        min-height: 0;
+        padding: 0 0 4px;
+        border: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.28);
+        border-radius: 0;
+        color: var(--ink);
+        font-weight: 300;
+        transition: color 180ms ease, border-color 180ms ease;
+      }
+
+      .mywork-link-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--ink);
+        color: var(--bg);
+        font-size: 12px;
+        line-height: 1;
+        transform: translateY(-1px);
+      }
+
+      .mywork-link:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-1px);
+      }
+
+      .mywork-link:hover .mywork-link-icon {
+        background: var(--accent);
+      }
+
+      .hero-service small {
+        color: #777777;
+        font-size: 0.56em;
+        letter-spacing: -0.02em;
+      }
+
+      @media (max-width: 700px) {
+        .site-header {
+          padding-top: 14px;
+        }
+
+        .nav {
+          justify-self: center;
+          justify-content: center;
+          width: auto;
+          gap: clamp(11px, 4vw, 20px);
+        }
+
+        .hero {
+          min-height: 90svh;
+          padding-top: 54px;
+        }
+
+        .portrait-card {
+          margin-top: 18px;
+        }
+
+        .role {
+          margin-top: 22px;
+        }
+
+        .hero-copy {
+          margin-top: 42px;
+        }
+
+        .hero-services {
+          margin-top: 20px;
+          gap: 7px;
+        }
+
+        .hero-service small {
+          margin-top: 2px;
+          font-size: 0.52em;
+        }
+
+        .work-alt {
+          padding-top: 70px;
+        }
+
+        .mywork-showcase {
+          margin-top: 46px;
+        }
+
+        .mywork-caption {
+          gap: 16px;
+          padding-top: 14px;
+        }
+
+        .mywork-description {
+          max-width: 92%;
+        }
+
+        .mywork-link {
+          margin-top: 18px;
+          min-height: 36px;
+          padding: 8px 13px 9px;
+        }
+
+        .contact {
+          min-height: 100svh;
+          padding-top: 56px;
+        }
+
+        .contact-links {
+          align-self: center;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 26px 28px;
+          width: 100%;
+          align-items: start;
+          font-size: clamp(28px, 8vw, 48px);
+        }
+
+        .contact-links a {
+          min-width: 0;
+          overflow-wrap: anywhere;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .nav {
+          gap: 12px;
+          font-size: 15px;
+        }
+
+        .portrait-card {
+          margin-top: 12px;
+        }
+
+        .hero-copy {
+          margin-top: 36px;
+        }
+
+        .hero-service small {
+          display: inline;
+          margin-left: 4px;
+        }
+
+        .contact-links {
+          grid-template-columns: 1fr 1fr;
+          font-size: clamp(24px, 7.5vw, 36px);
+          gap: 22px 18px;
+        }
+      }
+
+
+
+
+      /* Preview B: muted chips under selected service lines, no bullets. */
+      .hero-services-preview-b {
+        width: min(480px, 37vw);
+        gap: 13px;
+      }
+
+      .hero-services-preview-b .hero-service {
+        display: block;
+      }
+
+      .hero-services-preview-b .hero-service i {
+        display: none;
+      }
+
+      .service-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 7px;
+      }
+
+      .service-chips span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+        padding: 4px 10px 5px;
+        border: 1px solid rgba(0, 0, 0, 0.16);
+        border-radius: 999px;
+        color: #777777;
+        background: rgba(245, 245, 247, 0.62);
+        font-size: 11px;
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -0.01em;
+      }
+
+      @media (max-width: 1180px) {
+        .hero {
+          min-height: auto;
+          grid-template-rows: auto auto auto auto auto;
+          align-content: start;
+          padding-top: clamp(44px, 5svh, 64px);
+          padding-bottom: 24px;
+          overflow: visible;
+        }
+
+        .portrait-card {
+          grid-column: 1 / span 4;
+          grid-row: 1;
+          width: clamp(190px, 24vw, 250px);
+        }
+
+        .role-brand {
+          position: static;
+          grid-column: 1 / span 8;
+          grid-row: 2;
+          max-width: 620px;
+          margin-top: clamp(18px, 2.4svh, 28px);
+          text-align: left;
+        }
+
+        .hero-copy {
+          grid-column: 1 / span 7;
+          grid-row: 3;
+          align-self: start;
+          max-width: 620px;
+          margin: clamp(30px, 4.6svh, 46px) 0 0;
+        }
+
+        .hero-services-preview-b {
+          position: static;
+          grid-column: 1 / span 7;
+          grid-row: 4;
+          align-self: start;
+          display: grid;
+          grid-template-columns: 1fr;
+          width: min(620px, 100%);
+          max-width: none;
+          margin: clamp(28px, 4.8svh, 48px) 0 0;
+          gap: 10px;
+        }
+
+        .hero-services-preview-b .hero-service,
+        .hero-services-preview-b .hero-service-with-chips,
+        .hero-services-preview-b .hero-service-wide {
+          grid-column: auto;
+        }
+
+        .service-chips {
+          max-width: 100%;
+        }
+
+        .hero .accent-dot {
+          display: none;
+        }
+
+        .hero-mark {
+          grid-column: 1 / -1;
+          grid-row: 5;
+          align-self: start;
+          margin-top: clamp(32px, 5svh, 56px);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .hero {
+          padding-top: 52px;
+        }
+
+        .portrait-card {
+          width: clamp(170px, 44vw, 220px);
+        }
+
+        .role-brand {
+          max-width: 100%;
+          margin-top: 18px;
+        }
+
+        .hero-copy {
+          max-width: 100%;
+          margin-top: 30px;
+        }
+
+        .hero-services-preview-b {
+          grid-template-columns: 1fr;
+          width: 100%;
+          margin-top: 26px;
+          row-gap: 10px;
+        }
+
+        .service-chips {
+          gap: 5px;
+          margin-top: 6px;
+        }
+
+        .service-chips span {
+          min-height: 22px;
+          padding: 4px 9px 5px;
+          font-size: 10px;
+        }
+
+        .hero-mark {
+          margin-top: 28px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .hero-services-preview-b {
+          row-gap: 9px;
+        }
+      }
+
+
+
+
+      /* Work caption typography cleanup: one calm system, no tight Cyrillic tracking. */
+      .mywork-caption {
+        gap: clamp(28px, 5vw, 92px);
+        align-items: start;
+      }
+
+      .mywork-project {
+        gap: 0;
+        font-size: 20px;
+        line-height: 140%;
+        letter-spacing: 0;
+      }
+
+      .mywork-project h3 {
+        font-size: inherit;
+        font-weight: 400;
+        line-height: 140%;
+        letter-spacing: 0;
+      }
+
+      .mywork-project-subtitle {
+        margin-top: 1px;
+        color: #777777;
+        font-size: inherit;
+        font-weight: 300;
+        line-height: 140%;
+        letter-spacing: 0;
+      }
+
+      .mywork-description {
+        max-width: 600px;
+        font-family: var(--instrument);
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 140%;
+        letter-spacing: 0;
+      }
+
+      .mywork-link {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 8px;
+        min-height: 0;
+        margin-top: 26px;
+        padding: 0 0 4px;
+        border: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.28);
+        border-radius: 0;
+        color: var(--ink);
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 140%;
+        letter-spacing: 0;
+        transition: color 180ms ease, border-color 180ms ease;
+      }
+
+      .mywork-link-icon {
+        display: inline;
+        width: auto;
+        height: auto;
+        border-radius: 0;
+        background: transparent;
+        color: currentColor;
+        font-size: 0.9em;
+        line-height: 1;
+        transform: none;
+      }
+
+      .mywork-link:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: none;
+      }
+
+      .mywork-link:hover .mywork-link-icon {
+        background: transparent;
+      }
+
+      @media (max-width: 700px) {
+        .mywork-caption {
+          gap: 18px;
+        }
+
+        .mywork-project {
+          font-size: 18px;
+        }
+
+        .mywork-description {
+          max-width: 100%;
+          font-size: 16px;
+        }
+
+        .mywork-link {
+          margin-top: 18px;
+          padding: 0 0 4px;
+          font-size: 18px;
+        }
+      }
+
+
+
+
+      /* Work caption grid refinement: quieter labels, smaller CTA, balanced columns. */
+      .mywork-caption {
+        grid-template-columns: minmax(220px, 0.34fr) minmax(320px, 0.66fr);
+        gap: clamp(32px, 6vw, 120px);
+        padding-top: 18px;
+        align-items: start;
+      }
+
+      .mywork-project {
+        max-width: 320px;
+        font-size: 16px;
+        line-height: 140%;
+      }
+
+      .mywork-project h3 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0;
+      }
+
+      .mywork-project-subtitle {
+        margin-top: 0;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 140%;
+      }
+
+      .mywork-caption > div:last-child {
+        justify-self: start;
+        width: min(620px, 100%);
+      }
+
+      .mywork-description {
+        max-width: 620px;
+        font-size: 16px;
+        line-height: 140%;
+      }
+
+      .mywork-link {
+        margin-top: 18px;
+        gap: 6px;
+        padding-bottom: 3px;
+        font-size: 16px;
+        line-height: 140%;
+      }
+
+      .mywork-link-icon {
+        font-size: 0.82em;
+      }
+
+      @media (max-width: 1020px) {
+        .mywork-caption {
+          grid-template-columns: minmax(180px, 0.36fr) minmax(260px, 0.64fr);
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .mywork-caption {
+          grid-template-columns: 1fr;
+          gap: 14px;
+          padding-top: 14px;
+        }
+
+        .mywork-project,
+        .mywork-project h3,
+        .mywork-project-subtitle,
+        .mywork-description,
+        .mywork-link {
+          font-size: 16px;
+        }
+
+        .mywork-caption > div:last-child {
+          width: 100%;
+        }
+      }
+
+
+
+
+
+
+
+
+      /* Adaptive contacts: single muted column, no link wrapping. */
+      @media (max-width: 700px) {
+        .contact-links {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          width: 100%;
+          gap: clamp(12px, 2.6svh, 22px);
+          color: #6f6f6f;
+          font-size: clamp(26px, 8vw, 44px);
+          font-weight: 300;
+          line-height: 112%;
+          letter-spacing: 0;
+        }
+
+        .contact-links a {
+          white-space: nowrap;
+          overflow-wrap: normal;
+        }
+
+        .contact-links a:hover {
+          color: var(--accent);
+        }
+      }
+
+      @media (max-width: 420px) {
+        .contact-links {
+          gap: clamp(10px, 2.4svh, 18px);
+          font-size: clamp(24px, 7.2vw, 34px);
+        }
+      }
+
+
+      /* Service list rhythm: tighter vertical stack after markup feedback. */
+      .hero-services-preview-b {
+        gap: 8px;
+      }
+
+      .hero-services-preview-b .hero-service {
+        line-height: 128%;
+      }
+
+      .hero-services-preview-b .hero-service-with-chips {
+        margin: 2px 0 6px;
+      }
+
+      .hero-services-preview-b .hero-service-with-chips + .hero-service {
+        margin-top: 4px;
+      }
+
+      .hero-services-preview-b .hero-service-wide {
+        margin-top: 8px;
+      }
+
+      .hero-services-preview-b .service-chips {
+        margin-top: 5px;
+        gap: 5px;
+      }
+
+      @media (max-width: 1180px) {
+        .hero-services-preview-b {
+          gap: 7px;
+          margin-top: clamp(22px, 4svh, 38px);
+        }
+
+        .hero-services-preview-b .hero-service-wide {
+          margin-top: 6px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .hero-services-preview-b {
+          row-gap: 7px;
+          margin-top: 22px;
+        }
+
+        .hero-services-preview-b .hero-service-with-chips {
+          margin-bottom: 4px;
+        }
+
+        .hero-services-preview-b .hero-service-with-chips + .hero-service {
+          margin-top: 2px;
+        }
+
+        .hero-services-preview-b .hero-service-wide {
+          margin-top: 4px;
+        }
+      }
+
+
+      /* Unified work caption: desktop follows the compact adaptive structure. */
+      .mywork-caption {
+        display: block;
+        max-width: 720px;
+        padding-top: 22px;
+        padding-left: var(--pad-x);
+        padding-right: var(--pad-x);
+      }
+
+      .mywork-project {
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 140%;
+      }
+
+      .mywork-project h3 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 140%;
+        letter-spacing: 0;
+      }
+
+      .case-tags {
+        margin-top: 8px;
+      }
+
+      .mywork-caption > div:last-child {
+        width: min(620px, 100%);
+        margin-top: 26px;
+        margin-left: 0;
+        text-align: left;
+      }
+
+      .mywork-description {
+        max-width: 620px;
+        margin-left: 0;
+        justify-self: start;
+        text-align: left;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 140%;
+        letter-spacing: 0;
+      }
+
+      .mywork-link {
+        margin-top: 18px;
+        gap: 6px;
+        padding-bottom: 3px;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 140%;
+      }
+
+      .mywork-link-icon {
+        font-size: 0.82em;
+      }
+
+      @media (max-width: 700px) {
+        .mywork-caption {
+          max-width: none;
+          padding-top: 16px;
+        }
+
+        .mywork-caption > div:last-child {
+          margin-top: 22px;
+        }
+      }
+
+
       /* Smooth marquee: transform-based movement, no scrollLeft jumps. */
       .hero-copy {
         text-align: left;
+      }
+
+      /* Adaptive hero text parity: service lines match the intro copy. */
+      @media (max-width: 1180px) {
+        .hero-services-preview-b {
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 140%;
+          letter-spacing: 0;
+        }
+
+        .hero-services-preview-b .hero-service {
+          font-size: inherit;
+          font-weight: inherit;
+          line-height: 140%;
+          letter-spacing: 0;
+        }
+
+        .hero-services-preview-b .hero-service > span {
+          font: inherit;
+          letter-spacing: 0;
+        }
+      }
+
+      /* Unified text-link interaction for nav and work CTA. */
+      .site-header {
+        mix-blend-mode: normal;
+        color: var(--ink);
+      }
+
+      .nav {
+        font-weight: 300;
+        letter-spacing: 0;
+      }
+
+      .nav a,
+      .mywork-link {
+        font-weight: 300;
+        letter-spacing: 0;
+      }
+
+      .nav a,
+      .mywork-link,
+      .contact-links a {
+        display: inline-flex;
+        width: fit-content;
+        padding-bottom: 3px;
+        border-bottom: 1px solid transparent;
+        text-decoration: none;
+        transition: color 180ms ease, border-color 180ms ease;
+      }
+
+      .nav a,
+      .mywork-link {
+        line-height: 140%;
+      }
+
+      .nav a:hover,
+      .mywork-link:hover,
+      .contact-links a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+
+      /* Static accent dots removed; only the live cursor dot remains. */
+      .accent-dot {
+        display: none !important;
+      }
+
+      /* Section wordmarks: DESIGN changes into WORKS, then CONTACTS follows the same left rhythm. */
+      .work-alt {
+        min-height: 100svh;
+        padding: clamp(56px, 7svh, 84px) 0 clamp(72px, 9svh, 112px);
+        overflow: hidden;
+      }
+
+      .mywork-heading {
+        margin: 0;
+        padding: 0 var(--pad-x);
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: clamp(120px, 16vw, 260px);
+        font-weight: 100;
+        line-height: 0.78;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .mywork-showcase {
+        margin-top: clamp(58px, 7svh, 96px);
+      }
+
+      .contact {
+        min-height: 100svh;
+        padding: clamp(56px, 7svh, 84px) var(--pad-x) var(--pad-y);
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        align-content: start;
+        overflow: hidden;
+      }
+
+      .contact-mark {
+        justify-content: flex-start;
+        margin: 0;
+      }
+
+      .contact-links {
+        align-self: start;
+        justify-self: start;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+        margin-top: clamp(54px, 10svh, 112px);
+        gap: clamp(12px, 2.4svh, 24px);
+        color: #6f6f6f;
+        font-size: clamp(32px, 4.8vw, 74px);
+        font-weight: 300;
+        line-height: 110%;
+        letter-spacing: 0;
+        text-align: left;
+      }
+
+      .contact-links a {
+        line-height: 1.05;
+        text-align: left;
+      }
+
+      @media (max-width: 700px) {
+        .work-alt {
+          padding-top: 52px;
+          padding-bottom: 76px;
+        }
+
+        .mywork-heading,
+        .contact-mark {
+          font-size: clamp(54px, 18vw, 96px);
+        }
+
+        .mywork-showcase {
+          margin-top: 42px;
+        }
+
+        .contact {
+          padding-top: 52px;
+        }
+
+        .contact-links {
+          width: 100%;
+          margin-top: 42px;
+          gap: clamp(10px, 2.4svh, 18px);
+          font-size: clamp(24px, 7.2vw, 34px);
+          line-height: 112%;
+        }
       }
 
       .mywork-showcase {
@@ -1447,164 +2374,1475 @@
       }
 
       .mywork-track {
-        overflow: visible;
-        transform: translate3d(var(--marquee-x, 0px), 0, 0);
-        will-change: transform;
-        touch-action: pan-y;
+        overflow-x: auto;
+        overflow-y: hidden;
+        transform: none;
+        will-change: auto;
+        touch-action: pan-x pan-y;
+        scroll-behavior: auto;
       }
 
-    </style>
+      /* Scroll morph word: DESIGN becomes WORKS during the hero-to-works transition. */
+      .morph-word {
+        --from-opacity: 1;
+        --to-opacity: 0;
+        --from-y: 0px;
+        --to-y: 0.16em;
+        --slot-shift: 0px;
+        --tail-width: 0.62em;
+        --tail-opacity: 1;
+        margin: 0;
+        display: flex;
+        align-items: baseline;
+        gap: 0.012em;
+        width: fit-content;
+        max-width: calc(100vw - (var(--pad-x) * 2));
+        overflow: visible;
+      }
+
+      .morph-slot {
+        position: relative;
+        display: inline-block;
+        width: var(--slot-width);
+        height: 0.88em;
+        flex: 0 0 auto;
+        overflow: visible;
+      }
+
+      .morph-tail {
+        width: var(--tail-width);
+        opacity: var(--tail-opacity);
+      }
+
+      .morph-from,
+      .morph-to {
+        position: absolute;
+        inset: 0 auto auto 0;
+        display: block;
+        line-height: inherit;
+        will-change: transform, opacity;
+      }
+
+      .morph-from {
+        opacity: var(--from-opacity);
+        transform: translate3d(0, var(--from-y), 0);
+      }
+
+      .morph-to {
+        opacity: var(--to-opacity);
+        transform: translate3d(0, var(--to-y), 0);
+      }
+
+      .work-alt .mywork-heading {
+        position: absolute !important;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .work-alt .mywork-showcase {
+        margin-top: clamp(40px, 6svh, 76px);
+      }
+
+      @media (max-width: 700px) {
+        .morph-word {
+          gap: 0.008em;
+        }
+
+        .work-alt .mywork-showcase {
+          margin-top: 38px;
+        }
+      }
+
+      /* Intact display-word morph and tighter works rhythm. */
+      .morph-word {
+        --from-opacity: 1;
+        --to-opacity: 0;
+        --from-y: 0px;
+        --to-y: 10px;
+        position: relative;
+        display: block;
+        width: max-content;
+        max-width: calc(100vw - (var(--pad-x) * 2));
+        height: 0.88em;
+        margin: 0;
+        overflow: visible;
+      }
+
+      .morph-layer {
+        display: block;
+        white-space: nowrap;
+        line-height: inherit;
+        will-change: transform, opacity;
+      }
+
+      .morph-word-from {
+        opacity: var(--from-opacity);
+        transform: translate3d(0, var(--from-y), 0);
+      }
+
+      .morph-word-to {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: var(--to-opacity);
+        transform: translate3d(0, var(--to-y), 0);
+      }
+
+      .work-alt {
+        padding-top: clamp(24px, 3.5svh, 48px);
+      }
+
+      .work-alt .mywork-showcase {
+        margin-top: clamp(12px, 2.5svh, 32px);
+      }
+
+      .mywork-caption {
+        padding-top: 16px;
+      }
+
+      .case-tags {
+        margin-top: 6px;
+      }
+
+      .mywork-caption > div:last-child {
+        margin-top: 16px;
+      }
+
+      @media (max-width: 700px) {
+        .morph-word {
+          height: 0.9em;
+        }
+
+        .work-alt {
+          padding-top: 34px;
+        }
+
+        .work-alt .mywork-showcase {
+          margin-top: 30px;
+        }
+
+        .mywork-caption {
+          padding-top: 14px;
+        }
+
+        .mywork-caption > div:last-child {
+          margin-top: 14px;
+        }
+      }
+
+      /* Hero decorative SVG figures: label-style surface, word-height scale, scroll fade. */
+      .hero-figures {
+        --hero-figure-size: calc(clamp(120px, 16vw, 260px) * 0.78);
+        --figures-opacity: 1;
+        --figures-y: 0px;
+        position: absolute;
+        z-index: 4;
+        top: 30svh;
+        right: calc(var(--pad-x) + min(480px, 37vw) + clamp(28px, 4vw, 88px));
+        display: flex;
+        align-items: flex-start;
+        gap: clamp(12px, 1.35vw, 28px);
+        pointer-events: none;
+        opacity: var(--figures-opacity);
+        transform: translate3d(0, var(--figures-y), 0);
+        will-change: opacity, transform;
+      }
+
+      .hero-figure-reveal,
+      .hero-figure-spin {
+        box-sizing: border-box;
+        display: block;
+        width: var(--hero-figure-size);
+        height: var(--hero-figure-size);
+        padding: clamp(10px, 0.8vw, 18px);
+        border: 1px solid rgba(0, 0, 0, 0.16);
+        background: rgba(245, 245, 247, 0.62);
+      }
+
+      .hero-figure-reveal {
+        overflow: hidden;
+        border-radius: 23%;
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 920ms cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: clip-path;
+      }
+
+      .hero-figure-spin {
+        overflow: hidden;
+        border-radius: 999px;
+      }
+
+      .hero-figures.is-revealing .hero-figure-reveal {
+        clip-path: inset(0 0 0 0);
+      }
+
+      .hero-figure {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0.44;
+        filter: grayscale(1);
+      }
+
+      .hero-figure-two {
+        transform: rotate(var(--figure-two-rotation, 0deg));
+        transform-origin: 50% 50%;
+        transition: transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform;
+      }
+
+      @media (max-width: 1180px) {
+        .hero {
+          grid-template-rows: auto auto auto auto auto auto;
+        }
+
+        .hero-figures {
+          --hero-figure-size: calc(clamp(54px, 18vw, 96px) * 0.9);
+          position: relative;
+          top: auto;
+          right: auto;
+          grid-column: 1 / -1;
+          grid-row: 5;
+          justify-self: start;
+          margin-top: clamp(14px, 2.8svh, 26px);
+          gap: 10px;
+        }
+
+        .hero-figure-reveal,
+        .hero-figure-spin {
+          padding: clamp(7px, 1.5vw, 12px);
+        }
+
+        .hero-mark {
+          grid-row: 6;
+          margin-top: clamp(18px, 3svh, 34px);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .hero-figures {
+          --hero-figure-size: calc(clamp(54px, 18vw, 96px) * 0.78);
+          gap: 8px;
+          margin-top: 18px;
+        }
+      }
+
+
+      /* Contact links scale and footer rhythm after Tilda Expert. */
+      .contact-links {
+        font-size: clamp(29px, 4.32vw, 67px);
+      }
+
+      .contact .footer {
+        margin-top: 100px;
+      }
+
+      @media (max-width: 700px) {
+        .contact {
+          min-height: auto;
+          grid-template-rows: auto auto auto;
+          padding-bottom: 24px;
+        }
+
+        .contact-links {
+          font-size: clamp(23px, 7.2vw, 40px);
+        }
+
+        .contact .footer {
+          margin-top: 50px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .contact-links {
+          font-size: clamp(22px, 6.48vw, 31px);
+        }
+      }
+
+
+      /* Desktop contacts spacing: reduce the pre-heading air by one third. */
+      .contact {
+        padding-top: clamp(37px, 4.7svh, 56px);
+      }
+
+      @media (max-width: 700px) {
+        .contact {
+          padding-top: 35px;
+        }
+      }
+
+
+      /* Hero left-column alignment: role and intro copy share one guide. */
+      @media (min-width: 1181px) {
+        .role-brand {
+          left: var(--pad-x);
+          top: 30svh;
+        }
+
+        .hero-copy {
+          grid-column: 1 / span 5;
+          justify-self: start;
+          margin-left: 0;
+          padding-left: 0;
+          text-align: left;
+        }
+      }
+
+
+      /* Final screen corrections: clean SVGs, masked word transition, slider BW preview, tighter Contacts rhythm. */
+      .morph-word {
+        --from-clip: inset(0 0 0% 0);
+        --to-clip: inset(100% 0 0 0);
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .morph-layer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 1 !important;
+        transform: none !important;
+        clip-path: inset(0 0 0 0);
+        will-change: clip-path;
+      }
+
+      .morph-word-from {
+        clip-path: var(--from-clip);
+      }
+
+      .morph-word-to {
+        clip-path: var(--to-clip);
+      }
+
+      @media (min-width: 1181px) {
+        .hero-figures {
+          --hero-figure-size: clamp(150px, 12.4vw, 210px);
+          top: auto;
+          right: clamp(92px, 7vw, 140px);
+          bottom: clamp(18px, 2.5svh, 34px);
+          left: auto;
+          gap: clamp(22px, 2vw, 36px);
+        }
+      }
+
+      .hero-figure-reveal,
+      .hero-figure-spin {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        border-radius: 0;
+      }
+
+      .hero-figure-spin {
+        overflow: visible;
+      }
+
+      .hero-figure {
+        opacity: 1;
+        filter: none;
+      }
+
+      .work-alt {
+        padding-bottom: clamp(48px, 6svh, 75px);
+      }
+
+      .contact {
+        padding-top: clamp(25px, 3.15svh, 38px);
+      }
+
+      @media (max-width: 700px) {
+        .work-alt {
+          padding-bottom: 48px;
+        }
+
+        .contact {
+          padding-top: 24px;
+        }
+      }
+
+      @media (hover: hover) and (pointer: fine) and (min-width: 1021px) {
+        .mywork-track img {
+          filter: grayscale(1);
+          transition:
+            filter 520ms cubic-bezier(0.16, 1, 0.3, 1),
+            opacity 420ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mywork-track:hover img {
+          filter: grayscale(0);
+        }
+
+        .mywork-track:hover .mywork-card--hover-preview .mywork-img-color {
+          opacity: 1;
+        }
+
+        .mywork-track:hover .mywork-card--hover-preview .mywork-img-bw {
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 1020px), (hover: none) {
+        .mywork-track img {
+          filter: none;
+        }
+      }
+
+
+      /* Fix after visual QA: keep the masked word visible, align SVGs to the services guide, remove slider hover jump. */
+      .morph-word {
+        position: relative;
+        display: block;
+        width: max-content;
+        height: 0.88em;
+        overflow: hidden;
+      }
+
+      .morph-word::after {
+        content: "DESIGN";
+        display: block;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        white-space: nowrap;
+      }
+
+      .morph-layer {
+        width: max-content;
+      }
+
+      @media (min-width: 1181px) {
+        .hero-figures {
+          left: calc(100% - var(--pad-x) - min(480px, 37vw));
+          right: auto;
+        }
+      }
+
+      .mywork-card:hover {
+        transform: translate3d(0, 0, 0);
+      }
+
+
+      /* Final QA pass: unclipped morph word, guided hero copy levels, tighter Contacts entry. */
+      .morph-word {
+        max-width: none;
+        padding-right: 0.16em;
+        margin-right: -0.16em;
+      }
+
+      .morph-word::after {
+        content: "DESIGN\00a0";
+      }
+
+      .desktop-copy-break {
+        display: none;
+      }
+
+      @media (min-width: 1181px) {
+        .role-brand {
+          top: 30svh;
+        }
+
+        .hero-copy {
+          position: absolute;
+          left: var(--pad-x);
+          top: 37.2svh;
+          grid-column: auto;
+          grid-row: auto;
+          max-width: 760px;
+          margin: 0;
+          padding: 0;
+          text-align: left;
+        }
+
+        .desktop-copy-break {
+          display: block;
+        }
+      }
+
+      .work-alt {
+        min-height: auto;
+        padding-bottom: clamp(32px, 4svh, 50px);
+      }
+
+      .contact {
+        padding-top: clamp(16px, 2.1svh, 25px);
+      }
+
+      @media (max-width: 700px) {
+        .work-alt {
+          min-height: auto;
+          padding-bottom: 32px;
+        }
+
+        .contact {
+          padding-top: 16px;
+        }
+      }
+
+
+      /* Current iteration: single role line, figures on DESIGN level, medium Contacts spacing. */
+      @media (min-width: 1181px) {
+        .hero-figures {
+          --hero-figure-size: clamp(140px, 10.4vw, 185px);
+          top: auto;
+          bottom: clamp(42px, 5.4svh, 68px);
+          left: calc(100% - var(--pad-x) - min(480px, 37vw));
+          right: auto;
+        }
+      }
+
+      .work-alt {
+        padding-bottom: clamp(40px, 5svh, 62px);
+      }
+
+      .contact {
+        padding-top: clamp(20px, 2.6svh, 31px);
+      }
+
+      @media (max-width: 700px) {
+        .work-alt {
+          padding-bottom: 40px;
+        }
+
+        .contact {
+          padding-top: 20px;
+        }
+      }
+
+
+      /* Micro-align hero SVGs with the DESIGN word baseline. */
+      @media (min-width: 1181px) {
+        .hero-figures {
+          bottom: clamp(8px, 1.25svh, 18px);
+        }
+      }
+
+
+      /* Align hero SVG figures inside the DESIGN word height band. */
+      @media (min-width: 1181px) {
+        .hero-figures {
+          --hero-figure-size: clamp(136px, 10.4vw, 168px);
+          bottom: clamp(54px, 7.8svh, 72px);
+        }
+      }
+
+
+      /* Morph readability: dim the secondary clipped word while both words overlap. */
+      .morph-word-from {
+        opacity: var(--from-layer-opacity, 1) !important;
+      }
+
+      .morph-word-to {
+        opacity: var(--to-layer-opacity, 0.3) !important;
+      }
+
+
+      /* Match SVG figure height to the large DESIGN/WORKS word band. */
+      @media (min-width: 1181px) {
+        .hero-figures {
+          --hero-figure-size: clamp(160px, 13.2vw, 218px);
+          bottom: clamp(32px, 4.7svh, 46px);
+        }
+      }
+
+
+      /* Visual correction: keep SVG figures calmer inside the DESIGN band. */
+      @media (min-width: 1181px) {
+        .hero-figures {
+          --hero-figure-size: clamp(136px, 10.4vw, 168px);
+          bottom: clamp(54px, 7.8svh, 72px);
+        }
+      }
+
+
+      /* Final Contacts spacing: exact 100px before the Contacts section on desktop. */
+      @media (min-width: 701px) {
+        .work-alt {
+          padding-bottom: 0;
+        }
+
+        .contact {
+          padding-top: 100px;
+        }
+      }
+
+
+      /* Contacts spacing update: +100px on desktop, scaled down for adaptive layouts. */
+      @media (min-width: 1181px) {
+        .work-alt {
+          padding-bottom: 0;
+        }
+
+        .contact {
+          padding-top: 200px;
+        }
+      }
+
+      @media (min-width: 701px) and (max-width: 1180px) {
+        .work-alt {
+          padding-bottom: 0;
+        }
+
+        .contact {
+          padding-top: 120px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .work-alt {
+          padding-bottom: 32px;
+        }
+
+        .contact {
+          padding-top: 72px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .contact {
+          padding-top: 56px;
+        }
+      }
+
+
+      /* Contacts self-morph: same word, mask split, secondary part at 30%. */
+      .contact-morph-word {
+        --contact-from-clip: inset(0 0 0% 0);
+        --contact-to-clip: inset(100% 0 0 0);
+        --contact-from-layer-opacity: 1;
+        --contact-to-layer-opacity: 0.3;
+        position: relative;
+        display: block;
+        width: max-content;
+        max-width: none;
+        height: 0.88em;
+        padding-right: 0.16em;
+        margin-right: -0.16em;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .contact-morph-word::after {
+        content: "CONTACTS\00a0";
+        display: block;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        white-space: nowrap;
+      }
+
+      .contact-morph-layer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: max-content;
+        white-space: nowrap;
+        line-height: inherit;
+        will-change: clip-path, opacity;
+      }
+
+      .contact-morph-from {
+        clip-path: var(--contact-from-clip);
+        opacity: var(--contact-from-layer-opacity);
+      }
+
+      .contact-morph-to {
+        clip-path: var(--contact-to-clip);
+        opacity: var(--contact-to-layer-opacity);
+      }
+
+
+      /* Morph color update: muted slices use the same paper color as chips and SVG forms. */
+      .morph-word,
+      .contact-morph-word {
+        --morph-muted-slice: #f9f9fa;
+      }
+
+      .morph-word-from {
+        opacity: 1 !important;
+        color: var(--from-layer-color, var(--ink)) !important;
+      }
+
+      .morph-word-to {
+        opacity: 1 !important;
+        color: var(--to-layer-color, var(--morph-muted-slice)) !important;
+      }
+
+      .contact-morph-from {
+        opacity: 1 !important;
+        color: var(--contact-from-layer-color, var(--ink)) !important;
+      }
+
+      .contact-morph-to {
+        opacity: 1 !important;
+        color: var(--contact-to-layer-color, var(--morph-muted-slice)) !important;
+      }
+
+
+      /* SVG figure exit mirrors the intro wipe instead of fading the whole group. */
+      .hero-figures {
+        --figure-one-exit-clip: inset(0 0 0 0);
+        --figure-two-exit-clip: inset(0 0 0 0);
+        opacity: 1 !important;
+        will-change: transform;
+      }
+
+      .hero-figures.is-revealing .hero-figure-reveal {
+        clip-path: var(--figure-one-exit-clip, inset(0 0 0 0)) !important;
+      }
+
+      .hero-figures.is-revealing .hero-figure-spin {
+        clip-path: var(--figure-two-exit-clip, inset(0 0 0 0)) !important;
+      }
+
+      .hero-figure-spin {
+        transition: clip-path 820ms cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: clip-path;
+      }
+
+      /* Manual slider controls: no autoplay, only arrows, drag, and horizontal wheel. */
+      .mywork-showcase {
+        position: relative;
+      }
+
+      .mywork-controls {
+        position: absolute;
+        top: 40px;
+        right: max(var(--pad-x), 40px);
+        z-index: 8;
+        display: flex;
+        align-items: center;
+        gap: clamp(18px, 2vw, 34px);
+        pointer-events: auto;
+      }
+
+      .mywork-arrow {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        padding: 0;
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: clamp(44px, 4.2vw, 76px);
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: 0;
+        cursor: pointer;
+        transition: color 180ms ease, transform 180ms ease;
+      }
+
+      .mywork-arrow:hover {
+        color: var(--accent);
+        transform: translateY(-1px);
+      }
+
+      @media (max-width: 1180px) {
+        .mywork-controls {
+          top: 28px;
+          right: var(--pad-x);
+          gap: 18px;
+        }
+
+        .mywork-arrow {
+          font-size: clamp(34px, 8vw, 54px);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .mywork-controls {
+          top: 16px;
+          gap: 14px;
+        }
+      }
+
+      /* Slider arrows iteration: thin corner markers, 20px edge rhythm, smooth frame steps. */
+      .work-alt .mywork-showcase {
+        margin-top: calc(clamp(12px, 2.5svh, 32px) + 40px);
+      }
+
+      .mywork-controls {
+        top: calc((clamp(30px, 2.1vw, 40px) + 20px) * -1);
+        right: 20px;
+        gap: 20px;
+      }
+
+      .mywork-arrow {
+        position: relative;
+        width: clamp(25px, 1.85vw, 34px);
+        height: clamp(30px, 2.1vw, 40px);
+        display: grid;
+        place-items: center;
+        color: var(--ink);
+        font-size: 0;
+        font-weight: 300;
+        opacity: 1;
+        transform: none;
+      }
+
+      .mywork-arrow::before {
+        content: none;
+      }
+
+      .mywork-arrow img {
+        display: block;
+        width: auto;
+        height: clamp(30px, 2.1vw, 40px);
+        opacity: 0.94;
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .mywork-arrow:hover {
+        color: var(--ink);
+        transform: none;
+      }
+
+      .mywork-arrow[data-mywork-prev]:hover img {
+        transform: translateX(-2px);
+      }
+
+      .mywork-arrow[data-mywork-next]:hover img {
+        transform: translateX(2px);
+      }
+
+      @media (hover: hover) and (pointer: fine) and (min-width: 1021px) {
+        .mywork-showcase:hover .mywork-track img {
+          filter: grayscale(0);
+        }
+
+        .mywork-showcase:hover .mywork-card--hover-preview .mywork-img-color {
+          opacity: 1;
+        }
+
+        .mywork-showcase:hover .mywork-card--hover-preview .mywork-img-bw {
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .work-alt .mywork-showcase {
+          margin-top: 54px;
+        }
+
+        .mywork-controls {
+          top: calc((clamp(30px, 2.1vw, 40px) + 14px) * -1);
+          right: 20px;
+          gap: 14px;
+        }
+      }
+
+      /* Slider arrows sit above the track; keep that area visible. */
+      .work-alt .mywork-showcase {
+        overflow: visible;
+      }
+
+      .work-alt .mywork-track {
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      .work-alt .mywork-showcase::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc((clamp(30px, 2.1vw, 40px) + 20px) * -1);
+        height: calc(clamp(30px, 2.1vw, 40px) + 20px);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      @media (max-width: 700px) {
+        .work-alt .mywork-showcase::before {
+          top: calc((clamp(30px, 2.1vw, 40px) + 14px) * -1);
+          height: calc(clamp(30px, 2.1vw, 40px) + 14px);
+        }
+      }
+
+
+      /* Canonical index page: stable CTA arrow and mobile-only hero simplification. */
+      .mywork-link-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        min-height: 10px;
+        border-radius: 0;
+        background: transparent !important;
+        color: inherit;
+        font-size: 0;
+        line-height: 1;
+        transform: translateY(1px);
+      }
+
+      .mywork-link-arrow {
+        display: block;
+        width: 10px;
+        height: 10px;
+      }
+
+      .mywork-link:hover .mywork-link-icon {
+        background: transparent !important;
+      }
+
+      @media (max-width: 700px) {
+        .hero-figures {
+          display: none !important;
+        }
+
+        .portrait-card {
+          width: min(74vw, 320px);
+          max-width: 320px;
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .portrait-card {
+          width: min(76vw, 300px);
+          max-width: 300px;
+        }
+      }
+
+  
+    /* Final CTA/reference arrow behavior */
+    .mywork-link,
+    .project-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      min-height: auto;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      color: #727272;
+      font-weight: 300;
+      text-decoration: none;
+      background: transparent;
+      transition: color 220ms ease;
+    }
+
+    .mywork-link:hover,
+    .project-cta:hover {
+      color: #000;
+      text-decoration: none;
+      background: transparent;
+      transform: none;
+    }
+
+    .mywork-link-icon,
+    .project-cta-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      background: transparent !important;
+      border-radius: 0;
+      transform: translate3d(0, 1px, 0);
+      transition: transform 260ms ease;
+    }
+
+    .mywork-link:hover .mywork-link-icon,
+    .project-cta:hover .project-cta-icon {
+      background: transparent !important;
+      transform: translate3d(5px, 1px, 0);
+    }
+
+    .mywork-link-arrow,
+    .project-cta-arrow {
+      display: block;
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
+    }
+
+    .mywork-link-arrow {
+      transform: translateY(0.13em) rotate(45deg);
+    }
+
+    @media (max-width: 700px) {
+      .hero-figures {
+        display: none !important;
+      }
+
+      .portrait-card {
+        width: min(72vw, 310px);
+        aspect-ratio: 1 / 1;
+        margin-top: 18px;
+      }
+    }
+
+
+      /* LS shared header and color system */
+      :root {
+        --ink: #434343;
+      }
+
+      .site-header {
+        position: fixed;
+        grid-template-columns: 1fr auto 1fr;
+        padding-bottom: 0;
+        color: var(--ink);
+        mix-blend-mode: normal;
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      .site-header::after {
+        content: "";
+        position: absolute;
+        left: var(--page-x);
+        right: var(--page-x);
+        bottom: 0;
+        height: 1px;
+        background: #434343;
+        pointer-events: none;
+      }
+
+      .brand-mark {
+        justify-self: start;
+        color: inherit;
+        font: inherit;
+        font-size: var(--type-nav, 18px);
+        font-weight: 400;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .nav a,
+      .mywork-link,
+      .project-cta,
+      .contact-links a {
+        color: var(--ink) !important;
+      }
+
+      .mywork-link:hover,
+      .project-cta:hover,
+      .nav a:hover,
+      .contact-links a:hover {
+        color: var(--ink) !important;
+      }
+
+      .mywork-link-icon,
+      .project-cta-icon {
+        transform: translate3d(0, 1px, 0) rotate(0deg);
+        transition: transform 260ms ease;
+      }
+
+      .mywork-link:hover .mywork-link-icon,
+      .project-cta:hover .project-cta-icon {
+        transform: translate3d(5px, 1px, 0) rotate(0deg) !important;
+      }
+
+      @media (max-width: 700px) {
+        .site-header {
+          grid-template-columns: auto 1fr auto;
+        }
+
+        .brand-mark {
+          grid-column: 1;
+          justify-self: start;
+        }
+
+        .time {
+          display: none !important;
+        }
+
+        .nav {
+          grid-column: 3;
+          justify-self: end;
+        }
+      }
+
+      .site-header {
+        height: 50px !important;
+        min-height: 50px;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: center;
+      }
+
+      main {
+        padding-top: 50px;
+      }
+
+      /* Audience tabs draft: first state only */
+      .audience-composition {
+        z-index: 3;
+      }
+
+      .audience-tabs-draft {
+        display: grid;
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        min-height: 82px;
+        background: #f9f9fa;
+      }
+
+      .audience-tab {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        padding: 0 16px;
+        color: var(--ink);
+        font: inherit;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 140%;
+        letter-spacing: 0;
+        text-align: left;
+      }
+
+      .audience-tab[disabled] {
+        color: #b9b9ba;
+        opacity: 1;
+        cursor: default;
+      }
+
+      .audience-tabs-divider {
+        display: block;
+        width: 1px;
+        height: 82px;
+        background: #434343;
+      }
+
+      .audience-composition .hero-copy {
+        position: static !important;
+        inset: auto !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        align-self: start;
+        width: auto;
+        max-width: 560px;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: left;
+      }
+
+      @media (min-width: 1181px) {
+        .audience-composition {
+          position: absolute;
+          left: var(--pad-x);
+          top: 37.2svh;
+          display: grid;
+          grid-template-columns: 220px 1px minmax(0, 560px);
+          gap: 18px;
+          align-items: start;
+          width: min(820px, 58vw);
+        }
+      }
+
+      @media (min-width: 701px) and (max-width: 1180px) {
+        .audience-composition {
+          grid-column: 1 / -1;
+          grid-row: 2;
+          align-self: end;
+          display: grid;
+          grid-template-columns: minmax(150px, 190px) 1px minmax(0, 1fr);
+          gap: 14px;
+          width: 100%;
+          margin-bottom: 64px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .audience-composition {
+          grid-column: 1 / -1;
+          grid-row: 2;
+          align-self: end;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 16px;
+          width: 100%;
+          margin-bottom: 32px;
+        }
+
+        .audience-tabs-draft {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 44px;
+          min-height: 44px;
+        }
+
+        .audience-tab {
+          padding: 0 12px;
+          text-align: center;
+        }
+
+        .audience-tabs-divider {
+          display: none;
+        }
+      }
+
+    /* Functional audience tabs */
+    .audience-tabs-draft {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .audience-tabs-draft::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      box-sizing: border-box;
+      background: #f0f0f2;
+      border: 1px solid #d2d2d4;
+      transform: translateY(0);
+      transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .audience-tabs-draft.is-experts::before {
+      transform: translateY(100%);
+    }
+
+    .audience-tab {
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .audience-tab[aria-selected="false"] {
+      color: #aaa;
+    }
+
+    .audience-tab[aria-selected="true"] {
+      color: #434343;
+      font-weight: 500;
+    }
+
+    .audience-reveal {
+      animation: audience-reveal 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    @keyframes audience-reveal {
+      from {
+        clip-path: inset(0 0 100% 0);
+        transform: translateY(8px);
+        opacity: 0.35;
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (min-width: 1181px) {
+      .hero-services-preview-b {
+        top: 37.2svh !important;
+        bottom: auto !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .audience-tabs-draft::before {
+        width: 50%;
+        height: 100%;
+        transform: translateX(0);
+      }
+
+      .audience-tabs-draft.is-experts::before {
+        transform: translateX(100%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .audience-tabs-draft::before {
+        transition: none !important;
+      }
+
+      .audience-reveal {
+        animation: none !important;
+      }
+    }
+  </style>
   </head>
   <body>
     <div class="cursor-dot" aria-hidden="true"></div>
 
     <header class="site-header" aria-label="Primary navigation">
-      <div></div>
+      <a class="brand-mark" href="./index.html#top">LS Portfolio</a>
       <div class="time" aria-live="polite">00:00:00</div>
       <nav class="nav">
-        <a href="#work">Работы</a>
-        <a href="#information">Информация</a>
-        <a href="#contact">Контакты</a>
+        <a href="./index.html#work">Works</a>
+        <a href="./index.html#contact">Contacts</a>
       </nav>
     </header>
 
     <main>
       <section class="hero" id="top" aria-label="Intro">
         <div class="portrait-card">
-          <img src="../../assets/images/LS_sketch.png" alt="Lana Svitla" />
+          <img src="../../assets/images/LS_sketch.jpg" alt="Lana Svitla" />
         </div>
 
         <div class="role role-brand">
-          Brand & Graphic Designer<br />
-          Visual Identity, Digital Communication & Web
+          Brand &amp; Graphic Designer
         </div>
 
-        <p class="hero-copy">
-          Собираю айдентику и визуальные системы для современных брендов: от visual identity до сайтов, презентаций, кампаний и digital-коммуникаций.
-        </p>
+        <div class="audience-composition audience-companies" aria-label="Аудитория: компаниям">
+      <div class="audience-tabs-draft" role="tablist" aria-label="Аудитория">
+        <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" data-audience="companies">Компаниям</button>
+        <button class="audience-tab" type="button" role="tab" aria-selected="false" data-audience="experts">Экспертам</button>
+      </div>
+      <span class="audience-tabs-divider" aria-hidden="true"></span>
+      <p class="hero-copy" aria-live="polite">
+        Собираю айдентику и&nbsp;визуальные системы для&nbsp;современных брендов: от&nbsp;визуальной айдентики до&nbsp;сайтов, презентаций и&nbsp;digital-коммуникаций
+      </p>
+    </div>
 
-        <div class="accent-dot" aria-hidden="true"></div>
+    <div class="hero-services hero-services-preview-b" aria-label="Направления" aria-live="polite">
+          <div class="hero-service"><span>Айдентика</span></div>
+          <div class="hero-service"><span>Арт-дирекшн</span></div>
+          <div class="hero-service"><span>Презентации</span></div>
+          <div class="hero-service hero-service-with-chips"><span>Лендинги</span><div class="service-chips"><span>Tilda</span><span>Webflow</span><span>Framer</span><span>Lovable</span></div></div>
+          <div class="hero-service hero-service-with-chips hero-service-wide"><span>AI-креатив</span><div class="service-chips"><span>Nano Banana</span><span>Midjourney</span><span>Recraft</span><span>ChatGPT</span><span>Claude</span></div></div>
+        </div>
 
-        <h1 class="hero-mark hero-design-word" aria-label="Design">
-          DESIGN
+        <div class="hero-figures" aria-hidden="true">
+          <span class="hero-figure-reveal"><img class="hero-figure hero-figure-one" src="../../assets/images/hero-figure-1.svg" alt="" /></span>
+          <span class="hero-figure-spin"><img class="hero-figure hero-figure-two" src="../../assets/images/hero-figure-2.svg" alt="" /></span>
+        </div>
+
+        <h1 class="hero-mark hero-design-word morph-word" aria-label="Design" data-word="design">
+          <span class="morph-layer morph-word-from">DESIGN</span>
+          <span class="morph-layer morph-word-to" aria-hidden="true">WORKS</span>
         </h1>
       </section>
 
-      <section class="section info" id="information" aria-labelledby="information-title">
-        <h2 class="section-kicker" id="information-title">Информация</h2>
-        <div class="info-copy">
-          <p>
-            Работаю с брендами и экспертными проектами, которым нужен ясный визуальный язык,
-            сильная digital-среда и последовательная коммуникация.
-          </p>
-          <p>
-            Моя практика соединяет айдентику, графический дизайн, web-дизайн, презентации,
-            визуальный сторителлинг и коммуникационные материалы.
-          </p>
-        </div>
+      <!-- Saved About copy for later use:
+      Работаю с брендами и экспертными проектами, которым нужен ясный визуальный язык,
+      сильная digital-среда и последовательная коммуникация.
 
-        <div class="accent-dot" aria-hidden="true"></div>
-
-        <div class="disciplines" aria-label="Направления">
-          <div class="discipline"><span>Айдентика</span><i></i></div>
-          <div class="discipline"><span>Digital-дизайн</span><i></i></div>
-          <div class="discipline discipline-with-tags"><span>Лендинги <small class="discipline-tags">Tilda / Webflow / Framer / Lovable</small></span><i></i></div>
-          <div class="discipline"><span>Арт-дирекшн</span><i></i></div>
-          <div class="discipline"><span>Презентации</span><i></i></div>
-          <div class="discipline"><span>Коммуникационный дизайн</span><i></i></div>
-          <div class="discipline"><span>AI-процессы в дизайне</span><i></i></div>
-        </div>
-      </section>
+      Моя практика соединяет айдентику, графический дизайн, web-дизайн, презентации,
+      визуальный сторителлинг и коммуникационные материалы.
+      -->
 
       <section class="section work work-alt" id="work" aria-labelledby="work-title">
-        <h2 class="mywork-heading" id="work-title">Работы</h2>
+        <h2 class="mywork-heading" id="work-title">Works</h2>
 
         <div class="mywork-showcase">
+          <div class="mywork-controls" aria-label="Прокрутка работ">
+            <button class="mywork-arrow" type="button" data-mywork-prev aria-label="Прокрутить работы влево">
+              <img src="../../assets/icons/arr-l.svg" alt="" aria-hidden="true" />
+            </button>
+            <button class="mywork-arrow" type="button" data-mywork-next aria-label="Прокрутить работы вправо">
+              <img src="../../assets/icons/arr-r.svg" alt="" aria-hidden="true" />
+            </button>
+          </div>
+
           <div class="mywork-track" aria-label="Visual Brand Identity: category system">
-            <article class="mywork-card">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_01.jpg" alt="Visual Brand Identity illustration set, image 1" />
+            <article class="mywork-card mywork-card--hover-preview">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/Illustaration_set_01-bw.jpg" alt="Visual Brand Identity illustration set, image 1" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_01.jpg" alt="" aria-hidden="true" />
             </article>
 
-            <article class="mywork-card">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_02.jpg" alt="Visual Brand Identity illustration set, image 2" />
+            <article class="mywork-card mywork-card--hover-preview">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/02bw.jpg" alt="Visual Brand Identity illustration set, image 2" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_02.jpg" alt="" aria-hidden="true" />
             </article>
 
-            <article class="mywork-card">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_03.jpg" alt="Visual Brand Identity illustration set, image 3" />
+            <article class="mywork-card mywork-card--hover-preview">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/03bw.jpg" alt="Visual Brand Identity illustration set, image 3" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_03.jpg" alt="" aria-hidden="true" />
             </article>
 
-            <article class="mywork-card">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_04.jpg" alt="Visual Brand Identity illustration set, image 4" />
+            <article class="mywork-card mywork-card--hover-preview">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/04bw.jpg" alt="Visual Brand Identity illustration set, image 4" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_04.jpg" alt="" aria-hidden="true" />
             </article>
 
-            <article class="mywork-card">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_05.jpg" alt="Visual Brand Identity illustration set, image 5" />
+            <article class="mywork-card mywork-card--hover-preview">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/05bw.jpg" alt="Visual Brand Identity illustration set, image 5" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_05.jpg" alt="" aria-hidden="true" />
             </article>
 
-            <article class="mywork-card">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_06.jpg" alt="Visual Brand Identity illustration set, image 6" />
+            <article class="mywork-card mywork-card--hover-preview">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/06bw.jpg" alt="Visual Brand Identity illustration set, image 6" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_06.jpg" alt="" aria-hidden="true" />
             </article>
 
-            <article class="mywork-card" aria-hidden="true">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_01.jpg" alt="" />
+            <article class="mywork-card mywork-card--hover-preview" aria-hidden="true">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/Illustaration_set_01-bw.jpg" alt="" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_01.jpg" alt="" />
             </article>
 
-            <article class="mywork-card" aria-hidden="true">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_02.jpg" alt="" />
+            <article class="mywork-card mywork-card--hover-preview" aria-hidden="true">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/02bw.jpg" alt="" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_02.jpg" alt="" />
             </article>
 
-            <article class="mywork-card" aria-hidden="true">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_03.jpg" alt="" />
+            <article class="mywork-card mywork-card--hover-preview" aria-hidden="true">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/03bw.jpg" alt="" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_03.jpg" alt="" />
             </article>
 
-            <article class="mywork-card" aria-hidden="true">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_04.jpg" alt="" />
+            <article class="mywork-card mywork-card--hover-preview" aria-hidden="true">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/04bw.jpg" alt="" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_04.jpg" alt="" />
             </article>
 
-            <article class="mywork-card" aria-hidden="true">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_05.jpg" alt="" />
+            <article class="mywork-card mywork-card--hover-preview" aria-hidden="true">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/05bw.jpg" alt="" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_05.jpg" alt="" />
             </article>
 
-            <article class="mywork-card" aria-hidden="true">
-              <img src="../../assets/works/Illustration_set/Illustaration_set_06.jpg" alt="" />
+            <article class="mywork-card mywork-card--hover-preview" aria-hidden="true">
+              <img class="mywork-img-bw" src="../../assets/works/Illustration_set/06bw.jpg" alt="" />
+              <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_06.jpg" alt="" />
             </article>
 
           </div>
 
           <div class="mywork-caption">
             <div class="mywork-project">
-              <span class="mywork-project-label">Проект</span>
               <div>
                 <h3>Visual Brand Identity</h3>
-                <p class="mywork-project-subtitle">Category system</p>
+                <div class="service-chips case-tags" aria-label="Теги кейса"><span>Category system</span><span>AI-assisted visuals</span></div>
               </div>
             </div>
 
             <div>
               <p class="mywork-description">
-                Set of illustrations for an artisan craft marketplace
+                Набор иллюстраций для&nbsp;маркетплейса ремесленных товаров
               </p>
-              <a class="mywork-link" href="#" aria-label="Смотреть проект">Смотреть проект -&gt;</a>
+              <a class="mywork-link" href="./visual-brand-identity/index.html" aria-label="Смотреть проект"><span>Смотреть проект</span><span class="mywork-link-icon" aria-hidden="true"><img class="mywork-link-arrow" src="../../assets/icons/Arrow_button.svg" alt="" /></span></a>
             </div>
           </div>
         </div>
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
-        <h2 class="contact-mark contact-light-word" id="contact-title" aria-label="Контакты">
-          КОНТАКТЫ
+        <h2 class="contact-mark contact-light-word contact-morph-word" id="contact-title" aria-label="Contacts">
+          <span class="contact-morph-layer contact-morph-from">CONTACTS</span>
+          <span class="contact-morph-layer contact-morph-to" aria-hidden="true">CONTACTS</span>
         </h2>
 
         <div class="contact-links">
-          <a href="mailto:lanlongline@gmail.com">Почта</a>
           <a href="https://t.me/LLanaSvitla" target="_blank" rel="noreferrer">Telegram</a>
+          <a href="mailto:lanlongline@gmail.com">Email</a>
           <a href="https://www.linkedin.com/in/lana-kornilova-88a773103/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://www.behance.net/lanasvitla" target="_blank" rel="noreferrer">Behance</a>
           <a href="https://drive.google.com/file/d/11mwwVR-j_0rtzWu8YhzZyd0Pxd5kop_X/view?usp=sharing" target="_blank" rel="noreferrer">CV</a>
-          <a href="https://experts.tilda.cc/lana_svitla" target="_blank" rel="noreferrer">Tilda Expert</a>
+          <a href="https://experts.tilda.cc/lana_svitla" target="_blank" rel="noreferrer">Tilda&nbsp;Expert</a>
         </div>
 
-        <div class="accent-dot" aria-hidden="true"></div>
 
         <footer class="footer">
           <small>Copyright 2026</small>
@@ -1615,7 +3853,7 @@
     <script>
       const timeElement = document.querySelector(".time");
       const cursor = document.querySelector(".cursor-dot");
-      const interactive = document.querySelectorAll("a, .work-card");
+      const interactive = document.querySelectorAll("a, button, .work-card");
       const cards = document.querySelectorAll(".work-card");
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const motion = {
@@ -1681,18 +3919,232 @@
 
 
       const myworkTracks = document.querySelectorAll(".mywork-track");
+      const morphWord = document.querySelector(".morph-word");
+      const workSection = document.querySelector("#work");
+      const contactMorphWord = document.querySelector(".contact-morph-word");
+      const contactSection = document.querySelector("#contact");
+      const heroFigures = document.querySelector(".hero-figures");
+      const heroFigureTwo = document.querySelector(".hero-figure-two");
+      let heroFigureRotation = 0;
+      let heroFiguresIntroDone = false;
+      let heroFiguresWereVisible = false;
+      let heroFiguresObserverReady = false;
+      let previousScrollY = window.scrollY;
+      let currentScrollDirection = "down";
+
+      function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+      }
+
+      function easeInOut(value) {
+        return value * value * (3 - 2 * value);
+      }
+
+      const activeMorphColor = "#000000";
+      const mutedMorphColor = "#F9F9FA";
+
+      function blendHexColor(from, to, progress) {
+        const normalized = clamp(progress, 0, 1);
+        const fromValue = Number.parseInt(from.slice(1), 16);
+        const toValue = Number.parseInt(to.slice(1), 16);
+        const fromRgb = [(fromValue >> 16) & 255, (fromValue >> 8) & 255, fromValue & 255];
+        const toRgb = [(toValue >> 16) & 255, (toValue >> 8) & 255, toValue & 255];
+        const mixed = fromRgb.map((channel, index) => Math.round(channel + (toRgb[index] - channel) * normalized));
+        return `rgb(${mixed[0]}, ${mixed[1]}, ${mixed[2]})`;
+      }
+
+      function renderWordMorph() {
+        if (!morphWord || !workSection) {
+          return;
+        }
+
+        const viewport = window.innerHeight || 1;
+        const start = workSection.offsetTop - viewport * 0.78;
+        const end = workSection.offsetTop - viewport * 0.38;
+        const raw = clamp((window.scrollY - start) / Math.max(end - start, 1), 0, 1);
+        const progress = prefersReducedMotion ? Math.round(raw) : easeInOut(raw);
+        const fromOpacity = 1 - progress;
+        const fromY = `${(-8 * progress).toFixed(2)}px`;
+        const split = progress * 100;
+        const maskGap = prefersReducedMotion ? 0 : Math.sin(progress * Math.PI) * 3.2;
+        const fromClipBottom = clamp(split + maskGap * 0.5, 0, 100);
+        const toClipTop = clamp(100 - split + maskGap * 0.5, 0, 100);
+
+        morphWord.style.setProperty("--from-opacity", fromOpacity.toFixed(3));
+        morphWord.style.setProperty("--to-opacity", progress.toFixed(3));
+        morphWord.style.setProperty("--from-y", fromY);
+        morphWord.style.setProperty("--to-y", `${(10 * (1 - progress)).toFixed(2)}px`);
+        morphWord.style.setProperty("--from-clip", `inset(0 0 ${fromClipBottom.toFixed(2)}% 0)`);
+        morphWord.style.setProperty("--to-clip", `inset(${toClipTop.toFixed(2)}% 0 0 0)`);
+
+        const emphasisShift = prefersReducedMotion ? (progress > 0.5 ? 1 : 0) : easeInOut(clamp((progress - 0.44) / 0.12, 0, 1));
+        morphWord.style.setProperty("--from-layer-color", blendHexColor(activeMorphColor, mutedMorphColor, emphasisShift));
+        morphWord.style.setProperty("--to-layer-color", blendHexColor(mutedMorphColor, activeMorphColor, emphasisShift));
+
+        if (heroFigures) {
+          const figureExitSpan = 0.64;
+          const figureExitDelay = figureExitSpan * 0.5;
+          const figureTwoExit = prefersReducedMotion ? progress : easeInOut(clamp(progress / figureExitSpan, 0, 1));
+          const figureOneExit = prefersReducedMotion ? progress : easeInOut(clamp((progress - figureExitDelay) / figureExitSpan, 0, 1));
+          const figureTwoRotation = heroFigureRotation - 135 * figureTwoExit;
+
+          heroFigures.style.setProperty("--figures-opacity", "1");
+          heroFigures.style.setProperty("--figures-y", "0px");
+          heroFigures.style.setProperty("--figure-two-exit-clip", `inset(0 ${(figureTwoExit * 100).toFixed(2)}% 0 0)`);
+          heroFigures.style.setProperty("--figure-one-exit-clip", `inset(0 ${(figureOneExit * 100).toFixed(2)}% 0 0)`);
+          heroFigureTwo?.style.setProperty("--figure-two-rotation", `${figureTwoRotation}deg`);
+        }
+        morphWord.setAttribute("aria-label", progress > 0.55 ? "Works" : "Design");
+        morphWord.dataset.word = progress > 0.55 ? "works" : "design";
+      }
+
+      function renderContactMorph() {
+        if (!contactMorphWord || !contactSection) {
+          return;
+        }
+
+        const viewport = window.innerHeight || 1;
+        const isDesktop = window.matchMedia("(min-width: 1181px)").matches;
+        const contactTop = contactMorphWord.getBoundingClientRect().top + window.scrollY;
+        const contactCenter = contactTop + contactMorphWord.offsetHeight * 0.5;
+        const start = isDesktop ? contactCenter - viewport * 0.5 : contactSection.offsetTop - viewport * 0.82;
+        const end = isDesktop ? start + viewport * 0.4 : contactSection.offsetTop - viewport * 0.42;
+        const raw = clamp((window.scrollY - start) / Math.max(end - start, 1), 0, 1);
+        const progress = prefersReducedMotion ? Math.round(raw) : easeInOut(raw);
+        const split = progress * 100;
+        const maskGap = prefersReducedMotion ? 0 : Math.sin(progress * Math.PI) * 3.2;
+        const fromClipBottom = clamp(split + maskGap * 0.5, 0, 100);
+        const toClipTop = clamp(100 - split + maskGap * 0.5, 0, 100);
+        const emphasisShift = prefersReducedMotion ? (progress > 0.5 ? 1 : 0) : easeInOut(clamp((progress - 0.44) / 0.12, 0, 1));
+
+        contactMorphWord.style.setProperty("--contact-from-clip", `inset(0 0 ${fromClipBottom.toFixed(2)}% 0)`);
+        contactMorphWord.style.setProperty("--contact-to-clip", `inset(${toClipTop.toFixed(2)}% 0 0 0)`);
+        contactMorphWord.style.setProperty("--contact-from-layer-color", blendHexColor(activeMorphColor, mutedMorphColor, emphasisShift));
+        contactMorphWord.style.setProperty("--contact-to-layer-color", blendHexColor(mutedMorphColor, activeMorphColor, emphasisShift));
+      }
+
+      function renderDisplayMorphs() {
+        renderWordMorph();
+        renderContactMorph();
+      }
+
+      renderDisplayMorphs();
+      window.addEventListener("scroll", renderDisplayMorphs, { passive: true });
+      window.addEventListener("resize", renderDisplayMorphs);
+
+      function rotateHeroFigureTwo(delta) {
+        if (!heroFigureTwo) {
+          return;
+        }
+
+        heroFigureRotation += delta;
+        heroFigureTwo.style.setProperty("--figure-two-rotation", `${heroFigureRotation}deg`);
+      }
+
+      function playHeroFiguresIntro() {
+        if (!heroFigures) {
+          return;
+        }
+
+        heroFigures.classList.add("is-revealing");
+
+        if (prefersReducedMotion) {
+          heroFigureRotation = 90;
+          heroFigureTwo?.style.setProperty("--figure-two-rotation", "90deg");
+          heroFiguresIntroDone = true;
+          return;
+        }
+
+        window.setTimeout(() => {
+          rotateHeroFigureTwo(90);
+          heroFiguresIntroDone = true;
+        }, 220);
+      }
+
+      function updateHeroFigureScrollDirection() {
+        const nextScrollY = window.scrollY;
+        currentScrollDirection = nextScrollY >= previousScrollY ? "down" : "up";
+        previousScrollY = nextScrollY;
+      }
+
+      if (document.readyState === "complete") {
+        window.setTimeout(playHeroFiguresIntro, 180);
+      } else {
+        window.addEventListener("load", () => window.setTimeout(playHeroFiguresIntro, 180), { once: true });
+      }
+
+      window.addEventListener("scroll", updateHeroFigureScrollDirection, { passive: true });
+
+      if (heroFigures && heroFigureTwo && "IntersectionObserver" in window) {
+        const heroFiguresObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              if (!heroFiguresWereVisible) {
+                if (heroFiguresObserverReady && heroFiguresIntroDone) {
+                  rotateHeroFigureTwo(currentScrollDirection === "up" ? -90 : 90);
+                }
+
+                heroFiguresWereVisible = true;
+              }
+            } else {
+              heroFiguresWereVisible = false;
+            }
+
+            heroFiguresObserverReady = true;
+          });
+        }, { threshold: 0.4 });
+
+        heroFiguresObserver.observe(heroFigures);
+      }
+
 
       myworkTracks.forEach((track) => {
+        const showcase = track.closest(".mywork-showcase");
+        const previousButton = showcase?.querySelector("[data-mywork-prev]");
+        const nextButton = showcase?.querySelector("[data-mywork-next]");
+        const originalCards = Array.from(track.querySelectorAll('.mywork-card:not([aria-hidden="true"])'));
+        const loopCopies = 1;
+        let isLooping = false;
         let isDragging = false;
-        let isPaused = false;
-        let startX = 0;
-        let startOffset = 0;
-        let offset = 0;
-        let previousTime = performance.now();
-        const speed = 0.0035;
+        let dragStartX = 0;
+        let dragStartScrollLeft = 0;
+        let dragPointerId = null;
+
+        function cloneCards() {
+          return originalCards.map((card) => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            return clone;
+          });
+        }
+
+        function cloneSets(count) {
+          const fragment = [];
+
+          for (let index = 0; index < count; index += 1) {
+            fragment.push(...cloneCards());
+          }
+
+          return fragment;
+        }
+
+        if (!track.dataset.loopReady) {
+          Array.from(track.querySelectorAll('.mywork-card[aria-hidden="true"]')).forEach((card) => card.remove());
+          track.prepend(...cloneSets(loopCopies));
+          track.append(...cloneSets(loopCopies));
+          track.dataset.loopReady = "true";
+        }
+
+        function trackPaddingLeft() {
+          return Number.parseFloat(getComputedStyle(track).paddingLeft) || 0;
+        }
+
+        function firstOriginalScrollLeft() {
+          const firstCard = originalCards[0];
+          return firstCard ? firstCard.offsetLeft - trackPaddingLeft() : 0;
+        }
 
         function loopWidth() {
-          const originalCards = Array.from(track.querySelectorAll('.mywork-card:not([aria-hidden="true"])'));
           const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0;
           const cardsWidth = originalCards.reduce((total, card) => {
             return total + card.getBoundingClientRect().width;
@@ -1701,67 +4153,78 @@
           return cardsWidth + gap * originalCards.length;
         }
 
-        function normalizeOffset(value) {
+        function setInitialScroll() {
+          track.scrollLeft = firstOriginalScrollLeft();
+        }
+
+        function normalizeScroll() {
+          if (isLooping) {
+            return;
+          }
+
           const width = loopWidth();
+          const base = firstOriginalScrollLeft();
 
           if (width <= 0) {
-            return value;
+            return;
           }
 
-          return -((((-value) % width) + width) % width);
-        }
-
-        function renderOffset() {
-          offset = normalizeOffset(offset);
-          track.style.setProperty('--marquee-x', `${offset.toFixed(2)}px`);
-        }
-
-        function animateTrack(time) {
-          const delta = Math.min(time - previousTime, 48);
-          previousTime = time;
-
-          if (!prefersReducedMotion && !isPaused && !isDragging) {
-            offset -= delta * speed;
-            renderOffset();
+          if (track.scrollLeft < base - width * 0.45) {
+            isLooping = true;
+            track.scrollLeft += width;
+            isLooping = false;
+          } else if (track.scrollLeft > base + width * 0.55) {
+            isLooping = true;
+            track.scrollLeft -= width;
+            isLooping = false;
           }
-
-          requestAnimationFrame(animateTrack);
         }
 
-        track.addEventListener("mouseenter", () => {
-          isPaused = true;
-        });
+        function slideBy(direction) {
+          const firstCard = originalCards[0] || track.querySelector(".mywork-card");
+          const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0;
+          const step = firstCard ? firstCard.getBoundingClientRect().width + gap : track.getBoundingClientRect().width * 0.62;
 
-        track.addEventListener("mouseleave", () => {
-          isPaused = false;
-        });
+          normalizeScroll();
+          track.scrollBy({ left: direction * step, behavior: prefersReducedMotion ? "auto" : "smooth" });
+          window.setTimeout(normalizeScroll, prefersReducedMotion ? 0 : 700);
+        }
+
+        track.addEventListener("scroll", () => {
+          window.requestAnimationFrame(normalizeScroll);
+        }, { passive: true });
 
         track.addEventListener("pointerdown", (event) => {
+          if (event.button !== undefined && event.button !== 0) {
+            return;
+          }
+
+          normalizeScroll();
           isDragging = true;
-          isPaused = true;
-          startX = event.clientX;
-          startOffset = offset;
+          dragPointerId = event.pointerId;
+          dragStartX = event.clientX;
+          dragStartScrollLeft = track.scrollLeft;
           track.classList.add("is-dragging");
           track.setPointerCapture(event.pointerId);
         });
 
         track.addEventListener("pointermove", (event) => {
-          if (!isDragging) {
+          if (!isDragging || event.pointerId !== dragPointerId) {
             return;
           }
 
-          offset = startOffset + event.clientX - startX;
-          renderOffset();
+          track.scrollLeft = dragStartScrollLeft - (event.clientX - dragStartX);
         });
 
         function stopDrag(event) {
-          if (!isDragging) {
+          if (!isDragging || event.pointerId !== dragPointerId) {
             return;
           }
 
           isDragging = false;
-          isPaused = track.matches(":hover");
+          dragPointerId = null;
           track.classList.remove("is-dragging");
+          normalizeScroll();
 
           if (track.hasPointerCapture(event.pointerId)) {
             track.releasePointerCapture(event.pointerId);
@@ -1770,18 +4233,23 @@
 
         track.addEventListener("pointerup", stopDrag);
         track.addEventListener("pointercancel", stopDrag);
+
         track.addEventListener("wheel", (event) => {
           if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
             return;
           }
 
-          event.preventDefault();
-          offset -= event.deltaX;
-          renderOffset();
-        }, { passive: false });
+          normalizeScroll();
+        }, { passive: true });
 
-        renderOffset();
-        requestAnimationFrame(animateTrack);
+        previousButton?.addEventListener("click", () => slideBy(1));
+        nextButton?.addEventListener("click", () => slideBy(-1));
+
+        setInitialScroll();
+        window.requestAnimationFrame(setInitialScroll);
+        window.addEventListener("resize", () => {
+          setInitialScroll();
+        });
       });
 
       document.querySelectorAll(".mywork-card").forEach((node) => {
@@ -1789,9 +4257,97 @@
         node.addEventListener("mouseleave", () => cursor.classList.remove("is-hovering"));
       });
 
+
+      if (heroFigureTwo && !prefersReducedMotion) {
+        window.setInterval(() => {
+          rotateHeroFigureTwo(135);
+        }, 30000);
+      }
+
       updateTime();
       renderMotion();
       setInterval(updateTime, 1000);
     </script>
-  </body>
+  <script>
+    (() => {
+      const tabList = document.querySelector(".audience-tabs-draft");
+      const tabs = Array.from(document.querySelectorAll(".audience-tab[data-audience]"));
+      const composition = document.querySelector(".audience-composition");
+      const copy = composition?.querySelector(".hero-copy");
+      const services = document.querySelector(".hero-services-preview-b");
+
+      if (!tabList || tabs.length !== 2 || !composition || !copy || !services) return;
+
+      const companyServices = services.innerHTML;
+      const content = {
+        companies: {
+          copy: "Собираю айдентику и&nbsp;визуальные системы для&nbsp;современных брендов: от&nbsp;визуальной айдентики до&nbsp;сайтов, презентаций и&nbsp;digital-коммуникаций",
+          services: companyServices
+        },
+        experts: {
+          copy: "Создаю визуальную упаковку для&nbsp;личного бренда, экспертного проекта",
+          services: `
+            <div class="hero-service"><span>Логотип / Фирменный стиль</span></div>
+            <div class="hero-service"><span>Презентация / Гайд / Прайс / Чек-листы</span></div>
+            <div class="hero-service"><span>SMM / digital-коммуникация</span></div>
+            <div class="hero-service hero-service-with-chips">
+              <span>Лендинг / Дизайн для&nbsp;запуска курсов</span>
+              <div class="service-chips">
+                <span>Tilda</span><span>Webflow</span><span>Framer</span><span>Lovable</span>
+              </div>
+            </div>
+            <div class="hero-service hero-service-with-chips hero-service-wide">
+              <span>AI-креатив</span>
+              <div class="service-chips">
+                <span>Nano Banana</span><span>Midjourney</span><span>Recraft</span><span>ChatGPT</span><span>Claude</span>
+              </div>
+            </div>`
+        }
+      };
+
+      let active = "companies";
+      let timer;
+
+      const replay = (node) => {
+        node.classList.remove("audience-reveal");
+        void node.offsetWidth;
+        node.classList.add("audience-reveal");
+      };
+
+      const setAudience = (next, manual = false) => {
+        if (next === active) return;
+        if (manual && timer) {
+          window.clearInterval(timer);
+          timer = null;
+        }
+
+        active = next;
+        copy.innerHTML = content[next].copy;
+        services.innerHTML = content[next].services;
+
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.audience === next;
+          tab.setAttribute("aria-selected", String(selected));
+          tab.classList.toggle("is-active", selected);
+        });
+
+        tabList.classList.toggle("is-experts", next === "experts");
+        composition.setAttribute(
+          "aria-label",
+          `Аудитория: ${next === "companies" ? "компаниям" : "экспертам"}`
+        );
+        replay(copy);
+        replay(services);
+      };
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => setAudience(tab.dataset.audience, true));
+      });
+
+      timer = window.setInterval(() => {
+        setAudience(active === "companies" ? "experts" : "companies");
+      }, 5500);
+    })();
+  </script>
+</body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Preview B — muted chips services</title>
+    <title>LS Portfolio | Brand & Graphic Designer</title>
     <meta
       name="description"
       content="Lana Svitla — Brand & Graphic Designer. Айдентика, визуальные системы, digital-коммуникации, web, презентации и бренд-материалы."
@@ -13,7 +13,7 @@
 
       :root {
         --bg: #ffffff;
-        --ink: #000000;
+        --ink: #434343;
         --muted: #9ba1a5;
         --line: rgba(0, 0, 0, 0.14);
         --accent: #2060df;
@@ -22,6 +22,7 @@
         --footer: #f5f5f7;
         --grid-gap: 20px;
         --pad-x: 20px;
+        --page-x: var(--pad-x);
         --pad-y: 12px;
         --sans: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
         --serif: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
@@ -3267,17 +3268,334 @@
         }
       }
 
-    </style>
+
+      /* Canonical index page: stable CTA arrow and mobile-only hero simplification. */
+      .mywork-link-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        min-height: 10px;
+        border-radius: 0;
+        background: transparent !important;
+        color: inherit;
+        font-size: 0;
+        line-height: 1;
+        transform: translateY(1px);
+      }
+
+      .mywork-link-arrow {
+        display: block;
+        width: 10px;
+        height: 10px;
+      }
+
+      .mywork-link:hover .mywork-link-icon {
+        background: transparent !important;
+      }
+
+      @media (max-width: 700px) {
+        .hero-figures {
+          display: none !important;
+        }
+
+        .portrait-card {
+          width: min(74vw, 320px);
+          max-width: 320px;
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .portrait-card {
+          width: min(76vw, 300px);
+          max-width: 300px;
+        }
+      }
+
+  
+    /* Final CTA/reference arrow behavior */
+    .mywork-link,
+    .project-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      min-height: auto;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      color: #727272;
+      font-weight: 300;
+      text-decoration: none;
+      background: transparent;
+      transition: color 220ms ease;
+    }
+
+    .mywork-link:hover,
+    .project-cta:hover {
+      color: #000;
+      text-decoration: none;
+      background: transparent;
+      transform: none;
+    }
+
+    .mywork-link-icon,
+    .project-cta-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      background: transparent !important;
+      border-radius: 0;
+      transform: translate3d(0, 1px, 0);
+      transition: transform 260ms ease;
+    }
+
+    .mywork-link:hover .mywork-link-icon,
+    .project-cta:hover .project-cta-icon {
+      background: transparent !important;
+      transform: translate3d(5px, 1px, 0);
+    }
+
+    .mywork-link-arrow,
+    .project-cta-arrow {
+      display: block;
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
+    }
+
+    .mywork-link-arrow {
+      transform: translateY(0.13em) rotate(45deg);
+    }
+
+    @media (max-width: 700px) {
+      .hero-figures {
+        display: none !important;
+      }
+
+      .portrait-card {
+        width: min(72vw, 310px);
+        aspect-ratio: 1 / 1;
+        margin-top: 18px;
+      }
+    }
+
+
+      /* LS shared header and color system */
+      :root {
+        --ink: #434343;
+      }
+
+      .site-header {
+        position: fixed;
+        grid-template-columns: 1fr auto 1fr;
+        padding-bottom: 0;
+        color: var(--ink);
+        mix-blend-mode: normal;
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      .site-header::after {
+        content: "";
+        position: absolute;
+        left: var(--page-x);
+        right: var(--page-x);
+        bottom: 0;
+        height: 1px;
+        background: #434343;
+        pointer-events: none;
+      }
+
+      .brand-mark {
+        justify-self: start;
+        color: inherit;
+        font: inherit;
+        font-size: var(--type-nav, 18px);
+        font-weight: 400;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .nav a,
+      .mywork-link,
+      .project-cta,
+      .contact-links a {
+        color: var(--ink) !important;
+      }
+
+      .mywork-link:hover,
+      .project-cta:hover,
+      .nav a:hover,
+      .contact-links a:hover {
+        color: var(--ink) !important;
+      }
+
+      .mywork-link-icon,
+      .project-cta-icon {
+        transform: translate3d(0, 1px, 0) rotate(0deg);
+        transition: transform 260ms ease;
+      }
+
+      .mywork-link:hover .mywork-link-icon,
+      .project-cta:hover .project-cta-icon {
+        transform: translate3d(5px, 1px, 0) rotate(0deg) !important;
+      }
+
+      @media (max-width: 700px) {
+        .site-header {
+          grid-template-columns: auto 1fr auto;
+        }
+
+        .brand-mark {
+          grid-column: 1;
+          justify-self: start;
+        }
+
+        .time {
+          display: none !important;
+        }
+
+        .nav {
+          grid-column: 3;
+          justify-self: end;
+        }
+      }
+
+      .site-header {
+        height: 50px !important;
+        min-height: 50px;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: center;
+      }
+
+      main {
+        padding-top: 50px;
+      }
+
+      /* Audience tabs draft: first state only */
+      .audience-composition {
+        z-index: 3;
+      }
+
+      .audience-tabs-draft {
+        display: grid;
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        min-height: 82px;
+        background: #f9f9fa;
+      }
+
+      .audience-tab {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        padding: 0 16px;
+        color: var(--ink);
+        font: inherit;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 140%;
+        letter-spacing: 0;
+        text-align: left;
+      }
+
+      .audience-tab[disabled] {
+        color: #b9b9ba;
+        opacity: 1;
+        cursor: default;
+      }
+
+      .audience-tabs-divider {
+        display: block;
+        width: 1px;
+        height: 82px;
+        background: #434343;
+      }
+
+      .audience-composition .hero-copy {
+        position: static !important;
+        inset: auto !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        align-self: start;
+        width: auto;
+        max-width: 560px;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: left;
+      }
+
+      @media (min-width: 1181px) {
+        .audience-composition {
+          position: absolute;
+          left: var(--pad-x);
+          top: 37.2svh;
+          display: grid;
+          grid-template-columns: 220px 1px minmax(0, 560px);
+          gap: 18px;
+          align-items: start;
+          width: min(820px, 58vw);
+        }
+      }
+
+      @media (min-width: 701px) and (max-width: 1180px) {
+        .audience-composition {
+          grid-column: 1 / -1;
+          grid-row: 2;
+          align-self: end;
+          display: grid;
+          grid-template-columns: minmax(150px, 190px) 1px minmax(0, 1fr);
+          gap: 14px;
+          width: 100%;
+          margin-bottom: 64px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .audience-composition {
+          grid-column: 1 / -1;
+          grid-row: 2;
+          align-self: end;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 16px;
+          width: 100%;
+          margin-bottom: 32px;
+        }
+
+        .audience-tabs-draft {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 44px;
+          min-height: 44px;
+        }
+
+        .audience-tab {
+          padding: 0 12px;
+          text-align: center;
+        }
+
+        .audience-tabs-divider {
+          display: none;
+        }
+      }
+
+  </style>
   </head>
   <body>
     <div class="cursor-dot" aria-hidden="true"></div>
 
     <header class="site-header" aria-label="Primary navigation">
-      <div></div>
+      <a class="brand-mark" href="./index.html#top">LS Portfolio</a>
       <div class="time" aria-live="polite">00:00:00</div>
       <nav class="nav">
-        <a href="#work">Works</a>
-        <a href="#contact">Contacts</a>
+        <a href="./index.html#work">Works</a>
+        <a href="./index.html#contact">Contacts</a>
       </nav>
     </header>
 
@@ -3291,10 +3609,17 @@
           Brand &amp; Graphic Designer
         </div>
 
-        <p class="hero-copy">
-          Собираю айдентику и&nbsp;визуальные системы для&nbsp;современных брендов:<br class="desktop-copy-break" />
-          от&nbsp;visual identity до&nbsp;сайтов, презентаций, кампаний и&nbsp;digital-коммуникаций.
-        </p>
+        <div class="audience-composition audience-companies" aria-label="Аудитория: компаниям">
+          <div class="audience-tabs-draft" role="tablist" aria-label="Аудитория">
+            <button class="audience-tab is-active" type="button" role="tab" aria-selected="true">Компаниям</button>
+            <button class="audience-tab" type="button" role="tab" aria-selected="false" disabled>Экспертам</button>
+          </div>
+          <span class="audience-tabs-divider" aria-hidden="true"></span>
+          <p class="hero-copy">
+            Собираю айдентику и&nbsp;визуальные системы для&nbsp;современных брендов:<br class="desktop-copy-break" />
+            от&nbsp;visual identity до&nbsp;сайтов, презентаций и&nbsp;digital-коммуникаций.
+          </p>
+        </div>
 
         <div class="hero-services hero-services-preview-b" aria-label="Направления">
           <div class="hero-service"><span>Айдентика</span></div>
@@ -3411,7 +3736,7 @@
               <p class="mywork-description">
                 Набор иллюстраций для&nbsp;маркетплейса ремесленных товаров
               </p>
-              <a class="mywork-link" href="#" aria-label="Смотреть проект"><span>Смотреть проект</span><span class="mywork-link-icon" aria-hidden="true">↗</span></a>
+              <a class="mywork-link" href="./visual-brand-identity/index.html" aria-label="Смотреть проект"><span>Смотреть проект</span><span class="mywork-link-icon" aria-hidden="true"><img class="mywork-link-arrow" src="../../assets/icons/Arrow_button.svg" alt="" /></span></a>
             </div>
           </div>
         </div>
@@ -3845,6 +4170,13 @@
         node.addEventListener("mouseenter", () => cursor.classList.add("is-hovering"));
         node.addEventListener("mouseleave", () => cursor.classList.remove("is-hovering"));
       });
+
+
+      if (heroFigureTwo && !prefersReducedMotion) {
+        window.setInterval(() => {
+          rotateHeroFigureTwo(135);
+        }, 30000);
+      }
 
       updateTime();
       renderMotion();
