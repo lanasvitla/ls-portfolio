@@ -3479,6 +3479,86 @@
         padding-top: 50px;
       }
 
+      /* Hero identity: fixed to the portrait, matching the reference spacing. */
+      .hero-profile {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+        align-self: start;
+        justify-self: start;
+        width: 200px;
+        position: relative;
+        z-index: 4;
+      }
+
+      .hero-profile .portrait-card {
+        grid-column: auto;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+      }
+
+      .hero-identity {
+        margin-top: 25px;
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-align: left;
+      }
+
+      .hero-person-name {
+        margin: 0;
+        color: #9d9d9d;
+        font: inherit;
+        font-weight: 400;
+        line-height: inherit;
+        letter-spacing: 0;
+      }
+
+      .hero-identity .role {
+        position: static !important;
+        inset: auto !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        max-width: none;
+        margin: 2px 0 0;
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: inherit;
+        font-weight: 500;
+        line-height: inherit;
+        letter-spacing: 0;
+        text-align: left;
+        text-transform: none;
+      }
+
+      @media (max-width: 1180px) {
+        .hero-profile {
+          grid-column: 1 / span 4;
+          grid-row: 1;
+          width: clamp(190px, 24vw, 250px);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .hero-profile {
+          width: min(72vw, 310px);
+          margin-top: 18px;
+        }
+
+        .hero-identity {
+          margin-top: 22px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .hero-profile {
+          width: min(76vw, 300px);
+          max-width: 300px;
+        }
+      }
+
       /* Audience tabs draft: first state only */
       .audience-composition {
         z-index: 3;
@@ -3486,21 +3566,26 @@
 
       .audience-tabs-draft {
         display: grid;
-        grid-template-rows: repeat(2, minmax(0, 1fr));
-        min-height: 82px;
-        background: #f9f9fa;
+        grid-template-rows: repeat(2, auto);
+        align-content: start;
+        gap: 0;
+        width: min(100%, 244px);
+        min-height: 58px;
+        background: transparent;
       }
 
       .audience-tab {
         appearance: none;
         border: 0;
+        border-bottom: 1px solid transparent;
         background: transparent;
-        padding: 0 16px;
-        color: var(--ink);
+        min-height: 29px;
+        padding: 0 0 7px;
+        color: #c9c9c9;
         font: inherit;
         font-size: 16px;
-        font-weight: 400;
-        line-height: 140%;
+        font-weight: 500;
+        line-height: 1.2;
         letter-spacing: 0;
         text-align: left;
       }
@@ -3512,10 +3597,7 @@
       }
 
       .audience-tabs-divider {
-        display: block;
-        width: 1px;
-        height: 82px;
-        background: #434343;
+        display: none;
       }
 
       .audience-composition .hero-copy {
@@ -3537,10 +3619,10 @@
           left: var(--pad-x);
           top: 37.2svh;
           display: grid;
-          grid-template-columns: 220px 1px minmax(0, 560px);
-          gap: 18px;
+          grid-template-columns: 244px minmax(0, 560px);
+          column-gap: 58px;
           align-items: start;
-          width: min(820px, 58vw);
+          width: min(862px, 62vw);
         }
       }
 
@@ -3550,8 +3632,8 @@
           grid-row: 2;
           align-self: end;
           display: grid;
-          grid-template-columns: minmax(150px, 190px) 1px minmax(0, 1fr);
-          gap: 14px;
+          grid-template-columns: minmax(180px, 244px) minmax(0, 1fr);
+          column-gap: 32px;
           width: 100%;
           margin-bottom: 64px;
         }
@@ -3571,17 +3653,15 @@
 
         .audience-tabs-draft {
           grid-template-columns: 1fr 1fr;
-          grid-template-rows: 44px;
-          min-height: 44px;
+          grid-template-rows: auto;
+          width: 100%;
+          min-height: 30px;
         }
 
         .audience-tab {
-          padding: 0 12px;
-          text-align: center;
-        }
-
-        .audience-tabs-divider {
-          display: none;
+          min-height: 30px;
+          padding: 0 0 7px;
+          text-align: left;
         }
       }
 
@@ -3593,22 +3673,12 @@
     }
 
     .audience-tabs-draft::before {
-      content: "";
-      position: absolute;
-      z-index: 0;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      box-sizing: border-box;
-      background: #f0f0f2;
-      border: 1px solid #d2d2d4;
-      transform: translateY(0);
-      transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+      content: none;
+      display: none;
     }
 
     .audience-tabs-draft.is-experts::before {
-      transform: translateY(100%);
+      transform: none;
     }
 
     .audience-tab {
@@ -3619,12 +3689,14 @@
     }
 
     .audience-tab[aria-selected="false"] {
-      color: #aaa;
+      color: #c9c9c9;
+      border-bottom-color: transparent;
     }
 
     .audience-tab[aria-selected="true"] {
       color: #434343;
       font-weight: 500;
+      border-bottom-color: #434343;
     }
 
     .audience-reveal {
@@ -3652,14 +3724,9 @@
     }
 
     @media (max-width: 700px) {
-      .audience-tabs-draft::before {
-        width: 50%;
-        height: 100%;
-        transform: translateX(0);
-      }
-
+      .audience-tabs-draft::before,
       .audience-tabs-draft.is-experts::before {
-        transform: translateX(100%);
+        transform: none;
       }
     }
 
@@ -3673,7 +3740,8 @@
       }
     }
   </style>
-  </head>
+  
+</head>
   <body>
     <div class="cursor-dot" aria-hidden="true"></div>
 
@@ -3688,12 +3756,14 @@
 
     <main>
       <section class="hero" id="top" aria-label="Intro">
-        <div class="portrait-card">
-          <img src="../../assets/images/LS_sketch.jpg" alt="Lana Svitla" />
-        </div>
-
-        <div class="role role-brand">
-          Brand &amp; Graphic Designer
+        <div class="hero-profile">
+          <div class="portrait-card">
+            <img src="../../assets/images/LS_sketch.jpg" alt="Lana Svitla" />
+          </div>
+          <div class="hero-identity" aria-label="Lana Svitla, Brand & Graphic Designer">
+            <div class="hero-person-name">Lana Svitla</div>
+            <div class="role role-brand">Brand &amp; Graphic Designer</div>
+          </div>
         </div>
 
         <div class="audience-composition audience-companies" aria-label="Аудитория: компаниям">
@@ -4349,5 +4419,40 @@
       }, 5500);
     })();
   </script>
+<script id="hero-image-source-stability-script">
+(() => {
+  const assetUrl = (path) => new URL(path, document.baseURI).href;
+
+  const setStableSource = (element, path) => {
+    if (!element) return;
+    const url = assetUrl(path);
+    if (element.tagName === "OBJECT") {
+      element.data = url;
+    } else {
+      element.src = url;
+    }
+  };
+
+  const imageLike = [...document.querySelectorAll("img, object")];
+  const portrait = imageLike.find((element) => {
+    const source = element.getAttribute("src") || element.getAttribute("data") || "";
+    const alt = element.getAttribute("alt") || "";
+    return /LS_sketch/i.test(source) || /Lana Svitla/i.test(alt);
+  });
+  const shapeOne = imageLike.find((element) => {
+    const source = element.getAttribute("src") || element.getAttribute("data") || "";
+    return /(?:^|\/)11\.svg(?:$|\?)/i.test(source);
+  });
+  const shapeTwo = imageLike.find((element) => {
+    const source = element.getAttribute("src") || element.getAttribute("data") || "";
+    return /(?:^|\/)22\.svg(?:$|\?)/i.test(source);
+  });
+
+  setStableSource(portrait, "../../assets/images/LS_sketch.jpg");
+  setStableSource(shapeOne, "../../assets/icons/11.svg");
+  setStableSource(shapeTwo, "../../assets/icons/22.svg");
+})();
+</script>
 </body>
+
 </html>
