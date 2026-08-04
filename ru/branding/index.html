@@ -37,7 +37,40 @@
         --pad-x: 20px;
         --page-x: var(--pad-x);
         --pad-y: 12px;
-        --sans: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+
+        /* Typography system: semantic roles for all non-display text. */
+        --font-text: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+        --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --weight-hairline: 100;
+        --weight-light: 300;
+        --weight-regular: 400;
+        --weight-medium: 500;
+        --text-label: 11px;
+        --text-badge: 12px;
+        --text-ui: 16px;
+        --text-body-copy: 16px;
+        --text-meta: 16px;
+        --text-action: 20px;
+        --text-case-title: clamp(32px, 3.2vw, 62px);
+        --text-case-index: clamp(64px, 7vw, 120px);
+        --text-contact: clamp(29px, 4.32vw, 67px);
+        --text-footer-copy: 17px;
+        --leading-single: 1;
+        --leading-compact: 1.2;
+        --leading-ui: 1.4;
+        --leading-body-copy: 1.5;
+        --leading-case-title: 1.04;
+        --leading-case-index: 0.82;
+        --tracking-default: 0;
+        --rhythm-body-row: 24px;
+        --rhythm-text-group: 8px;
+        --text-strip-title: var(--text-case-title);
+        --space-case-title-tags: clamp(16px, 1.5vw, 22px);
+        --space-case-tags-copy: clamp(34px, 3vw, 44px);
+        --space-case-action: clamp(42px, 3.6vw, 56px);
+        --space-preview-block: 200px;
+
+        --sans: var(--font-text);
         --serif: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
         --instrument: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
         --mono: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
@@ -4037,21 +4070,6 @@
       }
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      z-index: 0;
-      top: 50px;
-      right: 0;
-      width: min(46vw, 680px);
-      height: min(38svh, 360px);
-      pointer-events: none;
-      background-image: radial-gradient(circle, var(--placeholder) 0 1.6px, transparent 2px);
-      background-size: clamp(32px, 3.2vw, 51px) clamp(32px, 3.2vw, 51px);
-      background-position: top right;
-      mask-image: linear-gradient(180deg, var(--ink) 0%, rgba(67, 67, 67, 0.72) 48%, transparent 100%);
-      -webkit-mask-image: linear-gradient(180deg, var(--ink) 0%, rgba(67, 67, 67, 0.72) 48%, transparent 100%);
-    }
 
     .hero-floating-hi {
       position: absolute;
@@ -4102,13 +4120,6 @@
     }
 
     @media (max-width: 700px) {
-      .hero::before {
-        top: 56px;
-        width: 58vw;
-        height: 220px;
-        background-size: 28px 28px;
-      }
-
       .hero-floating-hi {
         top: 14px;
         right: -18px;
@@ -4141,6 +4152,420 @@
     @media (max-width: 700px) {
       .work-alt .mywork-showcase + .mywork-showcase {
         margin-top: 92px;
+      }
+    }
+
+    /* Active typography roles. DESIGN / WORKS / CONTACTS keep their existing display rules. */
+    .brand-mark,
+    .time,
+    .nav,
+    .nav a,
+    .hero-identity,
+    .audience-tab,
+    .hero-copy,
+    .hero-services-preview-b,
+    .hero-services-preview-b .hero-service,
+    .hero-services-preview-b .hero-service > span,
+    .case-preview-meta,
+    .case-preview-title,
+    .case-preview-text,
+    .case-preview-link,
+    .mywork-project,
+    .mywork-project h3,
+    .mywork-description,
+    .mywork-link,
+    .service-chips span,
+    .case-preview-index small,
+    .contact-links,
+    .contact-links a,
+    .hero-floating-hi__label,
+    .footer,
+    .footer small {
+      font-family: var(--font-text);
+      letter-spacing: var(--tracking-default);
+    }
+
+    .brand-mark {
+      font-size: var(--text-ui);
+      font-weight: var(--weight-regular);
+      line-height: var(--leading-single);
+    }
+
+    .time {
+      font-size: var(--text-ui);
+      font-weight: var(--weight-medium);
+      line-height: var(--leading-single);
+    }
+
+    .nav,
+    .nav a {
+      font-size: var(--text-ui);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-ui);
+    }
+
+    .hero-identity {
+      font-size: var(--text-ui);
+      line-height: var(--leading-compact);
+    }
+
+    .hero-person-name {
+      font-weight: var(--weight-regular);
+    }
+
+    .hero-identity .role {
+      font-weight: var(--weight-medium);
+    }
+
+    .audience-tab {
+      font-size: var(--text-ui);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-ui);
+    }
+
+    .audience-tab[aria-selected="true"] {
+      font-weight: var(--weight-regular);
+    }
+
+    .audience-tab[aria-selected="false"] {
+      font-weight: var(--weight-light);
+    }
+
+    .hero-copy,
+    .hero-services-preview-b,
+    .hero-services-preview-b .hero-service,
+    .hero-services-preview-b .hero-service > span,
+    .case-preview-text,
+    .mywork-description {
+      font-size: var(--text-body-copy);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-body-copy);
+    }
+
+    .hero-services-preview-b {
+      gap: 0;
+      row-gap: 0;
+    }
+
+    .hero-services-preview-b .hero-service {
+      min-height: var(--rhythm-body-row);
+      margin: 0;
+    }
+
+    .hero-services-preview-b .hero-service-with-chips {
+      margin: 0 0 var(--rhythm-text-group);
+    }
+
+    .hero-services-preview-b .hero-service-with-chips + .hero-service,
+    .hero-services-preview-b .hero-service-wide {
+      margin-top: var(--rhythm-text-group);
+    }
+
+    .case-preview-meta {
+      font-size: var(--text-meta);
+      font-weight: var(--weight-regular);
+      line-height: var(--leading-ui);
+    }
+
+    .service-chips span {
+      font-size: var(--text-label);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-single);
+    }
+
+    .case-preview-title,
+    .mywork-project h3 {
+      font-size: var(--text-case-title);
+      font-weight: var(--weight-regular);
+      line-height: var(--leading-case-title);
+    }
+
+    .case-preview-index span {
+      font-family: var(--font-display);
+      font-size: var(--text-case-index);
+      font-weight: var(--weight-hairline);
+      line-height: var(--leading-case-index);
+      letter-spacing: var(--tracking-default);
+    }
+
+    .case-preview-index small {
+      font-size: var(--text-meta);
+      font-weight: var(--weight-regular);
+      line-height: var(--leading-ui);
+    }
+
+    .case-preview-link {
+      font-size: var(--text-action);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-ui);
+    }
+
+    .mywork-link {
+      font-size: var(--text-ui);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-ui);
+    }
+
+    .contact-links,
+    .contact-links a {
+      font-size: var(--text-contact);
+      font-weight: var(--weight-medium);
+      line-height: 1.05;
+    }
+
+    .hero-floating-hi__label {
+      font-size: var(--text-badge);
+      font-weight: var(--weight-medium);
+      line-height: var(--leading-single);
+    }
+
+    .footer,
+    .footer small {
+      font-size: var(--text-footer-copy);
+      font-weight: var(--weight-regular);
+      line-height: var(--leading-ui);
+    }
+
+    @media (max-width: 700px) {
+      :root {
+        --text-label: 10px;
+        --text-badge: 11px;
+        --text-meta: 15px;
+        --text-action: 18px;
+        --text-contact: clamp(23px, 7.2vw, 40px);
+      }
+    }
+
+    @media (max-width: 420px) {
+      :root {
+        --text-contact: clamp(22px, 6.48vw, 31px);
+      }
+    }
+
+    /* Unified case information flow: title, tags, description, action. */
+    .case-preview-copy {
+      width: 100%;
+      min-width: 0;
+      max-width: none;
+    }
+
+    .case-preview-title {
+      width: 100%;
+      max-width: none;
+    }
+
+    .case-tags,
+    .case-preview-tags {
+      margin-top: var(--space-case-title-tags);
+    }
+
+    .case-preview-text {
+      width: 100%;
+      max-width: 100%;
+      margin-top: var(--space-case-tags-copy);
+    }
+
+    .mywork-caption {
+      display: block;
+      width: 100%;
+      max-width: none;
+      padding-top: 22px;
+      padding-right: var(--pad-x);
+      padding-left: var(--pad-x);
+    }
+
+    .mywork-project,
+    .mywork-project > div {
+      display: block;
+      width: 100%;
+      max-width: none;
+    }
+
+    .mywork-project h3 {
+      width: max-content;
+      max-width: 100%;
+      margin: 0;
+      font-size: var(--text-strip-title);
+      white-space: nowrap;
+    }
+
+    .case-preview-title,
+    .mywork-project h3 {
+      font-family: var(--font-display);
+      font-weight: var(--weight-hairline);
+    }
+
+    .mywork-caption > div:last-child {
+      width: min(620px, 100%);
+      max-width: 100%;
+      margin-top: var(--space-case-tags-copy);
+      margin-left: 0;
+      text-align: left;
+    }
+
+    .mywork-description {
+      width: 100%;
+      max-width: 620px;
+      margin: 0;
+    }
+
+    .case-preview-link,
+    .mywork-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      min-height: 0;
+      margin-top: var(--space-case-action);
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      color: var(--muted) !important;
+      background: transparent;
+      font-size: var(--text-action);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-ui);
+      text-decoration: none;
+      transition: color 220ms ease;
+    }
+
+    .case-preview-link:hover,
+    .mywork-link:hover {
+      color: var(--ink) !important;
+      border-color: transparent;
+      background: transparent;
+      transform: none;
+    }
+
+    .case-preview-link-icon,
+    .mywork-link-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      transform: translate3d(0, 1px, 0);
+      transition: transform 260ms ease;
+    }
+
+    .case-preview-link-icon img,
+    .mywork-link-icon img,
+    .mywork-link-arrow {
+      display: block;
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
+      transform: rotate(45deg) !important;
+    }
+
+    .case-preview-link:hover .case-preview-link-icon,
+    .mywork-link:hover .mywork-link-icon {
+      transform: translate3d(4px, 1px, 0) !important;
+    }
+
+    /* One vertical rhythm between every consecutive case preview block. */
+    .case-preview-stack {
+      gap: var(--space-preview-block);
+    }
+
+    .case-preview-stack + .mywork-showcase,
+    .work-alt .mywork-showcase + .mywork-showcase {
+      margin-top: var(--space-preview-block);
+    }
+
+    @media (min-width: 701px) and (max-width: 1180px) {
+      :root {
+        --space-preview-block: clamp(128px, 16.95vw, 200px);
+      }
+    }
+
+    @media (max-width: 700px) {
+      :root {
+        --space-preview-block: clamp(80px, calc(56px + 5.72vw), 96px);
+      }
+    }
+
+    /* Audience tabs: state changes color only; underline stays within the active tab. */
+    .audience-tab,
+    .audience-tab[aria-selected="true"],
+    .audience-tab[aria-selected="false"] {
+      min-height: 0;
+      padding: 0 0 2px;
+      font-size: var(--text-ui);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-ui);
+    }
+
+    .audience-tab[aria-selected="true"] {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    .audience-tab[aria-selected="false"] {
+      color: var(--soft);
+      border-bottom-color: transparent;
+    }
+
+    @media (min-width: 701px) {
+      .audience-tabs-draft {
+        row-gap: 8px;
+      }
+    }
+
+    /* Canonical rhythm for the two presentation case previews. */
+    .case-preview {
+      align-items: stretch;
+    }
+
+    .case-preview-copy {
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+    }
+
+    .case-preview-index {
+      margin-top: auto;
+    }
+
+    .case-preview-index small,
+    .case-preview-link {
+      color: var(--ink) !important;
+      font-family: var(--font-text);
+      font-size: var(--text-body-copy);
+      font-weight: var(--weight-light);
+      line-height: var(--leading-body-copy);
+      letter-spacing: var(--tracking-default);
+    }
+
+    .case-preview-link {
+      margin-top: var(--space-case-tags-copy);
+    }
+
+    @media (max-width: 900px) {
+      .case-preview-index {
+        margin-top: var(--space-case-tags-copy);
+      }
+
+      .case-preview-link {
+        margin-top: var(--space-case-tags-copy);
+      }
+    }
+
+    @media (max-width: 700px) {
+      :root {
+        --text-strip-title: clamp(24px, 7vw, 32px);
+        --space-case-title-tags: 14px;
+        --space-case-tags-copy: 30px;
+        --space-case-action: 40px;
+      }
+
+      .mywork-caption {
+        padding-top: 16px;
+      }
+
+      .case-preview-title,
+      .mywork-project h3 {
+        font-weight: var(--weight-light);
       }
     }
   </style>
@@ -4218,8 +4643,8 @@
         <div class="case-preview-stack" aria-label="Превью проекта-заглушки">
           <article class="case-preview">
             <div class="case-preview-copy">
-              <p class="case-preview-meta">Brand system · Digital preview · Case placeholder</p>
               <h3 class="case-preview-title">Project Title Placeholder</h3>
+              <div class="service-chips case-tags case-preview-tags" aria-label="Теги проекта-заглушки"><span>Brand system</span><span>Digital preview</span><span>Case placeholder</span></div>
               <p class="case-preview-text">
                 Будущий кейс о&nbsp;визуальной системе: задача, подход, носители и&nbsp;digital-коммуникация.
               </p>
@@ -4242,8 +4667,8 @@
 
           <article class="case-preview case-preview--mirror">
             <div class="case-preview-copy">
-              <p class="case-preview-meta">Brand system · Digital preview · Case placeholder</p>
               <h3 class="case-preview-title">Project Title Placeholder</h3>
+              <div class="service-chips case-tags case-preview-tags" aria-label="Теги проекта-заглушки"><span>Brand system</span><span>Digital preview</span><span>Case placeholder</span></div>
               <p class="case-preview-text">
                 Будущий кейс о&nbsp;визуальной системе: задача, подход, носители и&nbsp;digital-коммуникация.
               </p>
@@ -4870,10 +5295,10 @@
           copy: "Создаю визуальную упаковку для&nbsp;личного бренда, экспертного проекта",
           services: `
             <div class="hero-service"><span>Логотип / Фирменный стиль</span></div>
-            <div class="hero-service"><span>Презентация / Гайд / Прайс / Чек-листы</span></div>
-            <div class="hero-service"><span>SMM / digital-коммуникация</span></div>
+            <div class="hero-service"><span>Презентации</span></div>
+            <div class="hero-service"><span>Гайды / Прайсы / Чек-листы</span></div>
             <div class="hero-service hero-service-with-chips">
-              <span>Лендинг / Дизайн для&nbsp;запуска курсов</span>
+              <span>Лендинги / Дизайн для&nbsp;запуска курсов</span>
               <div class="service-chips">
                 <span>Tilda</span><span>Webflow</span><span>Framer</span><span>Lovable</span>
               </div>
