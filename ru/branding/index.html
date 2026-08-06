@@ -16,6 +16,7 @@
         --bg: var(--white);
         --ink: #434343;
         --muted: #9d9d9d;
+        --chip-text: var(--ink);
         --soft: #c9c9c9;
         --line: rgba(67, 67, 67, 0.16);
         --line-soft: rgba(67, 67, 67, 0.13);
@@ -1780,9 +1781,9 @@
         align-items: center;
         min-height: 24px;
         padding: 4px 10px 5px;
-        border: 1px solid var(--line);
+        border: 0;
         border-radius: 999px;
-        color: var(--muted);
+        color: var(--chip-text);
         background: var(--surface-glass);
         font-size: 11px;
         font-weight: 300;
@@ -3551,7 +3552,7 @@
 
       .hero-person-name {
         margin: 0;
-        color: var(--muted);
+        color: var(--ink);
         font: inherit;
         font-weight: 400;
         line-height: inherit;
@@ -4210,7 +4211,7 @@
     }
 
     .hero-person-name {
-      font-weight: var(--weight-regular);
+      font-weight: var(--weight-light);
     }
 
     .hero-identity .role {
@@ -4568,6 +4569,67 @@
         font-weight: var(--weight-light);
       }
     }
+    /* Disabled case CTA: one muted color for the label and arrow. */
+    .case-preview-link--disabled,
+    .case-preview-link--disabled:hover {
+      color: var(--muted) !important;
+      cursor: default;
+      opacity: 1;
+      transform: none;
+    }
+
+    .case-preview-link--disabled:hover .case-preview-link-icon {
+      transform: translate3d(0, 1px, 0) !important;
+    }
+
+    .case-preview-link--disabled .case-preview-link-icon img,
+    .case-preview-link--disabled:hover .case-preview-link-icon img {
+      opacity: 0.52;
+    }
+
+    /* Mobile intro: a smaller portrait with a tighter header-to-image rhythm. */
+    @media (max-width: 700px) {
+      .hero {
+        padding-top: 17px;
+      }
+
+      .hero-profile {
+        width: min(48vw, 207px);
+        margin-top: 6px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-profile {
+        width: min(50.6667vw, 200px);
+      }
+    }
+
+    /* Short desktop: move the complete hero composition as one scroll-like stage. */
+    @media (min-width: 1181px) and (max-height: 799px) {
+      .hero {
+        --hero-short-shift: clamp(-220px, calc(100svh - 800px), 0px);
+        min-height: 800px;
+        margin-bottom: var(--hero-short-shift);
+      }
+
+      .audience-composition,
+      .hero-services-preview-b {
+        top: 297.6px !important;
+      }
+
+      .hero-figures {
+        bottom: 62.4px;
+      }
+
+      .hero-profile,
+      .audience-composition,
+      .hero-services-preview-b,
+      .hero-figures,
+      .hero-mark {
+        translate: 0 var(--hero-short-shift);
+      }
+    }
   </style>
   
 </head>
@@ -4643,19 +4705,19 @@
         <div class="case-preview-stack" aria-label="Превью проекта-заглушки">
           <article class="case-preview">
             <div class="case-preview-copy">
-              <h3 class="case-preview-title">Project Title Placeholder</h3>
-              <div class="service-chips case-tags case-preview-tags" aria-label="Теги проекта-заглушки"><span>Brand system</span><span>Digital preview</span><span>Case placeholder</span></div>
+              <h3 class="case-preview-title">Eqlio / корпоративное приложение для&nbsp;спортивных челленджей</h3>
+              <div class="service-chips case-tags case-preview-tags" aria-label="Теги проекта Eqlio"><span>Продуктовый дизайн</span><span>Корпоративный спорт</span><span>UX/UI</span></div>
               <p class="case-preview-text">
-                Будущий кейс о&nbsp;визуальной системе: задача, подход, носители и&nbsp;digital-коммуникация.
+                Корпоративная wellness-платформа, которая делает спортивные челленджи доступными и&nbsp;интересными для&nbsp;каждого сотрудника.
               </p>
-              <div class="case-preview-index" aria-label="Превью 01">
-                <span>01</span>
-                <small>preview module</small>
+              <div class="case-preview-index" aria-label="Результат Eqlio: 6 из 7">
+                <span>6/7</span>
+                <small>found discovery intuitive</small>
               </div>
-              <a class="case-preview-link" href="./project-placeholder/index.html" aria-label="Смотреть проект-заглушку">
-                <span>Смотреть проект</span>
+              <button class="case-preview-link case-preview-link--disabled" type="button" disabled aria-label="Case study coming soon">
+                <span>Case study coming soon</span>
                 <span class="case-preview-link-icon" aria-hidden="true"><img src="../../assets/icons/Arrow_button.svg" alt="" /></span>
-              </a>
+              </button>
             </div>
             <div class="case-preview-visual" aria-hidden="true">
               <div class="case-preview-board">
@@ -4926,6 +4988,7 @@
 
       const myworkTracks = document.querySelectorAll(".mywork-track");
       const morphWord = document.querySelector(".morph-word");
+      const heroSection = document.querySelector(".hero");
       const workSection = document.querySelector("#work");
       const contactMorphWord = document.querySelector(".contact-morph-word");
       const contactSection = document.querySelector("#contact");
@@ -4966,8 +5029,12 @@
         }
 
         const viewport = window.innerHeight || 1;
-        const start = workSection.offsetTop - viewport * 0.78;
-        const end = workSection.offsetTop - viewport * 0.38;
+        const heroShortShift = heroSection
+          ? Number.parseFloat(getComputedStyle(heroSection).getPropertyValue("--hero-short-shift")) || 0
+          : 0;
+        const workOffsetTop = workSection.offsetTop - heroShortShift;
+        const start = workOffsetTop - viewport * 0.78;
+        const end = workOffsetTop - viewport * 0.38;
         const raw = clamp((window.scrollY - start) / Math.max(end - start, 1), 0, 1);
         const progress = prefersReducedMotion ? Math.round(raw) : easeInOut(raw);
         const fromOpacity = 1 - progress;
