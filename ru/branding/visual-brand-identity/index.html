@@ -3,10 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="data:," />
   <title>Visual Brand Identity | LS Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@100,200;100,300;100,400;100,500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #ffffff;
@@ -240,10 +238,6 @@
         transform 220ms ease;
     }
 
-    .chips .tool-chip {
-      background: transparent;
-      animation: tool-chip-pulse 14s ease-in-out 4s infinite;
-    }
 
     @media (hover: hover) and (pointer: fine) {
       .chips span:hover {
@@ -253,23 +247,6 @@
         transform: translateY(-1px);
       }
 
-      .chips .tool-chip:hover {
-        background: transparent;
-      }
-    }
-
-    @keyframes tool-chip-pulse {
-      0%,
-      10%,
-      100% {
-        border-color: var(--line);
-        box-shadow: 0 0 0 0 rgba(67, 67, 67, 0);
-      }
-
-      5% {
-        border-color: #a8a8aa;
-        box-shadow: 0 0 0 4px rgba(67, 67, 67, 0.06);
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -277,9 +254,6 @@
         transition: none;
       }
 
-      .chips .tool-chip {
-        animation: none;
-      }
     }
 
     .gallery {
@@ -770,22 +744,9 @@
       }
     }
   </style>
-  <style>
-    /* Optically center the project-discussion arrow with its label. */
-    a:has(> img[src*="Arrow_button" i]) {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    a > img[src*="Arrow_button" i] {
-      display: block;
-      align-self: center;
-      position: relative;
-      top: 0.04em;
-    }
-  </style>
+  <link rel="stylesheet" href="../../../assets/css/design-system.css" />
 </head>
-<body>
+<body class="case-page">
   <div class="cursor-dot" aria-hidden="true"></div>
 
   <header class="site-header" aria-label="Primary navigation">
@@ -806,17 +767,17 @@
 
       <div class="case-intro">
         <div class="case-title-wrap">
-          <h1 id="case-title">Visual Brand<br />Identity</h1>
+          <h1 class="type-h1" id="case-title">Visual Brand<br />Identity</h1>
         </div>
         <div class="case-copy">
-          <p>Система иллюстраций для&nbsp;маркетплейса ремесленных товаров</p>
+          <p class="type-body">Система иллюстраций для&nbsp;маркетплейса ремесленных товаров</p>
           <div class="chips" aria-label="Теги проекта">
             <span>Category system</span>
             <span>AI-assisted visuals</span>
             <span>Visual identity</span>
             <span>Marketplace</span>
             <span>Digital</span>
-            <span class="tool-chip">Nano Banana</span>
+            <span>Nano Banana</span>
           </div>
         </div>
       </div>
@@ -848,31 +809,31 @@
     </section>
 
     <section class="other" id="work" aria-labelledby="other-title">
-      <h2 class="other-title" id="other-title">Другие проекты</h2>
+      <h2 class="other-title type-h1" id="other-title">Другие проекты</h2>
       <div class="other-grid">
         <article class="other-card">
-          <div class="other-thumb" aria-hidden="true"></div>
-          <a class="project-link" href="../#work"><span>Смотреть проект</span><img src="../../../assets/icons/Arrow_button.svg" alt="" /></a>
+          <div class="other-thumb placeholder-surface" aria-hidden="true"></div>
+          <a class="project-link action-link type-action" href="../#work"><span>Смотреть проект</span><img class="ui-arrow" src="../../../assets/icons/Arrow_right.svg" alt="" /></a>
         </article>
         <article class="other-card">
-          <div class="other-thumb" aria-hidden="true"></div>
-          <a class="project-link" href="../#work"><span>Смотреть проект</span><img src="../../../assets/icons/Arrow_button.svg" alt="" /></a>
+          <div class="other-thumb placeholder-surface" aria-hidden="true"></div>
+          <a class="project-link action-link type-action" href="../#work"><span>Смотреть проект</span><img class="ui-arrow" src="../../../assets/icons/Arrow_right.svg" alt="" /></a>
         </article>
         <article class="other-card">
-          <div class="other-thumb" aria-hidden="true"></div>
-          <a class="project-link" href="../#work"><span>Смотреть проект</span><img src="../../../assets/icons/Arrow_button.svg" alt="" /></a>
+          <div class="other-thumb placeholder-surface" aria-hidden="true"></div>
+          <a class="project-link action-link type-action" href="../#work"><span>Смотреть проект</span><img class="ui-arrow" src="../../../assets/icons/Arrow_right.svg" alt="" /></a>
         </article>
       </div>
     </section>
 
     <section class="closing" aria-label="Связаться">
-      <a class="big-cta" href="mailto:lanlongline@gmail.com"><span>Обсудить ваш проект</span><img src="../../../assets/icons/Arrow_button.svg" alt="" /></a>
+      <a class="big-cta action-link" href="mailto:lanlongline@gmail.com"><span>Обсудить ваш проект</span><img class="ui-arrow" src="../../../assets/icons/Arrow_right.svg" alt="" /></a>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
-      <h2 class="contact-mark contact-light-word contact-morph-word" id="contact-title" aria-label="Contacts">
-        <span class="contact-morph-layer contact-morph-from">CONTACTS</span>
-        <span class="contact-morph-layer contact-morph-to" aria-hidden="true">CONTACTS</span>
+      <h2 class="contact-mark contact-light-word contact-morph-word display-morph" id="contact-title" aria-label="Contacts">
+        <span class="contact-morph-layer contact-morph-from display-morph__layer display-morph__layer--from">CONTACTS</span>
+        <span class="contact-morph-layer contact-morph-to display-morph__layer display-morph__layer--to" aria-hidden="true">CONTACTS</span>
       </h2>
       <div class="contact-links">
         <a href="https://t.me/LLanaSvitla" target="_blank" rel="noreferrer">Telegram</a>
@@ -910,9 +871,10 @@
     if (cursor && window.matchMedia('(hover: hover)').matches) {
       window.addEventListener('pointermove', (event) => {
         cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate3d(-50%, -50%, 0)`;
+        cursor.classList.add('is-visible');
       }, { passive: true });
-      window.addEventListener('pointerleave', () => { cursor.style.opacity = '0'; });
-      window.addEventListener('pointerenter', () => { cursor.style.opacity = '1'; });
+      window.addEventListener('pointerleave', () => { cursor.classList.remove('is-visible', 'is-hovering'); });
+      window.addEventListener('pointerenter', () => { cursor.classList.add('is-visible'); });
     }
 
     const revealFigure = document.querySelector('.case-figure-reveal');

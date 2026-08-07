@@ -3,14 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LS Portfolio | Brand & Graphic Designer</title>
+    <link rel="icon" href="data:," />
+  <title>LS Portfolio | Brand & Graphic Designer</title>
     <meta
       name="description"
       content="Lana Svitla — Brand & Graphic Designer. Айдентика, визуальные системы, digital-коммуникации, web, презентации и бренд-материалы."
     />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&display=swap");
-
       :root {
         --white: #ffffff;
         --bg: var(--white);
@@ -4605,6 +4604,32 @@
       }
     }
 
+
+    /* Final hero form alignment: keep the SVG pair in the DESIGN word band. */
+    @media (min-width: 1181px) {
+      .hero-figures {
+        --hero-figure-size: clamp(136px, 10.4vw, 168px);
+        top: auto;
+        bottom: clamp(94px, 9svh, 108px);
+        left: calc(100% - var(--pad-x) - min(480px, 37vw));
+        right: auto;
+        gap: clamp(22px, 2vw, 36px);
+      }
+
+      .hero-figure-reveal,
+      .hero-figure-spin {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        border-radius: 0;
+      }
+
+      .hero-figure {
+        opacity: 1;
+        filter: none;
+      }
+    }
+
     /* Short desktop: move the complete hero composition as one scroll-like stage. */
     @media (min-width: 1181px) and (max-height: 799px) {
       .hero {
@@ -4619,7 +4644,7 @@
       }
 
       .hero-figures {
-        bottom: 62.4px;
+        bottom: 94px;
       }
 
       .hero-profile,
@@ -4631,9 +4656,9 @@
       }
     }
   </style>
-  
+  <link rel="stylesheet" href="../../assets/css/design-system.css" />
 </head>
-  <body>
+  <body class="home-page">
     <div class="cursor-dot" aria-hidden="true"></div>
 
     <header class="site-header" aria-label="Primary navigation">
@@ -4662,9 +4687,9 @@
         </div>
 
         <div class="audience-composition audience-companies" aria-label="Аудитория: компаниям">
-      <div class="audience-tabs-draft" role="tablist" aria-label="Аудитория">
-        <button class="audience-tab is-active" type="button" role="tab" aria-selected="true" data-audience="companies">Компаниям</button>
-        <button class="audience-tab" type="button" role="tab" aria-selected="false" data-audience="experts">Экспертам</button>
+      <div class="audience-tabs-draft tabs tabs--stacked" role="tablist" aria-label="Аудитория">
+        <button class="audience-tab tab is-active" type="button" role="tab" aria-selected="true" data-audience="companies">Компаниям</button>
+        <button class="audience-tab tab" type="button" role="tab" aria-selected="false" data-audience="experts">Экспертам</button>
       </div>
       <span class="audience-tabs-divider" aria-hidden="true"></span>
       <p class="hero-copy" aria-live="polite">
@@ -4685,9 +4710,9 @@
           <span class="hero-figure-spin"><img class="hero-figure hero-figure-two" src="../../assets/images/hero-figure-2.svg" alt="" /></span>
         </div>
 
-        <h1 class="hero-mark hero-design-word morph-word" aria-label="Design" data-word="design">
-          <span class="morph-layer morph-word-from">DESIGN</span>
-          <span class="morph-layer morph-word-to" aria-hidden="true">WORKS</span>
+        <h1 class="hero-mark hero-design-word morph-word display-morph" aria-label="Design" data-word="design">
+          <span class="morph-layer morph-word-from display-morph__layer display-morph__layer--from">DESIGN</span>
+          <span class="morph-layer morph-word-to display-morph__layer display-morph__layer--to" aria-hidden="true">WORKS</span>
         </h1>
       </section>
 
@@ -4702,24 +4727,24 @@
       <section class="section work work-alt" id="work" aria-labelledby="work-title">
         <h2 class="mywork-heading" id="work-title">Works</h2>
 
-        <div class="case-preview-stack" aria-label="Превью проекта-заглушки">
-          <article class="case-preview">
-            <div class="case-preview-copy">
-              <h3 class="case-preview-title">Eqlio / корпоративное приложение для&nbsp;спортивных челленджей</h3>
+        <div class="case-preview-stack preview-stack" aria-label="Превью проекта-заглушки">
+          <article class="case-preview preview-split">
+            <div class="case-preview-copy preview-split__copy">
+              <h3 class="case-preview-title preview-title">Eqlio / корпоративное приложение для&nbsp;спортивных челленджей</h3>
               <div class="service-chips case-tags case-preview-tags" aria-label="Теги проекта Eqlio"><span>Продуктовый дизайн</span><span>Корпоративный спорт</span><span>UX/UI</span></div>
-              <p class="case-preview-text">
+              <p class="case-preview-text preview-copy">
                 Корпоративная wellness-платформа, которая делает спортивные челленджи доступными и&nbsp;интересными для&nbsp;каждого сотрудника.
               </p>
-              <div class="case-preview-index" aria-label="Результат Eqlio: 6 из 7">
-                <span>6/7</span>
-                <small>found discovery intuitive</small>
+              <div class="case-preview-index preview-metric" aria-label="Результат Eqlio: 6 из 7">
+                <span class="preview-metric__value">6/7</span>
+                <small class="preview-metric__label">found discovery intuitive</small>
               </div>
-              <button class="case-preview-link case-preview-link--disabled" type="button" disabled aria-label="Case study coming soon">
+              <button class="case-preview-link action-link case-preview-link--disabled" type="button" disabled aria-label="Case study coming soon">
                 <span>Case study coming soon</span>
-                <span class="case-preview-link-icon" aria-hidden="true"><img src="../../assets/icons/Arrow_button.svg" alt="" /></span>
+                <span class="case-preview-link-icon" aria-hidden="true"><img class="ui-arrow" src="../../assets/icons/Arrow_right.svg" alt="" /></span>
               </button>
             </div>
-            <div class="case-preview-visual" aria-hidden="true">
+            <div class="case-preview-visual preview-split__visual placeholder-surface" aria-hidden="true">
               <div class="case-preview-board">
                 <span class="case-preview-panel case-preview-panel--small"></span>
                 <span class="case-preview-panel case-preview-panel--wide"></span>
@@ -4727,23 +4752,23 @@
             </div>
           </article>
 
-          <article class="case-preview case-preview--mirror">
-            <div class="case-preview-copy">
-              <h3 class="case-preview-title">Project Title Placeholder</h3>
+          <article class="case-preview case-preview--mirror preview-split preview-split--mirror">
+            <div class="case-preview-copy preview-split__copy">
+              <h3 class="case-preview-title preview-title">Project Title Placeholder</h3>
               <div class="service-chips case-tags case-preview-tags" aria-label="Теги проекта-заглушки"><span>Brand system</span><span>Digital preview</span><span>Case placeholder</span></div>
-              <p class="case-preview-text">
+              <p class="case-preview-text preview-copy">
                 Будущий кейс о&nbsp;визуальной системе: задача, подход, носители и&nbsp;digital-коммуникация.
               </p>
-              <div class="case-preview-index" aria-label="Превью 02">
-                <span>02</span>
-                <small>preview module</small>
+              <div class="case-preview-index preview-metric" aria-label="Превью 02">
+                <span class="preview-metric__value">02</span>
+                <small class="preview-metric__label">preview module</small>
               </div>
-              <a class="case-preview-link" href="./project-placeholder/index.html" aria-label="Смотреть проект-заглушку">
+              <a class="case-preview-link action-link" href="./project-placeholder/index.html" aria-label="Смотреть проект-заглушку">
                 <span>Смотреть проект</span>
-                <span class="case-preview-link-icon" aria-hidden="true"><img src="../../assets/icons/Arrow_button.svg" alt="" /></span>
+                <span class="case-preview-link-icon" aria-hidden="true"><img class="ui-arrow" src="../../assets/icons/Arrow_right.svg" alt="" /></span>
               </a>
             </div>
-            <div class="case-preview-visual" aria-hidden="true">
+            <div class="case-preview-visual preview-split__visual placeholder-surface" aria-hidden="true">
               <div class="case-preview-board">
                 <span class="case-preview-panel case-preview-panel--small"></span>
                 <span class="case-preview-panel case-preview-panel--wide"></span>
@@ -4752,17 +4777,17 @@
           </article>
         </div>
 
-        <div class="mywork-showcase">
-          <div class="mywork-controls" aria-label="Прокрутка проекта-заглушки">
-            <button class="mywork-arrow" type="button" data-mywork-prev aria-label="Прокрутить проект влево">
-              <img src="../../assets/icons/arr-l.svg" alt="" aria-hidden="true" />
+        <div class="mywork-showcase case-strip">
+          <div class="mywork-controls slider-controls" aria-label="Прокрутка проекта-заглушки">
+            <button class="mywork-arrow slider-button slider-button--previous" type="button" data-mywork-prev aria-label="Прокрутить проект влево">
+              <img class="ui-arrow" src="../../assets/icons/Arrow_right.svg" alt="" aria-hidden="true" />
             </button>
-            <button class="mywork-arrow" type="button" data-mywork-next aria-label="Прокрутить проект вправо">
-              <img src="../../assets/icons/arr-r.svg" alt="" aria-hidden="true" />
+            <button class="mywork-arrow slider-button slider-button--next" type="button" data-mywork-next aria-label="Прокрутить проект вправо">
+              <img class="ui-arrow" src="../../assets/icons/Arrow_right.svg" alt="" aria-hidden="true" />
             </button>
           </div>
 
-          <div class="mywork-track" aria-label="Галерея проекта-заглушки">
+          <div class="mywork-track slider-track" aria-label="Галерея проекта-заглушки">
             <article class="mywork-card" role="img" aria-label="Заглушка изображения проекта 1">
               <div class="mywork-placeholder" aria-hidden="true"></div>
             </article>
@@ -4800,22 +4825,22 @@
               <p class="mywork-description">
                 Краткое описание проекта и&nbsp;его визуальной системы
               </p>
-              <a class="mywork-link" href="./project-placeholder/index.html" aria-label="Смотреть проект-заглушку"><span>Смотреть проект</span><span class="mywork-link-icon" aria-hidden="true"><img class="mywork-link-arrow" src="../../assets/icons/Arrow_button.svg" alt="" /></span></a>
+              <a class="mywork-link action-link" href="./project-placeholder/index.html" aria-label="Смотреть проект-заглушку"><span>Смотреть проект</span><span class="mywork-link-icon" aria-hidden="true"><img class="mywork-link-arrow ui-arrow" src="../../assets/icons/Arrow_right.svg" alt="" /></span></a>
             </div>
           </div>
         </div>
 
-        <div class="mywork-showcase">
-          <div class="mywork-controls" aria-label="Прокрутка работ">
-            <button class="mywork-arrow" type="button" data-mywork-prev aria-label="Прокрутить работы влево">
-              <img src="../../assets/icons/arr-l.svg" alt="" aria-hidden="true" />
+        <div class="mywork-showcase case-strip">
+          <div class="mywork-controls slider-controls" aria-label="Прокрутка работ">
+            <button class="mywork-arrow slider-button slider-button--previous" type="button" data-mywork-prev aria-label="Прокрутить работы влево">
+              <img class="ui-arrow" src="../../assets/icons/Arrow_right.svg" alt="" aria-hidden="true" />
             </button>
-            <button class="mywork-arrow" type="button" data-mywork-next aria-label="Прокрутить работы вправо">
-              <img src="../../assets/icons/arr-r.svg" alt="" aria-hidden="true" />
+            <button class="mywork-arrow slider-button slider-button--next" type="button" data-mywork-next aria-label="Прокрутить работы вправо">
+              <img class="ui-arrow" src="../../assets/icons/Arrow_right.svg" alt="" aria-hidden="true" />
             </button>
           </div>
 
-          <div class="mywork-track" aria-label="Visual Brand Identity: category system">
+          <div class="mywork-track slider-track" aria-label="Visual Brand Identity: category system">
             <article class="mywork-card mywork-card--hover-preview">
               <img class="mywork-img-bw" src="../../assets/works/Illustration_set/Illustaration_set_01-bw.jpg" alt="Visual Brand Identity illustration set, image 1" />
               <img class="mywork-img-color" src="../../assets/works/Illustration_set/Illustaration_set_01.jpg" alt="" aria-hidden="true" />
@@ -4890,16 +4915,16 @@
               <p class="mywork-description">
                 Набор иллюстраций для&nbsp;маркетплейса ремесленных товаров
               </p>
-              <a class="mywork-link" href="./visual-brand-identity/index.html" aria-label="Смотреть проект"><span>Смотреть проект</span><span class="mywork-link-icon" aria-hidden="true"><img class="mywork-link-arrow" src="../../assets/icons/Arrow_button.svg" alt="" /></span></a>
+              <a class="mywork-link action-link" href="./visual-brand-identity/index.html" aria-label="Смотреть проект"><span>Смотреть проект</span><span class="mywork-link-icon" aria-hidden="true"><img class="mywork-link-arrow ui-arrow" src="../../assets/icons/Arrow_right.svg" alt="" /></span></a>
             </div>
           </div>
         </div>
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
-        <h2 class="contact-mark contact-light-word contact-morph-word" id="contact-title" aria-label="Contacts">
-          <span class="contact-morph-layer contact-morph-from">CONTACTS</span>
-          <span class="contact-morph-layer contact-morph-to" aria-hidden="true">CONTACTS</span>
+        <h2 class="contact-mark contact-light-word contact-morph-word display-morph" id="contact-title" aria-label="Contacts">
+          <span class="contact-morph-layer contact-morph-from display-morph__layer display-morph__layer--from">CONTACTS</span>
+          <span class="contact-morph-layer contact-morph-to display-morph__layer display-morph__layer--to" aria-hidden="true">CONTACTS</span>
         </h2>
 
         <div class="contact-links">
@@ -4970,6 +4995,7 @@
       window.addEventListener("mousemove", (event) => {
         cursor.style.left = `${event.clientX}px`;
         cursor.style.top = `${event.clientY}px`;
+        cursor.classList.add("is-visible");
         motion.mouseX = (event.clientX / window.innerWidth - 0.5) * 2;
         motion.mouseY = (event.clientY / window.innerHeight - 0.5) * 2;
       });
@@ -4980,6 +5006,7 @@
       });
 
       window.addEventListener("mouseleave", () => {
+        cursor.classList.remove("is-visible", "is-hovering");
         motion.mouseX = 0;
         motion.mouseY = 0;
       });
@@ -5050,6 +5077,10 @@
         morphWord.style.setProperty("--to-y", `${(10 * (1 - progress)).toFixed(2)}px`);
         morphWord.style.setProperty("--from-clip", `inset(0 0 ${fromClipBottom.toFixed(2)}% 0)`);
         morphWord.style.setProperty("--to-clip", `inset(${toClipTop.toFixed(2)}% 0 0 0)`);
+        morphWord.style.setProperty("--morph-from-y", fromY);
+        morphWord.style.setProperty("--morph-to-y", `${(10 * (1 - progress)).toFixed(2)}px`);
+        morphWord.style.setProperty("--morph-from-clip", `inset(0 0 ${fromClipBottom.toFixed(2)}% 0)`);
+        morphWord.style.setProperty("--morph-to-clip", `inset(${toClipTop.toFixed(2)}% 0 0 0)`);
 
         const emphasisShift = prefersReducedMotion ? (progress > 0.5 ? 1 : 0) : easeInOut(clamp((progress - 0.44) / 0.12, 0, 1));
         morphWord.style.setProperty("--from-layer-color", blendHexColor(activeMorphColor, mutedMorphColor, emphasisShift));
@@ -5093,6 +5124,8 @@
 
         contactMorphWord.style.setProperty("--contact-from-clip", `inset(0 0 ${fromClipBottom.toFixed(2)}% 0)`);
         contactMorphWord.style.setProperty("--contact-to-clip", `inset(${toClipTop.toFixed(2)}% 0 0 0)`);
+        contactMorphWord.style.setProperty("--morph-from-clip", `inset(0 0 ${fromClipBottom.toFixed(2)}% 0)`);
+        contactMorphWord.style.setProperty("--morph-to-clip", `inset(${toClipTop.toFixed(2)}% 0 0 0)`);
         contactMorphWord.style.setProperty("--contact-from-layer-color", blendHexColor(activeMorphColor, mutedMorphColor, emphasisShift));
         contactMorphWord.style.setProperty("--contact-to-layer-color", blendHexColor(mutedMorphColor, activeMorphColor, emphasisShift));
       }
@@ -5383,9 +5416,9 @@
       let timer;
 
       const replay = (node) => {
-        node.classList.remove("audience-reveal");
+        node.classList.remove("audience-reveal", "tab-panel-reveal");
         void node.offsetWidth;
-        node.classList.add("audience-reveal");
+        node.classList.add("audience-reveal", "tab-panel-reveal");
       };
 
       const setAudience = (next, manual = false) => {
