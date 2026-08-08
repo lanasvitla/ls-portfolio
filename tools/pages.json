@@ -1,0 +1,76 @@
+{
+  "pages": [
+    {
+      "path": "ru/branding/index.html",
+      "components": [
+        "site-header",
+        "brand-forms",
+        "contact-footer"
+      ],
+      "homeHref": "./index.html#top",
+      "worksHref": "./index.html#work",
+      "contactsHref": "./index.html#contact",
+      "assetPrefix": "../../",
+      "formsPath": "../../assets/images/forms/",
+      "formsRootClass": "hero-figures hero-forms",
+      "formsFrameOneClass": "hero-form-frame hero-form-frame--flip hero-figure-reveal",
+      "formsFrameTwoClass": "hero-form-frame hero-form-frame--spin hero-figure-spin",
+      "formsImageOneClass": "hero-figure hero-form hero-form-one hero-figure-one brand-form-one",
+      "formsImageTwoClass": "hero-figure hero-form hero-form-two hero-figure-two brand-form-two"
+    },
+    {
+      "path": "ru/branding/eqlio/index.html",
+      "components": [
+        "site-header",
+        "brand-forms",
+        "other-projects",
+        "discussion-cta",
+        "contact-footer",
+        "case-lightbox"
+      ],
+      "homeHref": "../index.html#top",
+      "worksHref": "../index.html#work",
+      "contactsHref": "./index.html#contact",
+      "assetPrefix": "../../../",
+      "formsPath": "../../../assets/images/forms/",
+      "formsRootClass": "case-figures case-forms",
+      "formsFrameOneClass": "case-figure case-figure-reveal",
+      "formsFrameTwoClass": "case-figure case-figure-spin",
+      "formsImageOneClass": "case-form case-form-one",
+      "formsImageTwoClass": "case-form case-form-two",
+      "otherTitle": "Другие проекты",
+      "projectCta": "Смотреть проект",
+      "otherHref1": "../visual-brand-identity/index.html",
+      "otherHref2": "../#work",
+      "otherHref3": "../#work",
+      "lightboxLabel": "Просмотр заглушек проекта Eqlio"
+    },
+    {
+      "path": "ru/branding/visual-brand-identity/index.html",
+      "components": [
+        "site-header",
+        "brand-forms",
+        "other-projects",
+        "discussion-cta",
+        "contact-footer",
+        "case-lightbox"
+      ],
+      "homeHref": "../index.html#top",
+      "worksHref": "../index.html#work",
+      "contactsHref": "./index.html#contact",
+      "assetPrefix": "../../../",
+      "formsPath": "../../../assets/images/forms/",
+      "formsRootClass": "case-figures case-forms",
+      "formsFrameOneClass": "case-figure case-figure-reveal",
+      "formsFrameTwoClass": "case-figure case-figure-spin",
+      "formsImageOneClass": "case-form case-form-one",
+      "formsImageTwoClass": "case-form case-form-two",
+      "otherTitle": "Другие проекты",
+      "projectCta": "Смотреть проект",
+      "otherHref1": "../#work",
+      "otherHref2": "../#work",
+      "otherHref3": "../#work",
+      "lightboxLabel": "Просмотр изображений проекта"
+    }
+  ]
+}
