@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from html import escape
 import re
 from pathlib import Path
 
@@ -21,12 +22,75 @@ FALLBACKS = {
 
 def load_manifest() -> list[dict[str, object]]:
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    return data["pages"]
+    projects = data.get("projects", [])
+    pages = data["pages"]
+    for page in pages:
+        if isinstance(page, dict):
+            page["projectRegistry"] = projects
+    return pages
+
+
+def render_other_cards(data: dict[str, object]) -> str:
+    cards = data.get("otherProjects")
+    if not isinstance(cards, list):
+        current_project_id = data.get("currentProjectId")
+        registry = data.get("projectRegistry")
+        cards = [
+            project
+            for project in registry
+            if isinstance(project, dict) and project.get("id") != current_project_id
+        ] if isinstance(registry, list) else []
+
+    output: list[str] = []
+    asset_prefix = str(data.get("assetPrefix", ""))
+    cta = str(data.get("projectCta", "Смотреть проект"))
+
+    for card in cards:
+        if not isinstance(card, dict):
+            continue
+
+        title = str(card.get("title", ""))
+        href = str(card.get("href", "#"))
+        image = str(card.get("image", ""))
+        alt = str(card.get("alt", title))
+        image_src = image if image.startswith(("../", "./", "/", "http")) else asset_prefix + image
+        arrow_src = asset_prefix + "assets/icons/Arrow_right.svg"
+
+        if image:
+            thumb = "\n".join(
+                [
+                    f'      <a class="other-thumb other-thumb--link" href="{escape(href, quote=True)}" aria-label="{escape(title, quote=True)}">',
+                    f'        <img class="other-thumb__image" src="{escape(image_src, quote=True)}" alt="{escape(alt, quote=True)}" />',
+                    "      </a>",
+                ]
+            )
+        else:
+            thumb = '      <div class="other-thumb" aria-hidden="true"></div>'
+
+        action_label = escape(f"{cta} {title}", quote=True)
+        output.append(
+            "\n".join(
+                [
+                    '    <article class="other-card">',
+                    thumb,
+                    f'      <h3 class="other-card-title">{escape(title)}</h3>',
+                    f'      <a class="project-link action-link" href="{escape(href, quote=True)}" aria-label="{action_label}">',
+                    f"        <span>{escape(cta)}</span>",
+                    f'        <img class="ui-arrow" src="{escape(arrow_src, quote=True)}" alt="" />',
+                    "      </a>",
+                    "    </article>",
+                ]
+            )
+        )
+
+    return "\n".join(output)
 
 
 def render(template: str, data: dict[str, object]) -> str:
     output = template
-    for key, value in data.items():
+    enriched = dict(data)
+    enriched["otherCards"] = render_other_cards(enriched)
+    for key, value in enriched.items():
         if isinstance(value, (str, int, float, bool)):
             output = output.replace("{{" + key + "}}", str(value))
     return output

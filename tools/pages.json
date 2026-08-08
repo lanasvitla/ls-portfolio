@@ -40,10 +40,8 @@
       "formsImageTwoClass": "case-form case-form-two",
       "otherTitle": "Другие проекты",
       "projectCta": "Смотреть проект",
-      "otherHref1": "../visual-brand-identity/index.html",
-      "otherHref2": "../#work",
-      "otherHref3": "../#work",
-      "lightboxLabel": "Просмотр заглушек проекта Eqlio"
+      "lightboxLabel": "Просмотр заглушек проекта Eqlio",
+      "currentProjectId": "eqlio"
     },
     {
       "path": "ru/branding/visual-brand-identity/index.html",
@@ -67,10 +65,24 @@
       "formsImageTwoClass": "case-form case-form-two",
       "otherTitle": "Другие проекты",
       "projectCta": "Смотреть проект",
-      "otherHref1": "../#work",
-      "otherHref2": "../#work",
-      "otherHref3": "../#work",
-      "lightboxLabel": "Просмотр изображений проекта"
+      "lightboxLabel": "Просмотр изображений проекта",
+      "currentProjectId": "visual-brand-identity"
+    }
+  ],
+  "projects": [
+    {
+      "id": "eqlio",
+      "title": "Eqlio",
+      "href": "../eqlio/index.html",
+      "image": "assets/works/Eqlio/EclioCover.webp",
+      "alt": "Eqlio: корпоративное приложение для спортивных челленджей"
+    },
+    {
+      "id": "visual-brand-identity",
+      "title": "Visual Brand Identity",
+      "href": "../visual-brand-identity/index.html",
+      "image": "assets/works/Illustration_set/Illustaration_set_01.jpg",
+      "alt": "Visual Brand Identity: иллюстрация для маркетплейса ремесленных товаров"
     }
   ]
 }
