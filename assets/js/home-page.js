@@ -9,25 +9,27 @@
     const services = document.querySelector(".hero-services-preview-b");
     if (!tabList || tabs.length !== 2 || !composition || !copy || !services) return;
 
-    const expertServices = services.innerHTML;
-    const companyServices = `
-      <div class="hero-service"><span>Айдентика</span></div>
-      <div class="hero-service"><span>Арт-дирекшн</span></div>
-      <div class="hero-service"><span>Презентации</span></div>
-      <div class="hero-service hero-service-with-chips"><span>Лендинги</span><div class="service-chips"><span>Tilda</span><span>Webflow</span><span>Framer</span><span>Lovable</span></div></div>
-      <div class="hero-service hero-service-with-chips hero-service-wide"><span>AI-креатив</span><div class="service-chips"><span>Nano Banana</span><span>Midjourney</span><span>ChatGPT</span><span>Claude</span></div></div>`;
+    const templateHtml = (kind, audience) =>
+      document.querySelector(`template[data-audience-${kind}="${audience}"]`)?.innerHTML.trim();
     const content = {
       companies: {
-        copy: "Собираю айдентику и&nbsp;визуальные системы для&nbsp;современных брендов: от&nbsp;визуальной айдентики до&nbsp;сайтов, презентаций и&nbsp;digital-коммуникаций",
-        services: companyServices,
+        copy: templateHtml("copy", "companies") || copy.innerHTML.trim(),
+        services: templateHtml("services", "companies") || services.innerHTML.trim(),
       },
       experts: {
-        copy: "Создаю визуальную упаковку для&nbsp;личного бренда, экспертного проекта",
-        services: expertServices,
+        copy: templateHtml("copy", "experts") || copy.innerHTML.trim(),
+        services: templateHtml("services", "experts") || services.innerHTML.trim(),
       },
     };
+    const audienceLabel = (audience) =>
+      tabs.find((tab) => tab.dataset.audience === audience)?.textContent.trim().toLowerCase() || audience;
 
-    let active = "experts";
+    let active = tabs.find((tab) => tab.getAttribute("aria-selected") === "true")?.dataset.audience || "experts";
+    if (content[active]) {
+      copy.innerHTML = content[active].copy;
+      services.innerHTML = content[active].services;
+      composition.setAttribute("aria-label", `${tabList.getAttribute("aria-label")}: ${audienceLabel(active)}`);
+    }
     let timer;
 
     const replay = (node) => {
@@ -54,7 +56,7 @@
       });
 
       tabList.classList.toggle("is-experts", next === "experts");
-      composition.setAttribute("aria-label", `Аудитория: ${next === "companies" ? "компаниям" : "экспертам"}`);
+      composition.setAttribute("aria-label", `${tabList.getAttribute("aria-label")}: ${audienceLabel(next)}`);
       replay(copy);
       replay(services);
     };

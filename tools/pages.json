@@ -13,10 +13,38 @@
       "assetPrefix": "../../",
       "formsPath": "../../assets/images/forms/",
       "formsRootClass": "hero-figures hero-forms",
-      "formsFrameOneClass": "hero-form-frame hero-form-frame--flip hero-figure-reveal",
-      "formsFrameTwoClass": "hero-form-frame hero-form-frame--spin hero-figure-spin",
-      "formsImageOneClass": "hero-figure hero-form hero-form-one hero-figure-one brand-form-one",
-      "formsImageTwoClass": "hero-figure hero-form hero-form-two hero-figure-two brand-form-two"
+      "formsFrameOneClass": "brand-form-slot brand-form-slot--first",
+      "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
+      "formsImageOneClass": "brand-form-image brand-form-image--first",
+      "formsImageTwoClass": "brand-form-image brand-form-image--second",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "На главную",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
+    },
+    {
+      "path": "en/branding/index.html",
+      "components": [
+        "site-header",
+        "brand-forms",
+        "contact-footer"
+      ],
+      "homeHref": "./index.html#top",
+      "worksHref": "./index.html#work",
+      "contactsHref": "./index.html#contact",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "Home",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts",
+      "assetPrefix": "../../",
+      "formsPath": "../../assets/images/forms/",
+      "formsRootClass": "hero-figures hero-forms",
+      "formsFrameOneClass": "brand-form-slot brand-form-slot--first",
+      "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
+      "formsImageOneClass": "brand-form-image brand-form-image--first",
+      "formsImageTwoClass": "brand-form-image brand-form-image--second"
     },
     {
       "path": "ru/branding/eqlio/index.html",
@@ -34,14 +62,19 @@
       "assetPrefix": "../../../",
       "formsPath": "../../../assets/images/forms/",
       "formsRootClass": "case-figures case-forms",
-      "formsFrameOneClass": "case-figure case-figure-reveal",
-      "formsFrameTwoClass": "case-figure case-figure-spin",
+      "formsFrameOneClass": "brand-form-slot brand-form-slot--first",
+      "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
       "formsImageOneClass": "case-form case-form-one",
       "formsImageTwoClass": "case-form case-form-two",
       "otherTitle": "Другие проекты",
       "projectCta": "Смотреть проект",
       "lightboxLabel": "Просмотр заглушек проекта Eqlio",
-      "currentProjectId": "eqlio"
+      "currentProjectId": "eqlio",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "На главную",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
     },
     {
       "path": "ru/branding/visual-brand-identity/index.html",
@@ -59,14 +92,19 @@
       "assetPrefix": "../../../",
       "formsPath": "../../../assets/images/forms/",
       "formsRootClass": "case-figures case-forms",
-      "formsFrameOneClass": "case-figure case-figure-reveal",
-      "formsFrameTwoClass": "case-figure case-figure-spin",
+      "formsFrameOneClass": "brand-form-slot brand-form-slot--first",
+      "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
       "formsImageOneClass": "case-form case-form-one",
       "formsImageTwoClass": "case-form case-form-two",
       "otherTitle": "Другие проекты",
       "projectCta": "Смотреть проект",
       "lightboxLabel": "Просмотр изображений проекта",
-      "currentProjectId": "visual-brand-identity"
+      "currentProjectId": "visual-brand-identity",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "На главную",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
     }
   ],
   "projects": [
@@ -75,14 +113,16 @@
       "title": "Eqlio",
       "href": "../eqlio/index.html",
       "image": "assets/works/Eqlio/EclioCover.webp",
-      "alt": "Eqlio: корпоративное приложение для спортивных челленджей"
+      "alt": "Eqlio: корпоративное приложение для спортивных челленджей",
+      "description": "корпоративное приложение для спортивных челленджей"
     },
     {
       "id": "visual-brand-identity",
       "title": "Visual Brand Identity",
       "href": "../visual-brand-identity/index.html",
       "image": "assets/works/Illustration_set/Illustaration_set_01.jpg",
-      "alt": "Visual Brand Identity: иллюстрация для маркетплейса ремесленных товаров"
+      "alt": "Visual Brand Identity: иллюстрация для маркетплейса ремесленных товаров",
+      "description": "система иллюстраций для маркетплейса ремесленных товаров"
     }
   ]
 }

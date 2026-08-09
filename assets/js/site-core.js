@@ -300,7 +300,6 @@
     };
 
     frames.forEach((frame, index) => {
-      const image = frame.querySelector("img");
       frame.tabIndex = 0;
       frame.setAttribute("role", "button");
       frame.setAttribute("aria-label", `Открыть изображение ${index + 1} из ${images.length}`);
@@ -311,22 +310,6 @@
           event.preventDefault();
           openLightbox(index);
         }
-      });
-
-      frame.addEventListener(
-        "pointermove",
-        (event) => {
-          if (!finePointer.matches || prefersReducedMotion || !image) return;
-          const rect = frame.getBoundingClientRect();
-          const x = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
-          const y = ((event.clientY - rect.top) / rect.height - 0.5) * 8;
-          image.style.transform = `translate3d(${x}px, ${y}px, 0) scale(1.018)`;
-        },
-        { passive: true },
-      );
-
-      frame.addEventListener("pointerleave", () => {
-        if (image) image.style.transform = "";
       });
     });
 

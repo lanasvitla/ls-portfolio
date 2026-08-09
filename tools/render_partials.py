@@ -53,6 +53,7 @@ def render_other_cards(data: dict[str, object]) -> str:
         href = str(card.get("href", "#"))
         image = str(card.get("image", ""))
         alt = str(card.get("alt", title))
+        description = str(card.get("description", ""))
         image_src = image if image.startswith(("../", "./", "/", "http")) else asset_prefix + image
         arrow_src = asset_prefix + "assets/icons/Arrow_right.svg"
 
@@ -73,7 +74,10 @@ def render_other_cards(data: dict[str, object]) -> str:
                 [
                     '    <article class="other-card">',
                     thumb,
-                    f'      <h3 class="other-card-title">{escape(title)}</h3>',
+                    '      <div class="other-card-copy">',
+                    f'        <h3 class="other-card-title">{escape(title)}</h3>',
+                    f'        <p class="other-card-description">{escape(description)}</p>' if description else "",
+                    '      </div>',
                     f'      <a class="project-link action-link" href="{escape(href, quote=True)}" aria-label="{action_label}">',
                     f"        <span>{escape(cta)}</span>",
                     f'        <img class="ui-arrow" src="{escape(arrow_src, quote=True)}" alt="" />',
@@ -88,7 +92,14 @@ def render_other_cards(data: dict[str, object]) -> str:
 
 def render(template: str, data: dict[str, object]) -> str:
     output = template
-    enriched = dict(data)
+    defaults = {
+        "siteHeaderLabel": "Primary navigation",
+        "navAriaLabel": "Main navigation",
+        "homeAriaLabel": "На главную",
+        "worksLabel": "Works",
+        "contactsLabel": "Contacts",
+    }
+    enriched = {**defaults, **dict(data)}
     enriched["otherCards"] = render_other_cards(enriched)
     for key, value in enriched.items():
         if isinstance(value, (str, int, float, bool)):
