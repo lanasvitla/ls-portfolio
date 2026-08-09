@@ -10457,6 +10457,11 @@ body.case-page .gallery :is(.mock-full, .mock-square) > img {
   will-change: transform;
 }
 
+body.case-page .case-media-frame--cover .case-media-frame__image {
+  height: 100%;
+  object-fit: cover;
+}
+
 body.case-page .gallery .mock-full > img,
 body.case-page .mock-full .case-media-frame__image {
   height: auto;
