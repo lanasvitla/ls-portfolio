@@ -1,6 +1,66 @@
 {
   "pages": [
     {
+      "path": "404.html",
+      "components": [
+        "site-header"
+      ],
+      "homeHref": "ru/branding/index.html#top",
+      "worksHref": "ru/branding/index.html#work",
+      "contactsHref": "ru/branding/index.html#contact",
+      "assetPrefix": "",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "На главную",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
+    },
+    {
+      "path": "en/404.html",
+      "components": [
+        "site-header"
+      ],
+      "homeHref": "branding/index.html#top",
+      "worksHref": "branding/index.html#work",
+      "contactsHref": "branding/index.html#contact",
+      "assetPrefix": "../",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "Home",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
+    },
+    {
+      "path": "uk/404.html",
+      "components": [
+        "site-header"
+      ],
+      "homeHref": "../ru/branding/index.html#top",
+      "worksHref": "../ru/branding/index.html#work",
+      "contactsHref": "../ru/branding/index.html#contact",
+      "assetPrefix": "../",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "На головну",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
+    },
+    {
+      "path": "map.html",
+      "components": [
+        "site-header"
+      ],
+      "homeHref": "ru/branding/index.html#top",
+      "worksHref": "ru/branding/index.html#work",
+      "contactsHref": "ru/branding/index.html#contact",
+      "assetPrefix": "",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "На главную",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
+    },
+    {
       "path": "ru/branding/index.html",
       "components": [
         "site-header",
@@ -45,6 +105,51 @@
       "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
       "formsImageOneClass": "brand-form-image brand-form-image--first",
       "formsImageTwoClass": "brand-form-image brand-form-image--second"
+    },
+    {
+      "path": "en/branding/visual-brand-identity/index.html",
+      "components": [
+        "site-header",
+        "brand-forms",
+        "other-projects",
+        "discussion-cta",
+        "contact-footer",
+        "case-lightbox"
+      ],
+      "homeHref": "../index.html#top",
+      "worksHref": "../index.html#work",
+      "contactsHref": "./index.html#contact",
+      "assetPrefix": "../../../",
+      "formsPath": "../../../assets/images/forms/",
+      "formsRootClass": "case-figures case-forms",
+      "formsFrameOneClass": "brand-form-slot brand-form-slot--first",
+      "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
+      "formsImageOneClass": "case-form case-form-one",
+      "formsImageTwoClass": "case-form case-form-two",
+      "otherTitle": "Other projects",
+      "projectCta": "View project",
+      "discussionLabel": "Contact",
+      "discussionText": "Discuss your project",
+      "lightboxLabel": "Project image viewer",
+      "lightboxCloseLabel": "Close viewer",
+      "lightboxPrevLabel": "Previous image",
+      "lightboxNextLabel": "Next image",
+      "currentProjectId": "visual-brand-identity",
+      "otherProjects": [
+        {
+          "id": "eqlio",
+          "title": "Eqlio",
+          "href": "../../../ru/branding/eqlio/index.html",
+          "image": "assets/works/Eqlio/EclioCover.webp",
+          "alt": "Eqlio: corporate app for sports challenges",
+          "description": "corporate app for sports challenges"
+        }
+      ],
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "Home",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
     },
     {
       "path": "ru/branding/eqlio/index.html",

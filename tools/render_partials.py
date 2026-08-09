@@ -98,6 +98,11 @@ def render(template: str, data: dict[str, object]) -> str:
         "homeAriaLabel": "На главную",
         "worksLabel": "Works",
         "contactsLabel": "Contacts",
+        "discussionLabel": "Связаться",
+        "discussionText": "Обсудить ваш проект",
+        "lightboxCloseLabel": "Закрыть просмотр",
+        "lightboxPrevLabel": "Предыдущее изображение",
+        "lightboxNextLabel": "Следующее изображение",
     }
     enriched = {**defaults, **dict(data)}
     enriched["otherCards"] = render_other_cards(enriched)
