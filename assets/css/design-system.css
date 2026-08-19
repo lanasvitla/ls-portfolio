@@ -6344,6 +6344,10 @@ img {
   padding-top: var(--work-first-preview-top);
 }
 
+.home-page .work-alt > .case-preview-stack + .case-preview-stack {
+  margin-top: var(--case-section-gap);
+}
+
 .home-page .case-preview {
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: var(--grid-gap);
@@ -6901,7 +6905,9 @@ img {
   column-gap: var(--grid-gap);
   min-height: 0;
   padding-top: var(--case-hero-top);
+  padding-right: var(--page-x);
   padding-bottom: var(--space-section);
+  padding-left: var(--page-x);
 }
 
 .case-page .case-intro {
@@ -7890,7 +7896,6 @@ body.case-page.page-eqlio .case-hero,
 
     body.case-page.page-eqlio .case-copy p,
     body.case-page.page-eqlio .case-overview-detail p,
-    body.case-page.page-eqlio .case-fact dd,
     body.case-page.page-eqlio .story-intro,
     body.case-page.page-eqlio .insight p,
     body.case-page.page-eqlio .wireframe-notes p {
@@ -7934,7 +7939,6 @@ body.case-page.page-eqlio .case-hero,
     }
 
     body.case-page.page-eqlio .case-overview-detail h2,
-    body.case-page.page-eqlio .case-fact dt,
     body.case-page.page-eqlio .story-label,
     body.case-page.page-eqlio .insight h3,
     body.case-page.page-eqlio .wireframe-item h3 {
@@ -7948,34 +7952,11 @@ body.case-page.page-eqlio .case-hero,
     }
 
     body.case-page.page-eqlio .case-overview-detail h2,
-    body.case-page.page-eqlio .case-fact dt,
     body.case-page.page-eqlio .story-label {
       text-transform: uppercase;
     }
 
     body.case-page.page-eqlio .case-overview-detail p {
-      margin-top: var(--space-copy);
-    }
-
-    body.case-page.page-eqlio .case-facts {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      column-gap: var(--grid-gap);
-      width: 100%;
-      margin: 0;
-      padding: 30px 0 0;
-      border-top: 1px solid var(--line);
-    }
-
-    body.case-page.page-eqlio .case-fact {
-      min-width: 0;
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
-
-    body.case-page.page-eqlio .case-fact dd {
       margin-top: var(--space-copy);
     }
 
@@ -8492,10 +8473,6 @@ body.case-page.page-eqlio .case-hero,
         max-width: none;
       }
 
-      body.case-page.page-eqlio .case-facts {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-      }
-
       body.case-page.page-eqlio .story-title,
       body.case-page.page-eqlio .story-intro {
         grid-column: 1 / -1;
@@ -8550,8 +8527,7 @@ body.case-page.page-eqlio .case-hero,
       body.case-page.page-eqlio .closing,
       body.case-page.page-eqlio .contact,
       body.case-page.page-eqlio .case-intro,
-      body.case-page.page-eqlio .case-overview-details,
-      body.case-page.page-eqlio .case-facts {
+      body.case-page.page-eqlio .case-overview-details {
         grid-template-columns: 1fr;
       }
 
@@ -8590,12 +8566,6 @@ body.case-page.page-eqlio .case-hero,
 
       body.case-page.page-eqlio .case-overview-detail + .case-overview-detail {
         margin-top: 40px;
-      }
-
-      body.case-page.page-eqlio .case-facts {
-        gap: 30px;
-        margin-top: 40px;
-        padding-top: 30px;
       }
 
       body.case-page.page-eqlio .insight-grid,
@@ -9881,6 +9851,11 @@ body.case-page .gallery.gallery {
   padding-bottom: var(--case-section-gap);
 }
 
+body.case-page .gallery.gallery--grid {
+  padding-right: var(--page-x);
+  padding-left: var(--page-x);
+}
+
 body.case-page .other.other-projects + .closing.discussion-cta,
 body.case-page .other.other-projects + .discussion-cta {
   margin-top: var(--case-section-gap);
@@ -10028,6 +10003,50 @@ body.case-page .case-overview-details {
   margin-top: var(--case-hero-overview-gap);
 }
 
+body.case-page .case-intro + .case-facts {
+  margin-top: var(--case-hero-overview-gap);
+}
+
+/* Shared component: detail-page project facts. */
+body.case-page .case-facts {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+  width: 100%;
+  margin: 0;
+  padding: 30px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+body.case-page .case-fact {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body.case-page .case-fact dt {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-label);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.case-page .case-fact dd {
+  margin: var(--space-copy) 0 0;
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: var(--text-body-copy);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-body-copy);
+  letter-spacing: 0;
+}
+
 @media (max-width: 900px) {
   body.case-page {
     --case-hero-top: 48px;
@@ -10040,6 +10059,13 @@ body.case-page .case-overview-details {
   body.case-page {
     --case-hero-forms-gap: 0px;
     --case-hero-overview-gap: var(--space-section);
+  }
+
+  body.case-page .case-facts {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+    padding-top: 30px;
   }
 }
 

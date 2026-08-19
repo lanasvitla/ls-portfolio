@@ -265,10 +265,13 @@
   }
 
   function initCaseLightbox() {
-    const frames = Array.from(document.querySelectorAll(".gallery .mock-full, .gallery .mock-square"));
-    const images = frames.map((frame) => frame.querySelector("img")).filter(Boolean);
+    const minimumImageCount = 2;
+    const frames = Array.from(document.querySelectorAll(".gallery .mock-full, .gallery .mock-square")).filter(
+      (frame) => frame.querySelector("img"),
+    );
+    const images = frames.map((frame) => frame.querySelector("img"));
     const lightbox = document.getElementById("case-lightbox");
-    if (!frames.length || !images.length || !lightbox) return;
+    if (images.length < minimumImageCount || !lightbox) return;
 
     const lightboxImage = lightbox.querySelector(".lightbox-image");
     const lightboxCount = lightbox.querySelector(".lightbox-count");

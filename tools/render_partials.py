@@ -13,6 +13,7 @@ MANIFEST = Path(__file__).with_name("pages.json")
 FALLBACKS = {
     "site-header": r"^[ \t]*<header class=\"site-header\"[\s\S]*?</header>",
     "brand-forms": r"^[ \t]*<div class=\"[^\"]*(?:hero|case)-forms[^\"]*brand-forms[^\"]*\"[\s\S]*?</div>",
+    "case-facts": r"^[ \t]*<dl class=\"case-facts\"[\s\S]*?</dl>",
     "other-projects": r"^[ \t]*<section class=\"other other-projects\"[\s\S]*?</section>",
     "discussion-cta": r"^[ \t]*<section class=\"closing discussion-cta\"[\s\S]*?</section>",
     "contact-footer": r"^[ \t]*<section class=\"contact\" id=\"contact\"[\s\S]*?</section>",
@@ -90,6 +91,28 @@ def render_other_cards(data: dict[str, object]) -> str:
     return "\n".join(output)
 
 
+def render_case_facts(data: dict[str, object]) -> str:
+    facts = data.get("caseFacts")
+    if not isinstance(facts, list):
+        return ""
+
+    output: list[str] = []
+    for fact in facts:
+        if not isinstance(fact, dict):
+            continue
+
+        label = str(fact.get("label", ""))
+        value = str(fact.get("value", ""))
+        if not label or not value:
+            continue
+
+        output.append(
+            f'  <div class="case-fact"><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>'
+        )
+
+    return "\n".join(output)
+
+
 def render(template: str, data: dict[str, object]) -> str:
     output = template
     defaults = {
@@ -100,11 +123,13 @@ def render(template: str, data: dict[str, object]) -> str:
         "contactsLabel": "Contacts",
         "discussionLabel": "Связаться",
         "discussionText": "Обсудить ваш проект",
+        "factsAriaLabel": "Параметры проекта",
         "lightboxCloseLabel": "Закрыть просмотр",
         "lightboxPrevLabel": "Предыдущее изображение",
         "lightboxNextLabel": "Следующее изображение",
     }
     enriched = {**defaults, **dict(data)}
+    enriched["caseFacts"] = render_case_facts(enriched)
     enriched["otherCards"] = render_other_cards(enriched)
     for key, value in enriched.items():
         if isinstance(value, (str, int, float, bool)):

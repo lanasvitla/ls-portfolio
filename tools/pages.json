@@ -156,6 +156,7 @@
       "components": [
         "site-header",
         "brand-forms",
+        "case-facts",
         "other-projects",
         "discussion-cta",
         "contact-footer",
@@ -171,6 +172,29 @@
       "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
       "formsImageOneClass": "case-form case-form-one",
       "formsImageTwoClass": "case-form case-form-two",
+      "factsAriaLabel": "Project details",
+      "caseFacts": [
+        {
+          "label": "Role",
+          "value": "Product / UX/UI Designer"
+        },
+        {
+          "label": "Format",
+          "value": "UX/UI concept"
+        },
+        {
+          "label": "Platforms",
+          "value": "iOS, Web"
+        },
+        {
+          "label": "Tool",
+          "value": "Figma"
+        },
+        {
+          "label": "Team",
+          "value": "Solo designer"
+        }
+      ],
       "otherTitle": "Other projects",
       "projectCta": "View project",
       "discussionLabel": "Contact",
@@ -201,6 +225,7 @@
       "components": [
         "site-header",
         "brand-forms",
+        "case-facts",
         "other-projects",
         "discussion-cta",
         "contact-footer",
@@ -216,10 +241,81 @@
       "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
       "formsImageOneClass": "case-form case-form-one",
       "formsImageTwoClass": "case-form case-form-two",
+      "factsAriaLabel": "Параметры проекта",
+      "caseFacts": [
+        {
+          "label": "Роль",
+          "value": "Product / UX/UI Designer"
+        },
+        {
+          "label": "Формат",
+          "value": "UX/UI концепт"
+        },
+        {
+          "label": "Платформы",
+          "value": "iOS, Web"
+        },
+        {
+          "label": "Инструмент",
+          "value": "Figma"
+        },
+        {
+          "label": "Команда",
+          "value": "Solo designer"
+        }
+      ],
       "otherTitle": "Другие проекты",
       "projectCta": "Смотреть проект",
       "lightboxLabel": "Просмотр заглушек проекта Eqlio",
       "currentProjectId": "eqlio",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "На главную",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
+    },
+    {
+      "path": "ru/branding/togas/index.html",
+      "components": [
+        "site-header",
+        "brand-forms",
+        "case-facts",
+        "other-projects",
+        "discussion-cta",
+        "contact-footer"
+      ],
+      "homeHref": "../index.html#top",
+      "worksHref": "../index.html#work",
+      "contactsHref": "./index.html#contact",
+      "assetPrefix": "../../../",
+      "formsPath": "../../../assets/images/forms/",
+      "formsRootClass": "case-figures case-forms",
+      "formsFrameOneClass": "brand-form-slot brand-form-slot--first",
+      "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
+      "formsImageOneClass": "case-form case-form-one",
+      "formsImageTwoClass": "case-form case-form-two",
+      "factsAriaLabel": "Параметры проекта",
+      "caseFacts": [
+        {
+          "label": "Проект",
+          "value": "Mobile App Design"
+        },
+        {
+          "label": "Платформы",
+          "value": "iOS / Android"
+        },
+        {
+          "label": "Дизайн",
+          "value": "Figma"
+        },
+        {
+          "label": "Направление",
+          "value": "Communication Design"
+        }
+      ],
+      "otherTitle": "Другие проекты",
+      "projectCta": "Смотреть проект",
+      "currentProjectId": "togas",
       "siteHeaderLabel": "Primary navigation",
       "navAriaLabel": "Main navigation",
       "homeAriaLabel": "На главную",
@@ -273,6 +369,14 @@
       "image": "assets/works/Illustration_set/Illustaration_set_01.jpg",
       "alt": "Visual Brand Identity: иллюстрация для маркетплейса ремесленных товаров",
       "description": "система иллюстраций для маркетплейса ремесленных товаров"
+    },
+    {
+      "id": "togas",
+      "title": "Togas App",
+      "href": "../togas/index.html",
+      "image": "assets/works/Togas/TogasApp.webp",
+      "alt": "Togas: дизайн мобильного приложения для онлайн-бутика",
+      "description": "мобильное приложение для онлайн-бутика премиальных продуктов для сна"
     }
   ]
 }
