@@ -156,6 +156,7 @@
       "components": [
         "site-header",
         "brand-forms",
+        "case-overview",
         "case-facts",
         "other-projects",
         "discussion-cta",
@@ -172,6 +173,17 @@
       "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
       "formsImageOneClass": "case-form case-form-one",
       "formsImageTwoClass": "case-form case-form-two",
+      "overviewAriaLabel": "Project overview",
+      "caseOverview": [
+        {
+          "title": "Challenge",
+          "text": "Create a mobile app for participants and\u00a0a web dashboard for administrators. The system should motivate people with\u00a0different fitness levels and\u00a0make competitions fairer."
+        },
+        {
+          "title": "My role",
+          "text": "Research, product logic, user journeys, UX/UI design and\u00a0an interactive prototype."
+        }
+      ],
       "factsAriaLabel": "Project details",
       "caseFacts": [
         {
@@ -221,10 +233,67 @@
       "contactsLabel": "Contacts"
     },
     {
+      "path": "ru/branding/mark-n-post/index.html",
+      "components": [
+        "site-header",
+        "brand-forms",
+        "case-overview",
+        "case-facts",
+        "other-projects",
+        "discussion-cta",
+        "contact-footer"
+      ],
+      "homeHref": "../index.html#top",
+      "worksHref": "../index.html#work",
+      "contactsHref": "./index.html#contact",
+      "assetPrefix": "../../../",
+      "formsPath": "../../../assets/images/forms/",
+      "formsRootClass": "case-figures case-forms",
+      "formsFrameOneClass": "brand-form-slot brand-form-slot--first",
+      "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
+      "formsImageOneClass": "case-form case-form-one",
+      "formsImageTwoClass": "case-form case-form-two",
+      "overviewAriaLabel": "Обзор проекта",
+      "caseOverview": [
+        {
+          "title": "Задача",
+          "text": "Собрать понятный лендинг для\u00a0логистического сервиса: показать форматы отправки, объяснить процесс, усилить доверие через проверяемые источники и\u00a0привести пользователя к\u00a0заявке в\u00a0Telegram."
+        },
+        {
+          "title": "Моя роль",
+          "text": "Структура лендинга, UX/UI, исследование и\u00a0визуальная система страницы, вайб кодинг (Claude Code / GitHub Pages), Telegram-сценарий заявки."
+        }
+      ],
+      "factsAriaLabel": "Параметры проекта",
+      "caseFacts": [
+        {
+          "label": "Формат",
+          "value": "Landing Page"
+        },
+        {
+          "label": "Платформа",
+          "value": "Web"
+        },
+        {
+          "label": "Инструменты",
+          "value": "Figma, Claude Code / Vibe coding"
+        }
+      ],
+      "otherTitle": "Другие проекты",
+      "projectCta": "Смотреть проект",
+      "currentProjectId": "mark-n-post",
+      "siteHeaderLabel": "Primary navigation",
+      "navAriaLabel": "Main navigation",
+      "homeAriaLabel": "На главную",
+      "worksLabel": "Works",
+      "contactsLabel": "Contacts"
+    },
+    {
       "path": "ru/branding/eqlio/index.html",
       "components": [
         "site-header",
         "brand-forms",
+        "case-overview",
         "case-facts",
         "other-projects",
         "discussion-cta",
@@ -241,6 +310,17 @@
       "formsFrameTwoClass": "brand-form-slot brand-form-slot--second",
       "formsImageOneClass": "case-form case-form-one",
       "formsImageTwoClass": "case-form case-form-two",
+      "overviewAriaLabel": "Обзор проекта",
+      "caseOverview": [
+        {
+          "title": "Задача",
+          "text": "Создать мобильное приложение для участников и\u00a0веб-дашборд для администраторов. Система должна мотивировать людей с\u00a0разным уровнем подготовки и\u00a0делать соревнования более справедливыми."
+        },
+        {
+          "title": "Моя роль",
+          "text": "Исследование, продуктовая логика, пользовательские сценарии, UX/UI-дизайн и\u00a0интерактивный прототип."
+        }
+      ],
       "factsAriaLabel": "Параметры проекта",
       "caseFacts": [
         {
@@ -354,6 +434,14 @@
     }
   ],
   "projects": [
+    {
+      "id": "mark-n-post",
+      "title": "Mark’n’Post Landing Page",
+      "href": "../mark-n-post/index.html",
+      "image": "assets/works/MarknPost/MarknPostCover.webp",
+      "alt": "Mark’n’Post: лендинг сервиса доставки из Грузии в Европу и страны СНГ",
+      "description": "лендинг для логистического сервиса доставки из Грузии"
+    },
     {
       "id": "eqlio",
       "title": "Eqlio",
